@@ -1,0 +1,153 @@
+﻿Need to do Help
+Need to do HowToUse
+Currently Excel Files arent correct
+	Need to make new ones from the 1st project
+	Will need to reset the CSV file also
+5/4/2012 8:53PM
+
+Excel Files are now Correct
+	Graphs are longer in the Yaxis
+	Graphs are longer in Height
+	CSV has been Reset <- doesnt need resetting in the program but in the temp file
+5/5/2012 10:11AM
+
+{P}Help / How To Use is working
+	{P1}Might need to do something about how it stores images as in keep them in a file...
+	{P2}Need to incorperate into SetUp when it copies files over to the temp folder
+Help / How To Use form created
+Help / How To Use incorperated into the Contents Form
+Problems: 2
+5/5/2012 7:52PM
+
+Save Working correctly
+	Ctrl+S saves the workbook
+	If you Save and Close No prompt comes up cause you've alread saved
+	If you Save and edit something in the dataGridView you are propted to Save if you havent already
+Form Menu's merge correctly
+Form Menu's have separators
+Problems: 2
+5/6/2012 2:17PM
+
+Help HTML is now functioning
+	{W}There is need for a search bar possibly
+HowToUse is now functioning
+Problems: 2 Warnings: 1
+5/6/2012 5:34PM
+
+Fixed how I store the files for the HTML Pages
+Fixed how the files are setup in the SetUp section
+
+Ive also Hidden the "Made" "M""W""Track""Field" excel files that are stored within the application. 
+Im not sure if that will affect anything. Testing will need to be done
+Problems: 0 Warnings: 1
+5/6/2012 5:53PM
+
+Programs been tested. Everything seems functional
+{W1}forms in the Help Menu are resizeable
+{W2}there are ways to make the contents form play up
+	Size wise
+	Being visible when a form is open (Dont ask how I did that... it was Magic)
+Hidden files dont seem to affect how the program works so thats good
+{W3}might want to put the HTML files and the Images into the application rather than the temp files as
+   they're only used if you have to edit the data.
+{W4}Authors and About forms still have that checkbox at the bottom. Should look at removing that.
+Problems: 0 Warnings:5
+5/6/2012 8:04PM
+
+Okay so it took like 5 seconds to clear that last warning up... {W4}
+Also just took care of {W3}
+Just took care of {W1}
+Problems: 0 Warnings:2
+5/6/2012 8:13PM
+
+Contents form not maximising / minimising anymore. Warning solved
+5/7/2012 6:02PM
+
+Its not exactly what he asked for and may need revisiting with "Rich TextBox"
+but I have bolded the names of Steve and his people who are helping him
+
+Also Data Used In Program will need a makeover later on
+5/7/2012 7:48PM
+
+So broken program.
+Tried implementing product key protection
+{P}Activation screws up
+{P}Trial 1 day to go screws up (Have a checker or something to say if less than 1day then make it 1 still)
+
+managed to get the product key and secret location for dates working mostly.
+Program disables itself if trials limit reached
+Program enables itself if trial time still exists.
+
+Problems: 2
+5/9/2012 10:28PM
+
+Product Protection Complete!
+Program Fixed.
+1st Time Used works
+2nd activation key works
+3rd activation key fails <-which is a success
+5/10/2012 9:34AM
+
+ISSUES!
+
+{P}Scroll bars over extending
+{P}Error popped up on Dads. line 494 in Form2 <-Wierd
+{P}Some issue happens if you dont save?
+{P}So what happened is sometimes the graphs title isnt written to the Graph
+{P}Sometimes the name is written outside the graph?
+{P}Sometimes the program doesnt write the values to the graphs?
+{P}Points come back wierd (As in its converted wrong?)
+
+Cant even start on programming the 2nd order polynomial with Least Squares yet :'(
+
+5/16/2012 10:36AM
+
+{S}Scroll bars over extending
+{P}Error popped up on Dads. line 494 in Form2 <-Wierd
+{P}Some issue happens if you dont save?
+{P}So what happened is sometimes the graphs title isnt written to the Graph
+{P}Sometimes the name is written outside the graph?
+{S}Sometimes the program doesnt write the values to the graphs?
+{S}Points come back wierd (As in its converted wrong?)
+
+{P}Date needs changing from mm/dd/yyyy to dd/mm/yyyy
+
+I really dont kno but hopefully these are resolved...
+Problems:5
+5/16/2012 12:46PM
+
+Things to Work on
+
+{P}Date needs changing from mm/dd/yyyy to dd/mm/yyyy
+{P}Name of athlete needs to accept " " spaces. <-gotta find another way around saving files
+{P}Times need to accept just mins and secs <-maybe even mm.ss.ss or ss.ss so points instead on colons
+5/16/2012
+
+{S}athletes names accepts spaces              |||
+{S}TIME <-Needs Implementing from black book  
+{S}DATE <-Needs Implementing from black book  |||
+{P}Changing ATHLETENAME, AGE, DOB, !EVENT
+
+5/18/2012
+
+Got the Time working
+	either format works
+		15/5/2020
+		5/15/2020
+		if(3/3/2020) then d/m/yyyy format
+
+Have yet to figure out how to change the display of the Calander.
+
+5/19/2012 1:20PM
+
+I think ive found the solution to the contents view.
+just lock everything down in place and it shouldnt move
+
+5/22/2012 12:23PM
+
+Times are working. 
+You can now input aa.bb or aa:bb or aa:bb.cc
+Dates are working
+You can now input dd/mm/yyyy or mm/dd/yyyy
+
+5/23/2012 10:15PM

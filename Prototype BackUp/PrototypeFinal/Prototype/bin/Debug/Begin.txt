@@ -1,0 +1,2 @@
+AboutForm= False
+Authors= False
