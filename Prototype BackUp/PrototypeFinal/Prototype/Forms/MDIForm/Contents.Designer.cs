@@ -66,9 +66,7 @@
             this.HowToUse = new System.Windows.Forms.TabPage();
             this.webBrowserHowToUse = new System.Windows.Forms.WebBrowser();
             this.Data = new System.Windows.Forms.TabPage();
-            this.Data_dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Data_buttonGender = new System.Windows.Forms.Button();
-            this.Data_buttonAmount = new System.Windows.Forms.Button();
+            this.webBrowser_Data = new System.Windows.Forms.WebBrowser();
             this.Authors = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.AutextBoxInfo = new System.Windows.Forms.TextBox();
@@ -76,10 +74,6 @@
             this.ApanelAuthor3 = new System.Windows.Forms.Panel();
             this.ApanelAuthor2 = new System.Windows.Forms.Panel();
             this.ApanelAuthor1 = new System.Windows.Forms.Panel();
-            this.dataGridViewMale = new System.Windows.Forms.DataGridView();
-            this.dataGridViewFemale = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -96,11 +90,8 @@
             this.CreateNew.SuspendLayout();
             this.HowToUse.SuspendLayout();
             this.Data.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Data_dataGridView1)).BeginInit();
             this.Authors.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFemale)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -533,13 +524,7 @@
             // 
             this.Data.BackColor = System.Drawing.SystemColors.Control;
             this.Data.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Data.Controls.Add(this.textBox2);
-            this.Data.Controls.Add(this.textBox1);
-            this.Data.Controls.Add(this.Data_dataGridView1);
-            this.Data.Controls.Add(this.Data_buttonGender);
-            this.Data.Controls.Add(this.Data_buttonAmount);
-            this.Data.Controls.Add(this.dataGridViewFemale);
-            this.Data.Controls.Add(this.dataGridViewMale);
+            this.Data.Controls.Add(this.webBrowser_Data);
             this.Data.Location = new System.Drawing.Point(4, 22);
             this.Data.Name = "Data";
             this.Data.Padding = new System.Windows.Forms.Padding(3);
@@ -547,43 +532,14 @@
             this.Data.TabIndex = 3;
             this.Data.Text = "Data";
             // 
-            // Data_dataGridView1
+            // webBrowser_Data
             // 
-            this.Data_dataGridView1.AllowUserToAddRows = false;
-            this.Data_dataGridView1.AllowUserToDeleteRows = false;
-            this.Data_dataGridView1.AllowUserToResizeColumns = false;
-            this.Data_dataGridView1.AllowUserToResizeRows = false;
-            this.Data_dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.Data_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Data_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Data_dataGridView1.Location = new System.Drawing.Point(122, 132);
-            this.Data_dataGridView1.Name = "Data_dataGridView1";
-            this.Data_dataGridView1.ReadOnly = true;
-            this.Data_dataGridView1.RowHeadersVisible = false;
-            this.Data_dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Data_dataGridView1.Size = new System.Drawing.Size(546, 358);
-            this.Data_dataGridView1.TabIndex = 3;
-            // 
-            // Data_buttonGender
-            // 
-            this.Data_buttonGender.Location = new System.Drawing.Point(18, 110);
-            this.Data_buttonGender.Name = "Data_buttonGender";
-            this.Data_buttonGender.Size = new System.Drawing.Size(98, 49);
-            this.Data_buttonGender.TabIndex = 2;
-            this.Data_buttonGender.Text = "Mean Age at Peak Performance";
-            this.Data_buttonGender.UseVisualStyleBackColor = true;
-            this.Data_buttonGender.Click += new System.EventHandler(this.Data_buttonGender_Click);
-            // 
-            // Data_buttonAmount
-            // 
-            this.Data_buttonAmount.Location = new System.Drawing.Point(18, 75);
-            this.Data_buttonAmount.Name = "Data_buttonAmount";
-            this.Data_buttonAmount.Size = new System.Drawing.Size(98, 23);
-            this.Data_buttonAmount.TabIndex = 1;
-            this.Data_buttonAmount.Text = "Data Amount";
-            this.Data_buttonAmount.UseVisualStyleBackColor = true;
-            this.Data_buttonAmount.Click += new System.EventHandler(this.Data_buttonAmount_Click);
+            this.webBrowser_Data.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser_Data.Location = new System.Drawing.Point(3, 3);
+            this.webBrowser_Data.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser_Data.Name = "webBrowser_Data";
+            this.webBrowser_Data.Size = new System.Drawing.Size(665, 490);
+            this.webBrowser_Data.TabIndex = 3;
             // 
             // Authors
             // 
@@ -670,42 +626,6 @@
             this.ApanelAuthor1.TabIndex = 0;
             this.ApanelAuthor1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel8_MouseClick);
             // 
-            // dataGridViewMale
-            // 
-            this.dataGridViewMale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMale.Location = new System.Drawing.Point(122, 75);
-            this.dataGridViewMale.Name = "dataGridViewMale";
-            this.dataGridViewMale.Size = new System.Drawing.Size(270, 415);
-            this.dataGridViewMale.TabIndex = 4;
-            // 
-            // dataGridViewFemale
-            // 
-            this.dataGridViewFemale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFemale.Location = new System.Drawing.Point(395, 75);
-            this.dataGridViewFemale.Name = "dataGridViewFemale";
-            this.dataGridViewFemale.Size = new System.Drawing.Size(270, 415);
-            this.dataGridViewFemale.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(173, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(129, 20);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.Text = "Male Athletes";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(466, 49);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(129, 20);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.Text = "Female Athletes";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // Contents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -739,13 +659,9 @@
             this.CreateNew.PerformLayout();
             this.HowToUse.ResumeLayout(false);
             this.Data.ResumeLayout(false);
-            this.Data.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Data_dataGridView1)).EndInit();
             this.Authors.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFemale)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -778,9 +694,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox AutextBoxInfo;
         private System.Windows.Forms.TextBox AutextBoxTitle;
-        private System.Windows.Forms.Button Data_buttonGender;
-        private System.Windows.Forms.Button Data_buttonAmount;
-        private System.Windows.Forms.DataGridView Data_dataGridView1;
         private System.Windows.Forms.WebBrowser webBrowserHowToUse;
         private System.Windows.Forms.Button OPbutton3;
         private System.Windows.Forms.MonthCalendar CNmonthCalendar;
@@ -798,10 +711,7 @@
         private System.Windows.Forms.Label CNlabel9;
         private System.Windows.Forms.Label CNlabel10;
         private System.Windows.Forms.WebBrowser webBrowserAbout;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridViewFemale;
-        private System.Windows.Forms.DataGridView dataGridViewMale;
+        private System.Windows.Forms.WebBrowser webBrowser_Data;
 
     }
 }

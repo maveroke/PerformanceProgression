@@ -98,14 +98,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Prototype.exe" size="1230336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Prototype.exe" size="1227264">
       <assemblyIdentity name="Prototype" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>OimzW7+c7/X3/Bd9oLMMvmdv7dI=</dsig:DigestValue>
+        <dsig:DigestValue>t3n3EIBGxGkNvuNqnivsWNZEd2k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -172,13 +172,13 @@
       <dsig:DigestValue>G3v/MqQIcXdcX375axkFFdPJj8k=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Versions.txt" size="5131">
+  <file name="Versions.txt" size="5450">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>8oeUIh/tL2QmYAJrU1GjaSJQBB0=</dsig:DigestValue>
+      <dsig:DigestValue>lHcktvq5YS1j7XAN6RHA8BHQWH4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="zxcv.ico" size="168535">

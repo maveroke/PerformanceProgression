@@ -20,8 +20,9 @@ namespace Prototype
         {
             InitializeComponent();
             HandleAboutForm();
-            webBrowserHowToUse.Url  = new Uri(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PerformanceProgression\\Saved\\" + "HowToUse.html"));
-            webBrowserAbout.Url     = new Uri(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PerformanceProgression\\Saved\\" + "Introduction.html"));
+            webBrowserHowToUse.Url = new Uri(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath,"HowToUse.html"));
+            webBrowserAbout.Url = new Uri(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath,"Introduction.html"));
+            webBrowser_Data.Url = new Uri(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Data_Volume.html"));
             OP_setUpOpen();
             this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - this.Width / 2, 0);
 
@@ -82,7 +83,7 @@ namespace Prototype
                 returnToNormal();
                 panelList5.BackColor = panelListColor;
                 tabControlMVersion1.SelectTab("About");
-                
+
             }
         }
         /// <summary>
@@ -106,7 +107,7 @@ namespace Prototype
             panelList5.BackColor = Color.FromName("Control");
             panelList6.BackColor = Color.FromName("Control");
         }
-#endregion
+        #endregion
 
         #region CreateNew
 
@@ -138,8 +139,8 @@ namespace Prototype
             return CN_eventName;
         }
         private bool correctValuesInName()
-        {   
-            return CNtextBoxName.Text.All(c=>Char.IsLetterOrDigit(c) || c=='_' || c == ' ');
+        {
+            return CNtextBoxName.Text.All(c => Char.IsLetterOrDigit(c) || c == '_' || c == ' ');
         }
         private void CNbutton1_Click(object sender, EventArgs e)
         {
@@ -200,9 +201,9 @@ namespace Prototype
         {
             //CNdateTimePicker.Value.ToShortDateString();
             myName = CNtextBoxName.Text;
-            
+
             myDate = CNmonthCalendar.SelectionStart.ToShortDateString();
-            
+
             if (CNradioButtonM.Checked)
                 mySex = "M";
             else
@@ -274,8 +275,8 @@ namespace Prototype
             if (CNcomboBoxEvent.Text.CompareTo("") == 0)
                 CNcomboBoxEvent.Text = "100m";
 
-        }       
-        
+        }
+
 
         #region hideShow_CN_OP
         private void listView1_Enter(object sender, EventArgs e)
@@ -302,7 +303,7 @@ namespace Prototype
             OP_GetDataOffList();
             OPNotifyButtonClicked(e);
         }
-        private void OP_GetDataOffList() 
+        private void OP_GetDataOffList()
         {
             string itemName;
             //gets the index's of all the selected files in the ListView1
@@ -375,7 +376,7 @@ namespace Prototype
             }
 
             //show DATETIMEPICKER to show the years view first
-                //dateTimePicker1.Value = DateTime.Now;
+            //dateTimePicker1.Value = DateTime.Now;
         }
 
         #endregion
@@ -444,7 +445,7 @@ namespace Prototype
             //AbtextBoxInfo.Select(0, 0);
         }
 
-#endregion
+        #endregion
 
         #region Authors
 
@@ -593,125 +594,51 @@ namespace Prototype
                 OPButtonClicked(this, e);
 
         }
-
-        private void Data_buttonAmount_Click(object sender, EventArgs e)
-        {
-            Data_dataGridView1.Visible = false;
-            Data_buttonAmount.Enabled = false;
-            Data_buttonGender.Enabled = true;
-            Data_dataGridView1.Columns.Clear();
-            
-            Data_PopulateTables("DataGridData_Volume.txt", Data_dataGridView1);
-
-            //so I need to add data from one text file to two different datagrids _Male _Female
-        }
-
-        private void Data_buttonGender_Click(object sender, EventArgs e)
-        {
-            Data_dataGridView1.Visible = true;
-            Data_buttonGender.Enabled = false;
-            Data_buttonAmount.Enabled = true;
-            Data_dataGridView1.Columns.Clear();
-            Data_PopulateTables("DataGridData_Genders.txt", Data_dataGridView1);
-        }
-        /// <summary>
-        /// DataGridData_Genders.txt
-        /// DataGridData_Volume.txt
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="table"></param>
-        private void Data_PopulateTables(string name, DataGridView table)
-        {
-            string fileName = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, name);
-            var rows = System.IO.File.ReadAllLines(fileName);
-            Char[] separator = new Char[] { '|' };
-            DataTable tbl = new DataTable(fileName);
-            if (rows.Length != 0)
-            {
-                foreach (string headerCol in rows[0].Split(separator))
-                {
-                    DataGridViewTextBoxColumn temp = new DataGridViewTextBoxColumn();
-                    temp.HeaderText = headerCol;
-                    table.Columns.Add(temp);
-                    //tbl.Columns.Add(new DataColumn(headerCol));
-                }
-                if (rows.Length > 1)
-                {
-                    for (int rowIndex = 1; rowIndex < rows.Length; rowIndex++)
-                    {
-                        table.Rows.Add();
-                        //var newRow = tbl.NewRow();
-                        var cols = rows[rowIndex].Split(separator);
-                        for (int colIndex = 0; colIndex < cols.Length; colIndex++)
-                        {
-                            table[colIndex, (rowIndex - 1)].Value = cols[colIndex];
-                            if (cols[colIndex].CompareTo("") == 0) table.Rows[rowIndex - 1].Height = 4;
-                            if (cols[colIndex].Contains("Total")) table.Rows[rowIndex - 1].DefaultCellStyle.BackColor = Color.LemonChiffon;
-                            //newRow[colIndex] = cols[colIndex];
-                        }
-                        //dataGridView1.Rows.Add();
-                        //tbl.Rows.Add(newRow);
-                    }
-                }
-            }
-            for (int i = 0; i < table.Columns.Count; i++)
-            {
-                table.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-                if(i != 0)table.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            }
-        }
-        
-        /// <summary>
-        /// Fix
-        /// This is just temporary. A better solution needs to be done for this area.
-        /// Basically the code above and below need to be written into one or something like that.
-        /// Might later on even get rid of the 3 tables...
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="table"></param>
-        private void Populate_2Grids(string name, DataGridView table)
-        {
-            string fileName = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, name);
-            var rows = System.IO.File.ReadAllLines(fileName);
-            Char[] separator = new Char[] { '|' };
-            if (rows.Length != 0)
-            {
-                foreach (string headerCol in rows[0].Split(separator))
-                {
-                    DataGridViewTextBoxColumn tempMale = new DataGridViewTextBoxColumn();
-                    DataGridViewTextBoxColumn tempFemale = new DataGridViewTextBoxColumn();
-                    
-                    tempMale.HeaderText = headerCol;
-                    table.Columns.Add(tempMale);
-
-                    tempFemale.HeaderText = headerCol;
-                    table.Columns.Add(tempFemale);
-                    //tbl.Columns.Add(new DataColumn(headerCol));
-                }
-                if (rows.Length > 1)
-                {
-                    for (int rowIndex = 1; rowIndex < rows.Length; rowIndex++)
-                    {
-                        table.Rows.Add();
-                        //var newRow = tbl.NewRow();
-                        var cols = rows[rowIndex].Split(separator);
-                        for (int colIndex = 0; colIndex < cols.Length; colIndex++)
-                        {
-                            table[colIndex, (rowIndex - 1)].Value = cols[colIndex];
-                            if (cols[colIndex].CompareTo("") == 0) table.Rows[rowIndex - 1].Height = 4;
-                            if (cols[colIndex].Contains("Total")) table.Rows[rowIndex - 1].DefaultCellStyle.BackColor = Color.LemonChiffon;
-                            //newRow[colIndex] = cols[colIndex];
-                        }
-                        //dataGridView1.Rows.Add();
-                        //tbl.Rows.Add(newRow);
-                    }
-                }
-            }
-            for (int i = 0; i < table.Columns.Count; i++)
-            {
-                table.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-                if (i != 0) table.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            }
-        }
+        ///// <summary>
+        ///// DataGridData_Genders.txt
+        ///// DataGridData_Volume.txt
+        ///// </summary>
+        ///// <param name="name"></param>
+        ///// <param name="table"></param>
+        //private void Data_PopulateTables(string name, DataGridView table)
+        //{
+        //    string fileName = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, name);
+        //    var rows = System.IO.File.ReadAllLines(fileName);
+        //    Char[] separator = new Char[] { '|' };
+        //    DataTable tbl = new DataTable(fileName);
+        //    if (rows.Length != 0)
+        //    {
+        //        foreach (string headerCol in rows[0].Split(separator))
+        //        {
+        //            DataGridViewTextBoxColumn temp = new DataGridViewTextBoxColumn();
+        //            temp.HeaderText = headerCol;
+        //            table.Columns.Add(temp);
+        //            //tbl.Columns.Add(new DataColumn(headerCol));
+        //        }
+        //        if (rows.Length > 1)
+        //        {
+        //            for (int rowIndex = 1; rowIndex < rows.Length; rowIndex++)
+        //            {
+        //                table.Rows.Add();
+        //                //var newRow = tbl.NewRow();
+        //                var cols = rows[rowIndex].Split(separator);
+        //                for (int colIndex = 0; colIndex < cols.Length; colIndex++)
+        //                {
+        //                    table[colIndex, (rowIndex - 1)].Value = cols[colIndex];
+        //                    if (cols[colIndex].CompareTo("") == 0) table.Rows[rowIndex - 1].Height = 4;
+        //                    if (cols[colIndex].Contains("Total")) table.Rows[rowIndex - 1].DefaultCellStyle.BackColor = Color.LemonChiffon;
+        //                    //newRow[colIndex] = cols[colIndex];
+        //                }
+        //                //dataGridView1.Rows.Add();
+        //                //tbl.Rows.Add(newRow);
+        //            }
+        //        }
+        //    }
+        //    for (int i = 0; i < table.Columns.Count; i++)
+        //    {
+        //        table.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+        //        if(i != 0)table.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        //    }
+        //}
     }
 }

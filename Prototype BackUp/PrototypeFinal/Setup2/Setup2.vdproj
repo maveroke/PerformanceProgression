@@ -225,6 +225,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_72433257F3754F96B8C1C542107D21D2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_73452DF7266247AF85159CD36F53CCDC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -268,12 +274,6 @@
         "Entry"
         {
         "MsmKey" = "8:_7BC04AF024494C5E918758224F08CE9B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7D676E32557D4F1FBEB325C94E239F2D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -429,6 +429,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B96A7E328D664DF8B9E6133AFB55F614"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_BA6A37C1A4894861A323FA79A773D1E1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -442,12 +448,6 @@
         "Entry"
         {
         "MsmKey" = "8:_BC9F726A331C4E2F9A4DCBF6E033742B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE04D5D790A4484FB141DD8D99B6FA7F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -501,12 +501,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CC9D117FEE984372A91573CCB4322879"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_CEF80B0D3601438E80B7A7ECDC7F6E44"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -543,12 +537,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EB13E3476776401E9C0B46CBBA9BCA07"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_EBEB9DCD5A39C0DBCB1C46EE5E5CF7EB"
         "OwnerKey" = "8:_7E5AF36B2A7AA36233C970BE835F262C"
         "MsmSig" = "8:_UNDEFINED"
@@ -580,12 +568,6 @@
         "Entry"
         {
         "MsmKey" = "8:_EC9C02B0D068429D9E446302507EAAC6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_ED54785F2575451A96491E8BC373C61B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1435,6 +1417,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_72433257F3754F96B8C1C542107D21D2"
+            {
+            "SourcePath" = "8:..\\Prototype\\bin\\Release\\Data_Comparison.html"
+            "TargetName" = "8:Data_Comparison.html"
+            "Tag" = "8:"
+            "Folder" = "8:_F0EB16778FC34542BCDFB3572E39EFB5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_73452DF7266247AF85159CD36F53CCDC"
             {
             "SourcePath" = "8:..\\Prototype\\bin\\Release\\Made\\W\\Field\\WJavelin Throw.xlsx"
@@ -1557,26 +1559,6 @@
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
             "Hidden" = "11:TRUE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D676E32557D4F1FBEB325C94E239F2D"
-            {
-            "SourcePath" = "8:..\\Prototype\\bin\\Release\\Introduction.html"
-            "TargetName" = "8:Introduction.html"
-            "Tag" = "8:"
-            "Folder" = "8:_6F9AF6EFF1E64F1195553F4611C44529"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
@@ -1990,6 +1972,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B96A7E328D664DF8B9E6133AFB55F614"
+            {
+            "SourcePath" = "8:..\\Prototype\\bin\\Release\\Introduction.html"
+            "TargetName" = "8:Introduction.html"
+            "Tag" = "8:"
+            "Folder" = "8:_F0EB16778FC34542BCDFB3572E39EFB5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA6A37C1A4894861A323FA79A773D1E1"
             {
             "SourcePath" = "8:..\\Prototype\\bin\\Release\\HTMLImages\\Tester_clip_image008.jpg"
@@ -2041,26 +2043,6 @@
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
             "Hidden" = "11:TRUE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BE04D5D790A4484FB141DD8D99B6FA7F"
-            {
-            "SourcePath" = "8:..\\Prototype\\bin\\Release\\Help.html"
-            "TargetName" = "8:Help.html"
-            "Tag" = "8:"
-            "Folder" = "8:_6F9AF6EFF1E64F1195553F4611C44529"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
@@ -2232,26 +2214,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC9D117FEE984372A91573CCB4322879"
-            {
-            "SourcePath" = "8:..\\Prototype\\bin\\Release\\HowToUse.html"
-            "TargetName" = "8:HowToUse.html"
-            "Tag" = "8:"
-            "Folder" = "8:_6F9AF6EFF1E64F1195553F4611C44529"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CEF80B0D3601438E80B7A7ECDC7F6E44"
             {
             "SourcePath" = "8:..\\Prototype\\bin\\Release\\HTMLImages\\Tester_clip_image008.jpg"
@@ -2363,26 +2325,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EB13E3476776401E9C0B46CBBA9BCA07"
-            {
-            "SourcePath" = "8:..\\Prototype\\bin\\Release\\DataGridData_Volume.txt"
-            "TargetName" = "8:DataGridData_Volume.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_F0EB16778FC34542BCDFB3572E39EFB5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EBEB9DCD5A39C0DBCB1C46EE5E5CF7EB"
             {
             "AssemblyRegister" = "3:1"
@@ -2425,26 +2367,6 @@
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
             "Hidden" = "11:TRUE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ED54785F2575451A96491E8BC373C61B"
-            {
-            "SourcePath" = "8:..\\Prototype\\bin\\Release\\DataGridData_Genders.txt"
-            "TargetName" = "8:DataGridData_Genders.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_F0EB16778FC34542BCDFB3572E39EFB5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
@@ -2781,7 +2703,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PerformanceProgression"
         "ProductCode" = "8:{3BB429C7-55A6-4AAA-97AB-1605A8D5A41E}"
-        "PackageCode" = "8:{9AD1D017-E710-41ED-BA0C-D7A2A14FA4DD}"
+        "PackageCode" = "8:{534B1A12-FE93-4B67-BBA2-4232DB0577C1}"
         "UpgradeCode" = "8:{E34CD2F4-34EE-4118-9391-C1D71322E527}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

@@ -151,3 +151,12 @@ Dates are working
 You can now input dd/mm/yyyy or mm/dd/yyyy
 
 5/23/2012 10:15PM
+
+Currently editing the DataVolume Display.
+
+Need to still 
+Update the Data Form <-not apart of Contents form
+Finish updating the Data on the Contents form
+
+Currently I have linked it to a web page for displaying the data.
+Removed the txt reader as it was too complex. Seems simpler to display in a web page.
