@@ -596,14 +596,19 @@ namespace Prototype
 
         private void Data_buttonAmount_Click(object sender, EventArgs e)
         {
+            Data_dataGridView1.Visible = false;
             Data_buttonAmount.Enabled = false;
             Data_buttonGender.Enabled = true;
             Data_dataGridView1.Columns.Clear();
+            
             Data_PopulateTables("DataGridData_Volume.txt", Data_dataGridView1);
+
+            //so I need to add data from one text file to two different datagrids _Male _Female
         }
 
         private void Data_buttonGender_Click(object sender, EventArgs e)
         {
+            Data_dataGridView1.Visible = true;
             Data_buttonGender.Enabled = false;
             Data_buttonAmount.Enabled = true;
             Data_dataGridView1.Columns.Clear();
@@ -653,6 +658,59 @@ namespace Prototype
             {
                 table.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
                 if(i != 0)table.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+        }
+        
+        /// <summary>
+        /// Fix
+        /// This is just temporary. A better solution needs to be done for this area.
+        /// Basically the code above and below need to be written into one or something like that.
+        /// Might later on even get rid of the 3 tables...
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="table"></param>
+        private void Populate_2Grids(string name, DataGridView table)
+        {
+            string fileName = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, name);
+            var rows = System.IO.File.ReadAllLines(fileName);
+            Char[] separator = new Char[] { '|' };
+            if (rows.Length != 0)
+            {
+                foreach (string headerCol in rows[0].Split(separator))
+                {
+                    DataGridViewTextBoxColumn tempMale = new DataGridViewTextBoxColumn();
+                    DataGridViewTextBoxColumn tempFemale = new DataGridViewTextBoxColumn();
+                    
+                    tempMale.HeaderText = headerCol;
+                    table.Columns.Add(tempMale);
+
+                    tempFemale.HeaderText = headerCol;
+                    table.Columns.Add(tempFemale);
+                    //tbl.Columns.Add(new DataColumn(headerCol));
+                }
+                if (rows.Length > 1)
+                {
+                    for (int rowIndex = 1; rowIndex < rows.Length; rowIndex++)
+                    {
+                        table.Rows.Add();
+                        //var newRow = tbl.NewRow();
+                        var cols = rows[rowIndex].Split(separator);
+                        for (int colIndex = 0; colIndex < cols.Length; colIndex++)
+                        {
+                            table[colIndex, (rowIndex - 1)].Value = cols[colIndex];
+                            if (cols[colIndex].CompareTo("") == 0) table.Rows[rowIndex - 1].Height = 4;
+                            if (cols[colIndex].Contains("Total")) table.Rows[rowIndex - 1].DefaultCellStyle.BackColor = Color.LemonChiffon;
+                            //newRow[colIndex] = cols[colIndex];
+                        }
+                        //dataGridView1.Rows.Add();
+                        //tbl.Rows.Add(newRow);
+                    }
+                }
+            }
+            for (int i = 0; i < table.Columns.Count; i++)
+            {
+                table.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                if (i != 0) table.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }
     }

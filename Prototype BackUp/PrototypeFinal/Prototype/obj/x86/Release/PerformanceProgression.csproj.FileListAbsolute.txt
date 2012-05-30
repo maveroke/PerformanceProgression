@@ -30,3 +30,6 @@ C:\Users\Joris\Desktop\Prototype BackUp\PrototypeFinal\Prototype\obj\x86\Release
 C:\Users\Joris\Desktop\Prototype BackUp\PrototypeFinal\Prototype\obj\x86\Release\Prototype.application
 C:\Users\Joris\Desktop\Prototype BackUp\PrototypeFinal\Prototype\obj\x86\Release\Prototype.exe
 C:\Users\Joris\Desktop\Prototype BackUp\PrototypeFinal\Prototype\obj\x86\Release\Prototype.pdb
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype BackUp\PrototypeFinal\Prototype\obj\x86\Release\PerformanceProgression.csproj.ResolveComReference.cache
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype BackUp\PrototypeFinal\Prototype\obj\x86\Release\Prototype.exe
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype BackUp\PrototypeFinal\Prototype\obj\x86\Release\Prototype.pdb
