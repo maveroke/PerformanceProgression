@@ -22,7 +22,6 @@ namespace Prototype
             HandleAboutForm();
             webBrowserHowToUse.Url = new Uri(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath,"HowToUse.html"));
             webBrowserAbout.Url = new Uri(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath,"Introduction.html"));
-            webBrowser_Data.Url = new Uri(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Data_Volume.html"));
             OP_setUpOpen();
             this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - this.Width / 2, 0);
 
@@ -594,6 +593,21 @@ namespace Prototype
                 OPButtonClicked(this, e);
 
         }
+
+        private void Data_button_DataUsed_Click(object sender, EventArgs e)
+        {
+            webBrowser_Data.Url = new Uri(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Data_Volume.html"));
+
+        }
+
+        private void Data_button_Comparison_Click(object sender, EventArgs e)
+        {
+            webBrowser_Data.Url = new Uri(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Data_Comparison.html"));
+
+        }
+
+
+
         ///// <summary>
         ///// DataGridData_Genders.txt
         ///// DataGridData_Volume.txt

@@ -160,3 +160,10 @@ Finish updating the Data on the Contents form
 
 Currently I have linked it to a web page for displaying the data.
 Removed the txt reader as it was too complex. Seems simpler to display in a web page.
+
+5/25/2012 12:00PM
+
+Got the webBrowsers working
+Also put in a graph copier that copies the graph to the clipboard
+
+6/6/2012 5:09PM

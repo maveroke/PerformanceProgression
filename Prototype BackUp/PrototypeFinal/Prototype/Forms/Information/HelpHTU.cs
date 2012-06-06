@@ -14,7 +14,7 @@ namespace Prototype.Forms.Information
         public HelpHTU()
         {
             InitializeComponent();
-            webBrowser1.Url = new Uri(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PerformanceProgression\\Saved\\" + "Help.html"));
+            webBrowser1.Url = new Uri(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Help.html"));
         }
     }
 }

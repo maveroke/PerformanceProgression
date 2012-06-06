@@ -66,6 +66,8 @@
             this.HowToUse = new System.Windows.Forms.TabPage();
             this.webBrowserHowToUse = new System.Windows.Forms.WebBrowser();
             this.Data = new System.Windows.Forms.TabPage();
+            this.Data_button_Comparison = new System.Windows.Forms.Button();
+            this.Data_button_DataUsed = new System.Windows.Forms.Button();
             this.webBrowser_Data = new System.Windows.Forms.WebBrowser();
             this.Authors = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -524,6 +526,8 @@
             // 
             this.Data.BackColor = System.Drawing.SystemColors.Control;
             this.Data.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Data.Controls.Add(this.Data_button_Comparison);
+            this.Data.Controls.Add(this.Data_button_DataUsed);
             this.Data.Controls.Add(this.webBrowser_Data);
             this.Data.Location = new System.Drawing.Point(4, 22);
             this.Data.Name = "Data";
@@ -532,13 +536,32 @@
             this.Data.TabIndex = 3;
             this.Data.Text = "Data";
             // 
+            // Data_button_Comparison
+            // 
+            this.Data_button_Comparison.Location = new System.Drawing.Point(354, 6);
+            this.Data_button_Comparison.Name = "Data_button_Comparison";
+            this.Data_button_Comparison.Size = new System.Drawing.Size(267, 32);
+            this.Data_button_Comparison.TabIndex = 7;
+            this.Data_button_Comparison.Text = "Comparison of Events Between Men and Women";
+            this.Data_button_Comparison.UseVisualStyleBackColor = true;
+            this.Data_button_Comparison.Click += new System.EventHandler(this.Data_button_Comparison_Click);
+            // 
+            // Data_button_DataUsed
+            // 
+            this.Data_button_DataUsed.Location = new System.Drawing.Point(45, 6);
+            this.Data_button_DataUsed.Name = "Data_button_DataUsed";
+            this.Data_button_DataUsed.Size = new System.Drawing.Size(248, 32);
+            this.Data_button_DataUsed.TabIndex = 6;
+            this.Data_button_DataUsed.Text = "Data Volume used in Performance Progression";
+            this.Data_button_DataUsed.UseVisualStyleBackColor = true;
+            this.Data_button_DataUsed.Click += new System.EventHandler(this.Data_button_DataUsed_Click);
+            // 
             // webBrowser_Data
             // 
-            this.webBrowser_Data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser_Data.Location = new System.Drawing.Point(3, 3);
+            this.webBrowser_Data.Location = new System.Drawing.Point(3, 44);
             this.webBrowser_Data.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser_Data.Name = "webBrowser_Data";
-            this.webBrowser_Data.Size = new System.Drawing.Size(665, 490);
+            this.webBrowser_Data.Size = new System.Drawing.Size(665, 449);
             this.webBrowser_Data.TabIndex = 3;
             // 
             // Authors
@@ -712,6 +735,8 @@
         private System.Windows.Forms.Label CNlabel10;
         private System.Windows.Forms.WebBrowser webBrowserAbout;
         private System.Windows.Forms.WebBrowser webBrowser_Data;
+        private System.Windows.Forms.Button Data_button_DataUsed;
+        private System.Windows.Forms.Button Data_button_Comparison;
 
     }
 }
