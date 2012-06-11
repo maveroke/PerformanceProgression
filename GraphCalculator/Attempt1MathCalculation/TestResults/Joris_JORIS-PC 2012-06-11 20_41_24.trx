@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="596a0daf-921b-4923-a456-9bdb972c33e0" name="Joris@JORIS-PC 2012-06-11 20:41:24" runUser="Joris-PC\Joris" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="a523dc7b-8ddb-43ec-9e72-2285008632b5">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Joris_JORIS-PC 2012-06-11 20_41_24">
+      <DeploymentItem filename="c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\bin\Debug\Attempt1MathCalculation.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-06-11T20:41:24.1884535+12:00" queuing="2012-06-11T20:41:24.2014542+12:00" start="2012-06-11T20:41:24.2184552+12:00" finish="2012-06-11T20:41:24.6054773+12:00" />
+  <ResultSummary outcome="Warning">
+    <Counters total="3" executed="3" passed="3" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="JORIS-PC" outcome="Warning" timestamp="2012-06-11T20:41:24.2014542+12:00">
+        <Text>Deployment is currently disabled. The deployment item 'Attempt1MathCalculation.exe' on test 'MathTest.Form1Test.Matrix3x3Test' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Matrix3x3Test" storage="c:\users\joris\documents\visual studio 2010\projects\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="93c03e23-75d3-7f89-9244-828ee5429283">
+      <DeploymentItems>
+        <DeploymentItem filename="Attempt1MathCalculation.exe" />
+      </DeploymentItems>
+      <Execution id="900e38cb-ad58-42cf-8e53-b2f18692b53e" />
+      <TestMethod codeBase="c:/users/joris/documents/visual studio 2010/Projects/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.Form1Test, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Matrix3x3Test" />
+    </UnitTest>
+    <UnitTest name="SecondOrderPolynomialTest" storage="c:\users\joris\documents\visual studio 2010\projects\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="0d09a0c5-2876-2709-9e38-b1b102e382d2">
+      <Execution id="0364dde8-6b9b-4ca4-95cf-2d8a9bc4d990" />
+      <TestMethod codeBase="c:/users/joris/documents/visual studio 2010/Projects/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.Form1Test, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SecondOrderPolynomialTest" />
+    </UnitTest>
+    <UnitTest name="Matrix1x3Test" storage="c:\users\joris\documents\visual studio 2010\projects\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="1e8cbc7f-21ac-98d8-76bf-fa7f09566a8f">
+      <Execution id="53d449eb-fb36-436a-90c1-aed73d9cfb2c" />
+      <TestMethod codeBase="c:/users/joris/documents/visual studio 2010/Projects/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.Form1Test, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Matrix1x3Test" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0d09a0c5-2876-2709-9e38-b1b102e382d2" executionId="0364dde8-6b9b-4ca4-95cf-2d8a9bc4d990" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e8cbc7f-21ac-98d8-76bf-fa7f09566a8f" executionId="53d449eb-fb36-436a-90c1-aed73d9cfb2c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="93c03e23-75d3-7f89-9244-828ee5429283" executionId="900e38cb-ad58-42cf-8e53-b2f18692b53e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="0364dde8-6b9b-4ca4-95cf-2d8a9bc4d990" testId="0d09a0c5-2876-2709-9e38-b1b102e382d2" testName="SecondOrderPolynomialTest" computerName="JORIS-PC" duration="00:00:00.0188529" startTime="2012-06-11T20:41:24.2194552+12:00" endTime="2012-06-11T20:41:24.4124663+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0364dde8-6b9b-4ca4-95cf-2d8a9bc4d990">
+    </UnitTestResult>
+    <UnitTestResult executionId="53d449eb-fb36-436a-90c1-aed73d9cfb2c" testId="1e8cbc7f-21ac-98d8-76bf-fa7f09566a8f" testName="Matrix1x3Test" computerName="JORIS-PC" duration="00:00:00.0046642" startTime="2012-06-11T20:41:24.4134663+12:00" endTime="2012-06-11T20:41:24.4224669+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="53d449eb-fb36-436a-90c1-aed73d9cfb2c">
+    </UnitTestResult>
+    <UnitTestResult executionId="900e38cb-ad58-42cf-8e53-b2f18692b53e" testId="93c03e23-75d3-7f89-9244-828ee5429283" testName="Matrix3x3Test" computerName="JORIS-PC" duration="00:00:00.0012518" startTime="2012-06-11T20:41:24.4234669+12:00" endTime="2012-06-11T20:41:24.4294673+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="900e38cb-ad58-42cf-8e53-b2f18692b53e">
+    </UnitTestResult>
+  </Results>
+</TestRun>

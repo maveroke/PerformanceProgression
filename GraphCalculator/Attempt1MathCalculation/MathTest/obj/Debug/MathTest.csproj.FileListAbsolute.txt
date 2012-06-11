@@ -1,0 +1,9 @@
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\bin\Debug\MathTest.dll
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\bin\Debug\MathTest.pdb
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\bin\Debug\Attempt1MathCalculation.exe
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\bin\Debug\Attempt1MathCalculation.pdb
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\obj\Debug\ResolveAssemblyReference.cache
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\obj\Debug\MathTest.dll
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\obj\Debug\MathTest.pdb
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\bin\Debug\Attempt1MathCalculation_Accessor.exe
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\bin\Debug\Attempt1MathCalculation_Accessor.pdb

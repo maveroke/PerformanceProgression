@@ -1,0 +1,47 @@
+[33mcommit 9f9c30a4421d476bd7bfaa33db8158401b30a7ce[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed Jun 6 17:23:51 2012 +1200
+
+    quick fix, also added a graph copier to the program
+
+[33mcommit 18df12025ba82e9620b3ca2c9c242da8e20938c3[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Thu May 31 11:22:30 2012 +1200
+
+    DataVolume and DataComparison changed from txt files to HTML
+
+[33mcommit b68166642f51db8b360ee01889517e1b87dd216c[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed May 30 16:02:52 2012 +1200
+
+    working on the datagrid, changing it from datagrid display to HTML
+
+[33mcommit 0f29884e28de3b77e866abd785810140005793c3[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Tue May 29 19:55:13 2012 +1200
+
+    Project
+
+[33mcommit fc59f0bbe5b89849f88e6784a28f9ea0752e8711[m
+Author: maveroke <maveroke55@hotmail.com>
+Date:   Tue May 29 19:39:40 2012 +1200
+
+    try and get this without cloning
+
+[33mcommit 7dffe70e115496f1a476d6a21035976c7f41f99c[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Tue May 29 19:28:50 2012 +1200
+
+    Frst push
+
+[33mcommit a8906b92e4a182c4e23bbaad9a3684adb367c68a[m
+Author: maveroke <maveroke55@hotmail.com>
+Date:   Tue May 29 18:56:16 2012 +1200
+
+    Update README.md
+
+[33mcommit f3d7ddebfce8161ba7cce9a2d778e301456f688a[m
+Author: maveroke <maveroke55@hotmail.com>
+Date:   Mon May 28 23:40:47 2012 -0700
+
+    Initial commit

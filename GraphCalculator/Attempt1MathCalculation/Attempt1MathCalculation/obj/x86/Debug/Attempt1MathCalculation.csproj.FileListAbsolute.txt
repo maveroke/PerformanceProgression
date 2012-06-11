@@ -1,0 +1,8 @@
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\bin\Debug\Attempt1MathCalculation.exe
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\bin\Debug\Attempt1MathCalculation.pdb
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\Attempt1MathCalculation.Properties.Resources.resources
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\Attempt1MathCalculation.exe
+c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\Attempt1MathCalculation.pdb
