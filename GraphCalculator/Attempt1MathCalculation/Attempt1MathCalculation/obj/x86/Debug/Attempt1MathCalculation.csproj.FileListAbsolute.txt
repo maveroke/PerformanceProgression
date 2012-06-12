@@ -6,3 +6,11 @@ c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Att
 c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\GenerateResource.write.1.tlog
 c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\Attempt1MathCalculation.exe
 c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\Attempt1MathCalculation.pdb
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\Attempt1MathCalculation.exe
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\Attempt1MathCalculation.pdb
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\bin\Debug\Attempt1MathCalculation.exe
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\bin\Debug\Attempt1MathCalculation.pdb
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\Attempt1MathCalculation.Properties.Resources.resources
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\obj\x86\Debug\GenerateResource.write.1.tlog

@@ -70,11 +70,15 @@ namespace MathTest
         public void SecondOrderPolynomialTest()
         {
             Form1 target = new Form1(); // TODO: Initialize to an appropriate value
-            float[] iper = { 1,2,3,4};
-            float[] SumOf = {3376};
-            float test = target.SecondOrderPolynomial(iper,iper);
+            float[] x = { 1, 2, 3, 4 };
+            float[] y = { 1, 2, 3, 4 };
 
-                Assert.AreEqual(test,10);
+            float[] actual = target.SecondOrderPolynomial(x,y);
+            float[] expected = new float[] { -222.5f, 202.500030517578f, -37.5f };
+            for (int i = 0; i < 3; i++)
+            {
+                Assert.AreEqual(expected[i], actual[i]);
+            }
         }
 
         /// <summary>
@@ -86,13 +90,12 @@ namespace MathTest
             Form1_Accessor target = new Form1_Accessor(); // TODO: Initialize to an appropriate value
             float[] x = { 1, 2, 3, 4}; // TODO: Initialize to an appropriate value
             float[] y = { 1, 2, 3, 4}; // TODO: Initialize to an appropriate value
-            float[] temp = target.Matrix1x3(x, y);
-            float[] check = { 10,100,300};
-            int p = 0;
-            foreach (float i in temp)
+            float[] actual = target.Matrix1x3(x, y);
+            float[] expected = { 10,100,300};
+            
+            for (int i = 0; i < 3; i++)
             {
-                Assert.AreEqual(i, check[p]);
-                p++;
+                Assert.AreEqual(actual[i], expected[i]);
             }
         }
 
@@ -120,6 +123,35 @@ namespace MathTest
                 for (int j = 0; j < 3; j++)
                 {
                     Assert.AreEqual(expected[i, j], actual[i, j]);
+                }
+            }
+        }
+
+        /// <summary>
+        ///A test for Matrix3x3Inverse
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("Attempt1MathCalculation.exe")]
+        public void Matrix3x3InverseTest()
+        {
+            Form1_Accessor target = new Form1_Accessor(); // TODO: Initialize to an appropriate value
+            float[,] matrix3x3 = new float[,]{
+            {1,2,3},
+            {2,3,1},
+            {3,1,2}
+            }; // TODO: Initialize to an appropriate value
+            float[,] expected = new float[,]{
+            {-0.277777778f,0.055555556f,0.388888889f},
+            {0.055555556f,0.388888889f,-0.277777778f},
+            {0.388888889f,-0.277777778f,0.055555556f}
+            }; // TODO: Initialize to an appropriate value
+            float[,] actual = target.Matrix3x3Inverse(matrix3x3);
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Assert.AreEqual((expected[i, j]), (actual[i, j]));
                 }
             }
         }

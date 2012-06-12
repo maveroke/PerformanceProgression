@@ -7,3 +7,12 @@ c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\Mat
 c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\obj\Debug\MathTest.pdb
 c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\bin\Debug\Attempt1MathCalculation_Accessor.exe
 c:\users\joris\documents\visual studio 2010\Projects\Attempt1MathCalculation\MathTest\bin\Debug\Attempt1MathCalculation_Accessor.pdb
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\bin\Debug\MathTest.dll
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\bin\Debug\MathTest.pdb
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\bin\Debug\Attempt1MathCalculation.exe
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\bin\Debug\Attempt1MathCalculation.pdb
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\bin\Debug\Attempt1MathCalculation_Accessor.exe
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\bin\Debug\Attempt1MathCalculation_Accessor.pdb
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\obj\Debug\MathTest.dll
+C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\obj\Debug\MathTest.pdb

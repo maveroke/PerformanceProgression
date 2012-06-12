@@ -16,27 +16,31 @@ namespace Attempt1MathCalculation
             InitializeComponent();
             float[] iper_x = { 1,2,3,4};
             float[] iper_y = { 1,2,3,4};
-            SecondOrderPolynomial(iper_x, iper_y);
+            float[] abc = SecondOrderPolynomial(iper_x, iper_y);
+                MessageBox.Show("A = " + abc[0] + " B = " + abc[1] + " C = " + abc[2]);
         }
         /// <summary>
         /// takes 2 float arrays of all x,y values
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <param name="c"></param>
-        /// <returns></returns>
-        public float SecondOrderPolynomial(float[] x, float[] y)
+        /// <returns>
+        /// returns a float array of the values a,b,c for the equation
+        /// y = ax^2+bx+c
+        /// </returns>
+        public float[] SecondOrderPolynomial(float[] x, float[] y)
         {
 
             //initialise the matrix
-            Matrix3x3(x);
-
-
+            float[,] MatrixA = Matrix3x3(x);
             float[] MatrixB = Matrix1x3(x, y);
+            float[,] MatrixA_1 = Matrix3x3Inverse(MatrixA);
+            float[] MatrixABC = new float[]{0,0,0};
+
+            MatrixABC[0] = MatrixA_1[0, 0] * MatrixB[0] + MatrixA_1[1, 0] * MatrixB[1] + MatrixA_1[2, 0] * MatrixB[2];
+            MatrixABC[1] = MatrixA_1[0, 1] * MatrixB[0] + MatrixA_1[1, 1] * MatrixB[1] + MatrixA_1[2, 1] * MatrixB[2];
+            MatrixABC[2] = MatrixA_1[0, 2] * MatrixB[0] + MatrixA_1[1, 2] * MatrixB[1] + MatrixA_1[2, 2] * MatrixB[2];
 
             //returns a b c in a array
-            float iper = y.Sum();
-            return iper;
+            return MatrixABC;
         }
 
         private float[,] Matrix3x3(float[] x)
@@ -83,6 +87,42 @@ namespace Attempt1MathCalculation
             MatrixB[1] = y.Sum() * x.Sum();
             MatrixB[2] = temp * y.Sum();
             return MatrixB;
+        }
+        private float[,] Matrix3x3Inverse(float[,] matrix3x3)
+        {
+            /* 0,0 = 11
+             * 1,0 = 12
+             * 2,0 = 13
+             * 
+             * 0,1 = 21
+             * 1,1 = 22
+             * 2,1 = 23
+             * 
+             * 0,2 = 31
+             * 1,2 = 32
+             * 2,2 = 33
+             */
+            
+            float a11 = matrix3x3[0, 0];
+            float a12 = matrix3x3[1, 0];
+            float a13 = matrix3x3[2, 0];
+            float a21 = matrix3x3[0, 1];
+            float a22 = matrix3x3[1, 1];
+            float a23 = matrix3x3[2, 1];
+            float a31 = matrix3x3[0, 2];
+            float a32 = matrix3x3[1, 2];
+            float a33 = matrix3x3[2, 2];
+
+            float DET = 1/(a11*(a33*a22 - a32*a23) - a21*(a33*a12 - a32*a13) + a31*(a23*a12 - a22*a13));
+
+            float[,] MatrixA_1 = new float[,]{
+            {DET*(a33*a22-a32*a23),     DET*(-(a33*a12-a32*a13)),   DET*(a23*a12-a22*a13)},
+            {DET*(-(a33*a21-a31*a23)),  DET*(a33*a11-a31*a13),      DET*(-(a23*a11-a21*a13))},
+            {DET*(a32*a21-a31*a22),     DET*(-(a32*a11-a31*a12)),   DET*(a22*a11-a21*a12)}
+            };
+
+
+            return MatrixA_1;
         }
     }
 }

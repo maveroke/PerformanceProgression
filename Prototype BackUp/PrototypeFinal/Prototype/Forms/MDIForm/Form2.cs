@@ -101,9 +101,11 @@ namespace mdisample
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItemPrint = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.sFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.excelWrapper1 = new EmbeddedExcel.ExcelWrapper();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DateofEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Performance = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,8 +113,6 @@ namespace mdisample
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panelLoad = new System.Windows.Forms.Panel();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.excelWrapper1 = new EmbeddedExcel.ExcelWrapper();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -190,6 +190,13 @@ namespace mdisample
             this.menuItem1.Text = "Key / Legend";
             this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click_1);
             // 
+            // menuItem4
+            // 
+            this.menuItem4.Index = 3;
+            this.menuItem4.Shortcut = System.Windows.Forms.Shortcut.CtrlW;
+            this.menuItem4.Text = "Graph Image";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            // 
             // oFileDlg
             // 
             this.oFileDlg.AddExtension = false;
@@ -216,6 +223,17 @@ namespace mdisample
             this.splitContainer1.SplitterDistance = 454;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+            // 
+            // excelWrapper1
+            // 
+            this.excelWrapper1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.excelWrapper1.Location = new System.Drawing.Point(0, 0);
+            this.excelWrapper1.Name = "excelWrapper1";
+            this.excelWrapper1.Size = new System.Drawing.Size(719, 164);
+            this.excelWrapper1.TabIndex = 1;
+            this.excelWrapper1.ToolBarVisible = false;
             // 
             // dataGridView1
             // 
@@ -290,24 +308,6 @@ namespace mdisample
             this.panelLoad.Name = "panelLoad";
             this.panelLoad.Size = new System.Drawing.Size(636, 143);
             this.panelLoad.TabIndex = 2;
-            // 
-            // menuItem4
-            // 
-            this.menuItem4.Index = 3;
-            this.menuItem4.Shortcut = System.Windows.Forms.Shortcut.CtrlC;
-            this.menuItem4.Text = "Graph Image";
-            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
-            // 
-            // excelWrapper1
-            // 
-            this.excelWrapper1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.excelWrapper1.Location = new System.Drawing.Point(0, 0);
-            this.excelWrapper1.Name = "excelWrapper1";
-            this.excelWrapper1.Size = new System.Drawing.Size(719, 164);
-            this.excelWrapper1.TabIndex = 1;
-            this.excelWrapper1.ToolBarVisible = false;
             // 
             // Form2
             // 
@@ -789,14 +789,21 @@ namespace mdisample
 
         private void menuItem4_Click(object sender, EventArgs e)
         {
-            object misValue = System.Reflection.Missing.Value;
-            Microsoft.Office.Interop.Excel.Chart chart1 = excelWrapper1.Workbook.ActiveSheet.ChartObjects("Chart 2").Chart;
-            //chart1.ChartType = Microsoft.Office.Interop.Excel.XlChartType.xlXYScatterLines;
+            try
+            {
+                object misValue = System.Reflection.Missing.Value;
+                Microsoft.Office.Interop.Excel.Chart chart1 = excelWrapper1.Workbook.ActiveSheet.ChartObjects("Chart 2").Chart;
+                //chart1.ChartType = Microsoft.Office.Interop.Excel.XlChartType.xlXYScatterLines;
 
-            chart1.Export(LocationImage, "BMP", misValue);
-            Image imgToCopy = Image.FromFile(LocationImage);
-            Clipboard.SetImage(imgToCopy);
-            MessageBox.Show("The Graph has been copied to your Clip Board");
+                chart1.Export(LocationImage, "BMP", misValue);
+                Image imgToCopy = Image.FromFile(LocationImage);
+                Clipboard.SetImage(imgToCopy);
+                MessageBox.Show("The Graph has been copied to your Clip Board");
+            }
+            catch (Exception gg)
+            {
+                MessageBox.Show("Error occured while trying to copy the graph: " + gg);
+            }
         }
     }
 }

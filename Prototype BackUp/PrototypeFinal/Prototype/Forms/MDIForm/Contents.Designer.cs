@@ -542,7 +542,7 @@
             this.Data_button_Comparison.Name = "Data_button_Comparison";
             this.Data_button_Comparison.Size = new System.Drawing.Size(267, 32);
             this.Data_button_Comparison.TabIndex = 7;
-            this.Data_button_Comparison.Text = "Comparison of Events Between Men and Women";
+            this.Data_button_Comparison.Text = "Age of Peak Performance for Men and Women";
             this.Data_button_Comparison.UseVisualStyleBackColor = true;
             this.Data_button_Comparison.Click += new System.EventHandler(this.Data_button_Comparison_Click);
             // 
