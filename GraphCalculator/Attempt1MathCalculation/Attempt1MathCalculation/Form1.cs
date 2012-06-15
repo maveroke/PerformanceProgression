@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ZedGraph;
 
 namespace Attempt1MathCalculation
 {
@@ -14,115 +15,70 @@ namespace Attempt1MathCalculation
         public Form1()
         {
             InitializeComponent();
-            float[] iper_x = { 1,2,3,4};
-            float[] iper_y = { 1,2,3,4};
-            float[] abc = SecondOrderPolynomial(iper_x, iper_y);
-                MessageBox.Show("A = " + abc[0] + " B = " + abc[1] + " C = " + abc[2]);
-        }
-        /// <summary>
-        /// takes 2 float arrays of all x,y values
-        /// </summary>
-        /// <returns>
-        /// returns a float array of the values a,b,c for the equation
-        /// y = ax^2+bx+c
-        /// </returns>
-        public float[] SecondOrderPolynomial(float[] x, float[] y)
-        {
+            //    MessageBox.Show("A = " + abc[0] + " B = " + abc[1] + " C = " + abc[2]);
+        
 
-            //initialise the matrix
-            float[,] MatrixA = Matrix3x3(x);
-            float[] MatrixB = Matrix1x3(x, y);
-            float[,] MatrixA_1 = Matrix3x3Inverse(MatrixA);
-            float[] MatrixABC = new float[]{0,0,0};
-
-            MatrixABC[0] = MatrixA_1[0, 0] * MatrixB[0] + MatrixA_1[1, 0] * MatrixB[1] + MatrixA_1[2, 0] * MatrixB[2];
-            MatrixABC[1] = MatrixA_1[0, 1] * MatrixB[0] + MatrixA_1[1, 1] * MatrixB[1] + MatrixA_1[2, 1] * MatrixB[2];
-            MatrixABC[2] = MatrixA_1[0, 2] * MatrixB[0] + MatrixA_1[1, 2] * MatrixB[1] + MatrixA_1[2, 2] * MatrixB[2];
-
-            //returns a b c in a array
-            return MatrixABC;
         }
 
-        private float[,] Matrix3x3(float[] x)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            float[,] MatrixA = new float[,]{
-                {0, 0, 0},
-	            {0, 0, 0},
-	            {0, 0, 0},
-            };
+            CreateGraph(zg1);
+            SetSize();
+        }
+
+        private void CreateGraph(ZedGraphControl zgc)
+        {
+            GraphPane myPane = zgc.GraphPane;
+
+            // Set the titles and axis labels
+            myPane.Title.Text = "My Test Graph";
+            myPane.XAxis.Title.Text = "X Value";
+            myPane.YAxis.Title.Text = "My Y Axis";
+            myPane.YAxis.Type = AxisType.Date;
 
 
-            float temp_xx = 0;
-            float temp_xxx = 0;
-            float temp_xxxx = 0;
+            // Make up some data points from the Sine function
+            float[] iper_x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+            float[] iper_y = { 4, 2, 3, 4, 5, 6, 87, 7, 5, 3, 4, 5, 4, 4, 35,};
+            PolynomialGraph pg = new PolynomialGraph();
+            float[] abc = pg.SecondOrderPolynomial(iper_x, iper_y);
 
-            foreach (float value in x)
+
+            PointPairList list = new PointPairList();
+
+            foreach (float val in iper_x)
             {
-                temp_xx += value * value;
-                temp_xxx += value * value * value;
-                temp_xxxx += value * value * value * value;
+                float y = abc[0] * (val * val) + abc[1] * val + abc[2];
+                list.Add(val, y);
             }
-            MatrixA[0, 0] = x.Count();
-            MatrixA[1, 0] = x.Sum();
-            MatrixA[2, 0] = temp_xx;
-            MatrixA[0, 1] = x.Sum();
-            MatrixA[1, 1] = temp_xx;
-            MatrixA[2, 1] = temp_xxx;
-            MatrixA[0, 2] = temp_xx;
-            MatrixA[1, 2] = temp_xxx;
-            MatrixA[2, 2] = temp_xxxx;
 
-            return MatrixA;
+            // Generate a blue curve with circle symbols, and "My Curve 2" in the legend
+            LineItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue,
+                                    SymbolType.Circle);
+            // Fill the area under the curve with a white-red gradient at 45 degrees
+            //myCurve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
+            // Make the symbols opaque by filling them with white
+            myCurve.Symbol.Fill = new Fill(Color.White);
+
+            // Fill the axis background with a color gradient
+            myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
+
+            // Fill the pane background with a color gradient
+            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
+
+            // Calculate the Axis Scale Ranges
+            zgc.AxisChange();
+        }
+        private void SetSize()
+        {
+            zg1.Location = new Point(10, 10);
+            // Leave a small margin around the outside of the control
+            zg1.Size = new Size(this.ClientRectangle.Width - 20, this.ClientRectangle.Height - 20);
         }
 
-        private float[] Matrix1x3(float[] x, float[] y)
+        private void Form1_Resize(object sender, EventArgs e)
         {
-            float[] MatrixB = new float[] { 0, 0, 0 };
-            float temp = 0;
-            foreach (float x_val in x)
-            {
-                temp += x_val * x_val;
-            }
-            MatrixB[0] = y.Sum();
-            MatrixB[1] = y.Sum() * x.Sum();
-            MatrixB[2] = temp * y.Sum();
-            return MatrixB;
-        }
-        private float[,] Matrix3x3Inverse(float[,] matrix3x3)
-        {
-            /* 0,0 = 11
-             * 1,0 = 12
-             * 2,0 = 13
-             * 
-             * 0,1 = 21
-             * 1,1 = 22
-             * 2,1 = 23
-             * 
-             * 0,2 = 31
-             * 1,2 = 32
-             * 2,2 = 33
-             */
-            
-            float a11 = matrix3x3[0, 0];
-            float a12 = matrix3x3[1, 0];
-            float a13 = matrix3x3[2, 0];
-            float a21 = matrix3x3[0, 1];
-            float a22 = matrix3x3[1, 1];
-            float a23 = matrix3x3[2, 1];
-            float a31 = matrix3x3[0, 2];
-            float a32 = matrix3x3[1, 2];
-            float a33 = matrix3x3[2, 2];
-
-            float DET = 1/(a11*(a33*a22 - a32*a23) - a21*(a33*a12 - a32*a13) + a31*(a23*a12 - a22*a13));
-
-            float[,] MatrixA_1 = new float[,]{
-            {DET*(a33*a22-a32*a23),     DET*(-(a33*a12-a32*a13)),   DET*(a23*a12-a22*a13)},
-            {DET*(-(a33*a21-a31*a23)),  DET*(a33*a11-a31*a13),      DET*(-(a23*a11-a21*a13))},
-            {DET*(a32*a21-a31*a22),     DET*(-(a32*a11-a31*a12)),   DET*(a22*a11-a21*a12)}
-            };
-
-
-            return MatrixA_1;
+            SetSize();
         }
     }
 }

@@ -69,7 +69,7 @@ namespace MathTest
         [TestMethod()]
         public void SecondOrderPolynomialTest()
         {
-            Form1 target = new Form1(); // TODO: Initialize to an appropriate value
+            PolynomialGraph_Accessor target = new PolynomialGraph_Accessor();
             float[] x = { 1, 2, 3, 4 };
             float[] y = { 1, 2, 3, 4 };
 
@@ -87,7 +87,7 @@ namespace MathTest
         [TestMethod()]
         public void Matrix1x3Test()
         {
-            Form1_Accessor target = new Form1_Accessor(); // TODO: Initialize to an appropriate value
+            PolynomialGraph_Accessor target = new PolynomialGraph_Accessor(); // TODO: Initialize to an appropriate value
             float[] x = { 1, 2, 3, 4}; // TODO: Initialize to an appropriate value
             float[] y = { 1, 2, 3, 4}; // TODO: Initialize to an appropriate value
             float[] actual = target.Matrix1x3(x, y);
@@ -106,7 +106,7 @@ namespace MathTest
         [DeploymentItem("Attempt1MathCalculation.exe")]
         public void Matrix3x3Test()
         {
-            Form1_Accessor target = new Form1_Accessor(); // TODO: Initialize to an appropriate value
+            PolynomialGraph_Accessor target = new PolynomialGraph_Accessor(); // TODO: Initialize to an appropriate value
             float[] x = { 1, 2, 3, 4 }; // TODO: Initialize to an appropriate value
 
             float[,] expected = new float[,]{
@@ -134,7 +134,7 @@ namespace MathTest
         [DeploymentItem("Attempt1MathCalculation.exe")]
         public void Matrix3x3InverseTest()
         {
-            Form1_Accessor target = new Form1_Accessor(); // TODO: Initialize to an appropriate value
+            PolynomialGraph_Accessor target = new PolynomialGraph_Accessor(); // TODO: Initialize to an appropriate value
             float[,] matrix3x3 = new float[,]{
             {1,2,3},
             {2,3,1},
