@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e90da426-4eac-470e-b36d-b1724d8b71cf" name="Joris@JORIS-PC 2012-06-18 18:05:19" runUser="Joris-PC\Joris" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="a523dc7b-8ddb-43ec-9e72-2285008632b5">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Joris_JORIS-PC 2012-06-18 18_05_19">
+      <DeploymentItem filename="C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\bin\Debug\Attempt1MathCalculation.exe" />
+      <DeploymentItem filename="C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\bin\Debug\ZedGraph.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-06-18T18:05:19.3341679+12:00" queuing="2012-06-18T18:05:19.3721701+12:00" start="2012-06-18T18:05:19.4011717+12:00" finish="2012-06-18T18:05:19.7241902+12:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="12" executed="12" passed="10" error="0" failed="1" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="getStatusTest" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="fdc600d9-be0d-02d4-169a-cc986a42ef6d">
+      <Execution id="889e222c-53d6-45b5-bdb0-8c5fb76242eb" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.AthletesTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getStatusTest" />
+    </UnitTest>
+    <UnitTest name="ToStringTest" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="6467f6a3-7df3-7605-d2c6-875a5bc201ab">
+      <Execution id="12b40ba5-c809-45b5-8bc5-82273f1bf8e3" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToStringTest" />
+    </UnitTest>
+    <UnitTest name="Matrix1x3Test" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="a3c31cc8-fd84-bba7-2c1f-afa6d79c9417">
+      <Execution id="271ec438-a286-436b-b301-7613b0941abb" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.PolynomialTester, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Matrix1x3Test" />
+    </UnitTest>
+    <UnitTest name="getNameTest" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="e7d30bbf-6029-b18e-67cc-bd80a406e438">
+      <Execution id="2faa709d-0506-48c4-97f9-151e4ac73d36" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.AthletesTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getNameTest" />
+    </UnitTest>
+    <UnitTest name="X_DateTest" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="d228be95-61b5-faa5-8d6e-f14f7eb3077b">
+      <Execution id="9f46c06e-819c-4695-ab0b-6041a4ab3295" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="X_DateTest" />
+    </UnitTest>
+    <UnitTest name="Matrix3x3InverseTest" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="1bd69e92-c0cf-e21b-d227-6b2fadc7ea1e">
+      <DeploymentItems>
+        <DeploymentItem filename="Attempt1MathCalculation.exe" />
+      </DeploymentItems>
+      <Execution id="f2402010-a2bf-41c5-ab00-8231b8a82371" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.PolynomialTester, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Matrix3x3InverseTest" />
+    </UnitTest>
+    <UnitTest name="TrackTest" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="0300b5ed-a118-03a3-ea28-a920f5a7abdc">
+      <Execution id="001bb62e-d989-49dd-98b0-ec8555601742" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TrackTest" />
+    </UnitTest>
+    <UnitTest name="Y_TimeTest" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="94dbcfb7-2c31-a95d-f576-27f5e95bd368">
+      <Execution id="c105456b-5f93-4e7b-bb21-ded9181bac98" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Y_TimeTest" />
+    </UnitTest>
+    <UnitTest name="Y_DistanceTest" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="5daea82e-210e-64b5-5f47-c70057d506bf">
+      <Execution id="ce9b1e29-affe-4bf6-8928-90fb39a9d8f3" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Y_DistanceTest" />
+    </UnitTest>
+    <UnitTest name="SecondOrderPolynomialTest" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="c28672d7-6a29-cca5-423a-b0f63238ac45">
+      <Execution id="8889a40c-157f-40f0-977d-48f958a49855" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.PolynomialTester, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SecondOrderPolynomialTest" />
+    </UnitTest>
+    <UnitTest name="getDataTest" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="fbb0dd6e-b7dd-8f92-d511-30c119a8406c">
+      <Execution id="8d9a7bac-d73c-4228-8597-9442e3887255" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.AthletesTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getDataTest" />
+    </UnitTest>
+    <UnitTest name="Matrix3x3Test" storage="c:\users\joris\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="686281fc-1405-bf7e-0d47-fd790f30edca">
+      <DeploymentItems>
+        <DeploymentItem filename="Attempt1MathCalculation.exe" />
+      </DeploymentItems>
+      <Execution id="1606f0f6-3027-45c8-8969-21869270b50a" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.PolynomialTester, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Matrix3x3Test" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0300b5ed-a118-03a3-ea28-a920f5a7abdc" executionId="001bb62e-d989-49dd-98b0-ec8555601742" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1bd69e92-c0cf-e21b-d227-6b2fadc7ea1e" executionId="f2402010-a2bf-41c5-ab00-8231b8a82371" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5daea82e-210e-64b5-5f47-c70057d506bf" executionId="ce9b1e29-affe-4bf6-8928-90fb39a9d8f3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6467f6a3-7df3-7605-d2c6-875a5bc201ab" executionId="12b40ba5-c809-45b5-8bc5-82273f1bf8e3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="686281fc-1405-bf7e-0d47-fd790f30edca" executionId="1606f0f6-3027-45c8-8969-21869270b50a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="94dbcfb7-2c31-a95d-f576-27f5e95bd368" executionId="c105456b-5f93-4e7b-bb21-ded9181bac98" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a3c31cc8-fd84-bba7-2c1f-afa6d79c9417" executionId="271ec438-a286-436b-b301-7613b0941abb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c28672d7-6a29-cca5-423a-b0f63238ac45" executionId="8889a40c-157f-40f0-977d-48f958a49855" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d228be95-61b5-faa5-8d6e-f14f7eb3077b" executionId="9f46c06e-819c-4695-ab0b-6041a4ab3295" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e7d30bbf-6029-b18e-67cc-bd80a406e438" executionId="2faa709d-0506-48c4-97f9-151e4ac73d36" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fbb0dd6e-b7dd-8f92-d511-30c119a8406c" executionId="8d9a7bac-d73c-4228-8597-9442e3887255" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fdc600d9-be0d-02d4-169a-cc986a42ef6d" executionId="889e222c-53d6-45b5-bdb0-8c5fb76242eb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="001bb62e-d989-49dd-98b0-ec8555601742" testId="0300b5ed-a118-03a3-ea28-a920f5a7abdc" testName="TrackTest" computerName="JORIS-PC" duration="00:00:00.0100525" startTime="2012-06-18T18:05:19.4031718+12:00" endTime="2012-06-18T18:05:19.6001831+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="001bb62e-d989-49dd-98b0-ec8555601742">
+    </UnitTestResult>
+    <UnitTestResult executionId="f2402010-a2bf-41c5-ab00-8231b8a82371" testId="1bd69e92-c0cf-e21b-d227-6b2fadc7ea1e" testName="Matrix3x3InverseTest" computerName="JORIS-PC" duration="00:00:00.0055780" startTime="2012-06-18T18:05:19.6011832+12:00" endTime="2012-06-18T18:05:19.6131838+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f2402010-a2bf-41c5-ab00-8231b8a82371">
+    </UnitTestResult>
+    <UnitTestResult executionId="ce9b1e29-affe-4bf6-8928-90fb39a9d8f3" testId="5daea82e-210e-64b5-5f47-c70057d506bf" testName="Y_DistanceTest" computerName="JORIS-PC" duration="00:00:00.0005627" startTime="2012-06-18T18:05:19.6161840+12:00" endTime="2012-06-18T18:05:19.6241845+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ce9b1e29-affe-4bf6-8928-90fb39a9d8f3">
+    </UnitTestResult>
+    <UnitTestResult executionId="12b40ba5-c809-45b5-8bc5-82273f1bf8e3" testId="6467f6a3-7df3-7605-d2c6-875a5bc201ab" testName="ToStringTest" computerName="JORIS-PC" duration="00:00:00.0178677" startTime="2012-06-18T18:05:19.6251845+12:00" endTime="2012-06-18T18:05:19.6491859+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="12b40ba5-c809-45b5-8bc5-82273f1bf8e3">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;25/12/2000 12:00:00 AM 5:05:05 AM&gt;. Actual:&lt;12/25/2000 12:00:00 AM 5:05:05 AM&gt;. </Message>
+          <StackTrace>   at MathTest.fPointTest.ToStringTest() in C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\fPointTest.cs:line 89
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1606f0f6-3027-45c8-8969-21869270b50a" testId="686281fc-1405-bf7e-0d47-fd790f30edca" testName="Matrix3x3Test" computerName="JORIS-PC" duration="00:00:00.0012475" startTime="2012-06-18T18:05:19.6521861+12:00" endTime="2012-06-18T18:05:19.6601865+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1606f0f6-3027-45c8-8969-21869270b50a">
+    </UnitTestResult>
+    <UnitTestResult executionId="c105456b-5f93-4e7b-bb21-ded9181bac98" testId="94dbcfb7-2c31-a95d-f576-27f5e95bd368" testName="Y_TimeTest" computerName="JORIS-PC" duration="00:00:00.0003218" startTime="2012-06-18T18:05:19.6621866+12:00" endTime="2012-06-18T18:05:19.6671869+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c105456b-5f93-4e7b-bb21-ded9181bac98">
+    </UnitTestResult>
+    <UnitTestResult executionId="271ec438-a286-436b-b301-7613b0941abb" testId="a3c31cc8-fd84-bba7-2c1f-afa6d79c9417" testName="Matrix1x3Test" computerName="JORIS-PC" duration="00:00:00.0010346" startTime="2012-06-18T18:05:19.6681870+12:00" endTime="2012-06-18T18:05:19.6741873+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="271ec438-a286-436b-b301-7613b0941abb">
+    </UnitTestResult>
+    <UnitTestResult executionId="8889a40c-157f-40f0-977d-48f958a49855" testId="c28672d7-6a29-cca5-423a-b0f63238ac45" testName="SecondOrderPolynomialTest" computerName="JORIS-PC" duration="00:00:00.0013464" startTime="2012-06-18T18:05:19.6761874+12:00" endTime="2012-06-18T18:05:19.6831878+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8889a40c-157f-40f0-977d-48f958a49855">
+    </UnitTestResult>
+    <UnitTestResult executionId="9f46c06e-819c-4695-ab0b-6041a4ab3295" testId="d228be95-61b5-faa5-8d6e-f14f7eb3077b" testName="X_DateTest" computerName="JORIS-PC" duration="00:00:00.0009954" startTime="2012-06-18T18:05:19.6841879+12:00" endTime="2012-06-18T18:05:19.6911883+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9f46c06e-819c-4695-ab0b-6041a4ab3295">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   at MathTest.fPointTest.X_DateTest() in C:\Users\Joris\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\fPointTest.cs:line 102
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2faa709d-0506-48c4-97f9-151e4ac73d36" testId="e7d30bbf-6029-b18e-67cc-bd80a406e438" testName="getNameTest" computerName="JORIS-PC" duration="00:00:00.0003672" startTime="2012-06-18T18:05:19.6921884+12:00" endTime="2012-06-18T18:05:19.7001888+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2faa709d-0506-48c4-97f9-151e4ac73d36">
+    </UnitTestResult>
+    <UnitTestResult executionId="8d9a7bac-d73c-4228-8597-9442e3887255" testId="fbb0dd6e-b7dd-8f92-d511-30c119a8406c" testName="getDataTest" computerName="JORIS-PC" duration="00:00:00.0007159" startTime="2012-06-18T18:05:19.7001888+12:00" endTime="2012-06-18T18:05:19.7061892+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d9a7bac-d73c-4228-8597-9442e3887255">
+    </UnitTestResult>
+    <UnitTestResult executionId="889e222c-53d6-45b5-bdb0-8c5fb76242eb" testId="fdc600d9-be0d-02d4-169a-cc986a42ef6d" testName="getStatusTest" computerName="JORIS-PC" duration="00:00:00.0003052" startTime="2012-06-18T18:05:19.7071892+12:00" endTime="2012-06-18T18:05:19.7121895+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="889e222c-53d6-45b5-bdb0-8c5fb76242eb">
+    </UnitTestResult>
+  </Results>
+</TestRun>
