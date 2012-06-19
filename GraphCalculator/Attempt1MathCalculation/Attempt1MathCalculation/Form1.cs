@@ -20,10 +20,11 @@ namespace Attempt1MathCalculation
         }
         private Boolean FormSaved = true;
         private string tempValueInCell;
-        private string PerformanceEG;
+        private string PerformanceEG = "e.g. mm:ss.ss";
         private bool setUP;
         private List<Athletes> ListOfAthletes;
         private List<fPoint> ListOfUserData = new List<fPoint>(150);
+        GraphPane myPane;
 
         //used to initialise the form
         public string fileloc;
@@ -38,6 +39,10 @@ namespace Attempt1MathCalculation
         private void Form1_Load(object sender, EventArgs e)
         {
             setUP = true;
+            for (int i = 0; i < 150; i++)
+            {
+                ListOfUserData.Add(new fPoint(true));
+            }
             CreateGraph(zg1);
             SetSize();
             setUP = false;
@@ -46,7 +51,7 @@ namespace Attempt1MathCalculation
         #region Graph
         private void CreateGraph(ZedGraphControl zgc)
         {
-            GraphPane myPane = zgc.GraphPane;
+            myPane = zgc.GraphPane;
 
             // Set the titles and axis labels
             myPane.Title.Text = "My Test Graph";
@@ -57,40 +62,9 @@ namespace Attempt1MathCalculation
             myPane.YAxis.Type = AxisType.Date;
             myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
 
-            zgc.IsEnableHZoom = true;
-            zgc.IsEnableVZoom = false;
-
-            // Make up some data points from the Sine function
-            float[] iper_x = { 11.5f, 2, 3};
-            float[] iper_y = { 11.5f, 2, 3};
-            PolynomialGraph pg = new PolynomialGraph();
-            float[] abc = pg.SecondOrderPolynomial(iper_x, iper_y);
-
-
-            PointPairList list = new PointPairList();
-
-            foreach (float val in iper_x)
-            {
-                float y = abc[0] * (val * val) + abc[1] * val + abc[2];
-                list.Add(val, y);
-            }
-
-            // Generate a blue curve with circle symbols, and "My Curve 2" in the legend
-            //LineItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue,SymbolType.None);
-            CurveItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.None);
-            // Fill the area under the curve with a white-red gradient at 45 degrees
-            //myCurve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
-            // Make the symbols opaque by filling them with white
-            //myCurve.Symbol.Fill = new Fill(Color.White);
-
-            // Fill the axis background with a color gradient
-            myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
-
-            // Fill the pane background with a color gradient
-            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
-
-            // Calculate the Axis Scale Ranges
-            zgc.AxisChange();
+            zgc.IsEnableHPan = false;
+            
+            
         }
         private void SetSize()
         {
@@ -123,7 +97,7 @@ namespace Attempt1MathCalculation
                 {
                     if (checkFormat().CompareTo("working") == 0)
                     {
-                        Point locationColumn = dataGridView1.CurrentCellAddress;
+                        Point locationXY = dataGridView1.CurrentCellAddress;
 
                         if (dataGridView1.CurrentCell.Value != null)
                         {
@@ -143,7 +117,7 @@ namespace Attempt1MathCalculation
                                 string valueToAddToExcel = dataGridView1.CurrentCell.Value.ToString();
 
                                 //working in the DateOfPerformanceColumn
-                                if (locationColumn.X == 0)
+                                if (locationXY.X == 0)
                                 {
                                     string[] tempDate = valueToAddToExcel.Split('/');
                                     if (Convert.ToInt32(tempDate[1]) <= 12)
@@ -157,7 +131,7 @@ namespace Attempt1MathCalculation
                                     }
                                 }
                                 //working in the Performance
-                                if (locationColumn.X == 1 && PerformanceEG.Contains("e.g. mm:ss.ss"))
+                                if (locationXY.X == 1 && PerformanceEG.Contains("e.g. mm:ss.ss"))
                                 {
                                     //if its not in the form MM:SS.ss then{
                                     if (valueToAddToExcel.Contains(":") && valueToAddToExcel.Contains(".")) { }
@@ -191,13 +165,21 @@ namespace Attempt1MathCalculation
                                         }
                                     }
                                     dataGridView1.CurrentCell.Value = valueToAddToExcel;
+                                    string[] resplit = valueToAddToExcel.Split(':');
+                                    valueToAddToExcel = Convert.ToString(Convert.ToInt32(resplit[0]) * 60 + Convert.ToDouble(resplit[1]));
                                 }
                                 dataGridView1.Rows[dataGridView1.CurrentCellAddress.Y].Cells[dataGridView1.CurrentCellAddress.X].Style.ForeColor = Color.Black;
                                 //excelWrapper1.Workbook.ActiveSheet.Range(locationColumn).Value = valueToAddToExcel;//adds the Date/Time to the list
-                                
-                                //if(locationColumn
-                                
-                               // ListOfUserData[dataGridView1.CurrentCellAddress.Y] = 
+                               //if x_val needs changing
+                                if (locationXY.X == 0)
+                                {
+                                    //string[] t = valueToAddToExcel.Split('/');
+                                    //string value = t[1] + "/" + t[0] + "/" + t[2] + " 12:00:00 AM";
+                                    ListOfUserData[locationXY.Y].setX_Date(Convert.ToDateTime(valueToAddToExcel));
+                                }
+                               //if y_val needs changing
+                                if (locationXY.X == 1)
+                                    ListOfUserData[locationXY.Y].setY_Value((float)Convert.ToDouble(valueToAddToExcel));
                             }
                         }
                         else
@@ -242,5 +224,50 @@ namespace Attempt1MathCalculation
 
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string temp = "";
+
+            for (int i = 0; i < 150; i++)
+            {
+                temp = temp + "\r\n" + ListOfUserData[i].ToString(true);
+            }
+            MessageBox.Show(temp);
+
+            // Make up some data points from the Sine function
+            float[] iper_x = { 11.5f, 2, 3 };
+            float[] iper_y = { 11.5f, 2, 3 };
+            PolynomialGraph pg = new PolynomialGraph();
+            float[] abc = pg.SecondOrderPolynomial(iper_x, iper_y);
+            
+            PointPairList list = new PointPairList();
+            for (int i = 0; i < 150; i++)
+            {
+                DateTime de = new DateTime(0001,1,1,0, 0, 11, 50);
+                list.Add(new XDate(ListOfUserData[i].getX_Date()), new XDate(de));
+            }
+
+            // Generate a blue curve with circle symbols, and "My Curve 2" in the legend
+            LineItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue,SymbolType.Circle);
+            //CurveItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.None);
+            // Fill the area under the curve with a white-red gradient at 45 degrees
+            //myCurve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
+            // Make the symbols opaque by filling them with white
+            myCurve.Symbol.Fill = new Fill(Color.White);
+
+            
+            
+            
+
+            // Fill the axis background with a color gradient
+            myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
+            // Fill the pane background with a color gradient
+            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
+            // Calculate the Axis Scale Ranges
+            zg1.AxisChange();
+
+            zg1.Invalidate();
+        }
     }
 }

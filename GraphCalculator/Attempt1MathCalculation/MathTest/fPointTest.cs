@@ -54,7 +54,7 @@ namespace MathTest
         {
                     DateTime x = new DateTime(2000,12,25); // TODO: Initialize to an appropriate value
             float y = 11.5f; // TODO: Initialize to an appropriate value
-            target = new fPoint(x, y); // TODO: Initialize to an appropriate value
+            target = new fPoint(x, y, false); // TODO: Initialize to an appropriate value
         }
         //
         //Use TestCleanup to run code after each test has run
@@ -72,7 +72,7 @@ namespace MathTest
         public void ToStringTest()
         {
             string expected = "25/12/2000 11.5"; // TODO: Initialize to an appropriate value
-            string actual = target.ToString();
+            string actual = target.ToString(false);
             Assert.AreEqual(expected, actual);
         }
 
@@ -96,7 +96,7 @@ namespace MathTest
         {
             DateTime x = new DateTime(); // TODO: Initialize to an appropriate value
             float y = 12.21f; // TODO: Initialize to an appropriate value
-            fPoint target = new fPoint(x, y); // TODO: Initialize to an appropriate value
+            fPoint target = new fPoint(x, y, false); // TODO: Initialize to an appropriate value
             float expected = 12.21F; // TODO: Initialize to an appropriate value
             float actual = target.getY_Value();
             Assert.AreEqual(expected, actual);
@@ -120,9 +120,9 @@ namespace MathTest
         {
             DateTime x = new DateTime(2000, 12, 25);
             float y = 1978.66f; // TODO: Initialize to an appropriate value
-            target = new fPoint(x, y); // TODO: Initialize to an appropriate value
+            target = new fPoint(x, y, false); // TODO: Initialize to an appropriate value
             string expected = "25/12/2000 1978.66"; // TODO: Initialize to an appropriate value
-            string actual = target.ToString();
+            string actual = target.ToString(false);
             Assert.AreEqual(expected, actual);
         }
 
@@ -134,7 +134,7 @@ namespace MathTest
         {
             target.setX_Date(new DateTime(4444, 4, 4));
             String expected = "04/04/4444 11.5";
-            String actual = target.ToString();
+            String actual = target.ToString(false);
             Assert.AreEqual(expected, actual);
         }
 
@@ -142,11 +142,24 @@ namespace MathTest
         ///A test for setY_Value
         ///</summary>
         [TestMethod()]
-        public void setY_ValueTest()
+        public void setY_ValueTestDouble()
         {
             target.setY_Value(5555);
             String expected = "25/12/2000 5555";
-            String actual = target.ToString();
+            String actual = target.ToString(false);
+            Assert.AreEqual(expected, actual);
+        }
+        /// <summary>
+        ///A test for setY_Value
+        ///</summary>
+        [TestMethod()]
+        public void setY_ValueTestTime()
+        {
+            float time = 12.5f;
+            float value = ((time / 60) / 60) / 24;
+            target.setY_Value(value);
+            String expected = "25/12/2000 0:12.50";
+            String actual = target.ToString(true);
             Assert.AreEqual(expected, actual);
         }
     }
