@@ -22,8 +22,14 @@ namespace Attempt1MathCalculation
         private string tempValueInCell;
         private string PerformanceEG = "e.g. mm:ss.ss";
         private bool setUP;
+
         private List<Athletes> ListOfAthletes;
-        private List<fPoint> ListOfUserData = new List<fPoint>(150);
+        //total dataset of user data
+        private List<fPoint> ListOfUserDataPoints = new List<fPoint>(150);
+        //dataset of user points X & Y
+        private List<fPoint> UserDataPoints = new List<fPoint>(150);
+        private List<fPoint> ListOfUserDataCurve = new List<fPoint>(150);
+
         GraphPane myPane;
 
         //used to initialise the form
@@ -41,7 +47,7 @@ namespace Attempt1MathCalculation
             setUP = true;
             for (int i = 0; i < 150; i++)
             {
-                ListOfUserData.Add(new fPoint(true));
+                ListOfUserDataPoints.Add(new fPoint(true));
             }
             CreateGraph(zg1);
             SetSize();
@@ -63,8 +69,8 @@ namespace Attempt1MathCalculation
             myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
 
             zgc.IsEnableHPan = false;
-            
-            
+
+
         }
         private void SetSize()
         {
@@ -77,7 +83,7 @@ namespace Attempt1MathCalculation
         {
             SetSize();
         }
-#endregion
+        #endregion
         #region DataGrid
         private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
@@ -170,16 +176,16 @@ namespace Attempt1MathCalculation
                                 }
                                 dataGridView1.Rows[dataGridView1.CurrentCellAddress.Y].Cells[dataGridView1.CurrentCellAddress.X].Style.ForeColor = Color.Black;
                                 //excelWrapper1.Workbook.ActiveSheet.Range(locationColumn).Value = valueToAddToExcel;//adds the Date/Time to the list
-                               //if x_val needs changing
+                                //if x_val needs changing
                                 if (locationXY.X == 0)
                                 {
                                     //string[] t = valueToAddToExcel.Split('/');
                                     //string value = t[1] + "/" + t[0] + "/" + t[2] + " 12:00:00 AM";
-                                    ListOfUserData[locationXY.Y].setX_Date(Convert.ToDateTime(valueToAddToExcel));
+                                    ListOfUserDataPoints[locationXY.Y].setX_Date(Convert.ToDateTime(valueToAddToExcel));
                                 }
-                               //if y_val needs changing
+                                //if y_val needs changing
                                 if (locationXY.X == 1)
-                                    ListOfUserData[locationXY.Y].setY_Value((float)Convert.ToDouble(valueToAddToExcel));
+                                    ListOfUserDataPoints[locationXY.Y].setY_Value((float)Convert.ToDouble(valueToAddToExcel));
                             }
                         }
                         else
@@ -227,11 +233,13 @@ namespace Attempt1MathCalculation
 
         private void button1_Click(object sender, EventArgs e)
         {
+            createNewList();
+
             string temp = "";
 
             for (int i = 0; i < 150; i++)
             {
-                temp = temp + "\r\n" + ListOfUserData[i].ToString(true);
+                temp = temp + "\r\n" + ListOfUserDataPoints[i].ToString(true);
             }
             MessageBox.Show(temp);
 
@@ -240,25 +248,26 @@ namespace Attempt1MathCalculation
             float[] iper_y = { 11.5f, 2, 3 };
             PolynomialGraph pg = new PolynomialGraph();
             float[] abc = pg.SecondOrderPolynomial(iper_x, iper_y);
-            
+
             PointPairList list = new PointPairList();
-            for (int i = 0; i < 150; i++)
+            for (int i = 0; i < UserDataPoints.Count; i++)
             {
-                DateTime de = new DateTime(0001,1,1,0, 0, 11, 50);
-                list.Add(new XDate(ListOfUserData[i].getX_Date()), new XDate(de));
+                DateTime de = new DateTime(0001, 1, 1, 0, 0, 11+i, 50);
+                list.Add(new XDate(UserDataPoints[i].getX_Date()), new XDate(de));
             }
 
             // Generate a blue curve with circle symbols, and "My Curve 2" in the legend
-            LineItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue,SymbolType.Circle);
+            LineItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.Circle);
+            myCurve.Line.IsVisible = false;
             //CurveItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.None);
             // Fill the area under the curve with a white-red gradient at 45 degrees
             //myCurve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
             // Make the symbols opaque by filling them with white
             myCurve.Symbol.Fill = new Fill(Color.White);
 
-            
-            
-            
+
+
+
 
             // Fill the axis background with a color gradient
             myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
@@ -268,6 +277,20 @@ namespace Attempt1MathCalculation
             zg1.AxisChange();
 
             zg1.Invalidate();
+        }
+        private void sortList()
+        {
+
+        }
+        private void createNewList()
+        {
+            foreach (fPoint f in ListOfUserDataPoints)
+            {
+                if (f.getX_Date().CompareTo(new DateTime(1111, 11, 11)) != 0 && f.getY_Value().CompareTo(1.1f) != 0)
+                {
+                    UserDataPoints.Add(f);
+                }
+            }
         }
     }
 }

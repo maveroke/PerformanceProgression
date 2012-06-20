@@ -14,13 +14,13 @@ namespace Attempt1MathCalculation
         public fPoint()
         {
             X_valDate = new DateTime(1111, 11, 11);
-            Y_Val = 11.11f;
+            Y_Val = 11111f;
         }
         public fPoint(bool time)
         {
             Time = true;
             X_valDate = new DateTime(1111, 11, 11);
-            convertTofloatTimeValue(11.11f);
+            convertTofloatTimeValue(1.1f);
         }
         /// <summary>
         /// Stores a Performance for Track Events
@@ -30,6 +30,11 @@ namespace Attempt1MathCalculation
             Time = time;
             X_valDate = x;
             Y_Val = y;
+        }
+
+        public bool getTrackField()
+        {
+            return Time;
         }
         /// <summary>
         /// converts a combination number to a value of 24 hours

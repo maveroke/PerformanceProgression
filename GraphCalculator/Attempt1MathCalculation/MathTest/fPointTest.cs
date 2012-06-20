@@ -162,5 +162,18 @@ namespace MathTest
             String actual = target.ToString(true);
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        ///A test for getY_ValueTime
+        ///</summary>
+        [TestMethod()]
+        public void getY_ValueTestTime()
+        {
+            fPoint target = new fPoint(new DateTime(1111, 11, 11), 11.5f,true);
+            float time = 12.5f;
+            target.setY_Value(time);
+            float expected = 12.5f;
+            float actual = target.getY_Value();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

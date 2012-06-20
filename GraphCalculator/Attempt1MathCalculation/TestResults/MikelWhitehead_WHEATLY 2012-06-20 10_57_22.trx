@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="f061ebc3-03e4-48c3-a377-df2ca8a86895" name="MikelWhitehead@WHEATLY 2012-06-20 10:57:22" runUser="WHEATLY\MikelWhitehead" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="a523dc7b-8ddb-43ec-9e72-2285008632b5">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="MikelWhitehead_WHEATLY 2012-06-20 10_57_22">
+      <DeploymentItem filename="C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\bin\Debug\ZedGraph.dll" />
+      <DeploymentItem filename="C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\bin\Debug\Attempt1MathCalculation.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-06-20T10:57:22.2131734+12:00" queuing="2012-06-20T10:57:22.2331745+12:00" start="2012-06-20T10:57:22.2621762+12:00" finish="2012-06-20T10:57:23.0722225+12:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="16" executed="16" passed="15" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="X_DateTest" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="d228be95-61b5-faa5-8d6e-f14f7eb3077b">
+      <Execution id="a3c08e74-916a-4681-9a12-9a1aabb3902b" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="X_DateTest" />
+    </UnitTest>
+    <UnitTest name="setY_ValueTestTime" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="f34a02a7-139c-5db6-f66c-3a47e661f645">
+      <Execution id="8e1818a9-12da-4eac-9282-5e7f12d0261c" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="setY_ValueTestTime" />
+    </UnitTest>
+    <UnitTest name="getStatusTest" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="fdc600d9-be0d-02d4-169a-cc986a42ef6d">
+      <Execution id="3bc0508a-ef8c-4ffd-818a-3ba0e850bb09" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.AthletesTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getStatusTest" />
+    </UnitTest>
+    <UnitTest name="Y_TimeTests" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="d1fa94a7-6865-fc7b-f171-2c89f4cfa0b5">
+      <Execution id="34092aa5-4c40-4d56-9f5b-bd2e54deb0a3" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Y_TimeTests" />
+    </UnitTest>
+    <UnitTest name="getNameTest" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="e7d30bbf-6029-b18e-67cc-bd80a406e438">
+      <Execution id="76fbd3c4-5886-45d6-9787-d76f020c32ec" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.AthletesTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getNameTest" />
+    </UnitTest>
+    <UnitTest name="setY_ValueTestDouble" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="63325f22-7d10-67cf-eef9-86a620d2144c">
+      <Execution id="837431f9-01b7-48da-8c0b-568b9f6e2231" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="setY_ValueTestDouble" />
+    </UnitTest>
+    <UnitTest name="Y_TimeTest" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="94dbcfb7-2c31-a95d-f576-27f5e95bd368">
+      <Execution id="6c5ed80e-c04d-409e-961a-d4b308b70317" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Y_TimeTest" />
+    </UnitTest>
+    <UnitTest name="Matrix3x3InverseTest" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="ed08e473-2dba-4d18-da59-9cb539de914d">
+      <DeploymentItems>
+        <DeploymentItem filename="Attempt1MathCalculation.exe" />
+      </DeploymentItems>
+      <Execution id="2896cc68-1577-46f6-ab87-de41819501b4" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.PolynomialTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Matrix3x3InverseTest" />
+    </UnitTest>
+    <UnitTest name="getY_ValueTestTime" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="309295dc-6116-7350-30d2-46bed9c7d223">
+      <Execution id="be9fc9be-0924-4c9a-ba84-aaf20201cc54" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getY_ValueTestTime" />
+    </UnitTest>
+    <UnitTest name="SecondOrderPolynomialTest" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="cf8e86af-938d-dc88-28d5-47a0888cbbf6">
+      <Execution id="73dc16d9-6bef-4602-9e4d-103720b9c0b1" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.PolynomialTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SecondOrderPolynomialTest" />
+    </UnitTest>
+    <UnitTest name="setX_DateTest" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="30998afc-2944-e13b-f8b3-3e8bf0e1ce4f">
+      <Execution id="647cf1ef-5e3a-4635-8f66-ce5c7fff3501" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="setX_DateTest" />
+    </UnitTest>
+    <UnitTest name="Y_DistanceTest" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="5daea82e-210e-64b5-5f47-c70057d506bf">
+      <Execution id="513e9507-14e5-4b95-a0a2-7884c28cd88a" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Y_DistanceTest" />
+    </UnitTest>
+    <UnitTest name="getDataTest" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="fbb0dd6e-b7dd-8f92-d511-30c119a8406c">
+      <Execution id="3f6bd579-b63c-478d-864e-31d55262c961" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.AthletesTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getDataTest" />
+    </UnitTest>
+    <UnitTest name="Matrix1x3Test" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="c0023543-70d8-e8c3-52fb-9f1d5be4c5fc">
+      <Execution id="d2f402da-071c-443f-a045-ba2e6bee22e2" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.PolynomialTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Matrix1x3Test" />
+    </UnitTest>
+    <UnitTest name="Matrix3x3Test" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="bda542f6-870e-fb28-9310-2ebbbe076c3c">
+      <DeploymentItems>
+        <DeploymentItem filename="Attempt1MathCalculation.exe" />
+      </DeploymentItems>
+      <Execution id="ff49bc1f-f6a6-4ccf-b78b-72b561a42bd6" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.PolynomialTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Matrix3x3Test" />
+    </UnitTest>
+    <UnitTest name="ToStringTest" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="6467f6a3-7df3-7605-d2c6-875a5bc201ab">
+      <Execution id="0899105d-8e9f-4c32-8414-8f6f89e8cda8" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToStringTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="309295dc-6116-7350-30d2-46bed9c7d223" executionId="be9fc9be-0924-4c9a-ba84-aaf20201cc54" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="30998afc-2944-e13b-f8b3-3e8bf0e1ce4f" executionId="647cf1ef-5e3a-4635-8f66-ce5c7fff3501" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5daea82e-210e-64b5-5f47-c70057d506bf" executionId="513e9507-14e5-4b95-a0a2-7884c28cd88a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63325f22-7d10-67cf-eef9-86a620d2144c" executionId="837431f9-01b7-48da-8c0b-568b9f6e2231" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6467f6a3-7df3-7605-d2c6-875a5bc201ab" executionId="0899105d-8e9f-4c32-8414-8f6f89e8cda8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="94dbcfb7-2c31-a95d-f576-27f5e95bd368" executionId="6c5ed80e-c04d-409e-961a-d4b308b70317" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bda542f6-870e-fb28-9310-2ebbbe076c3c" executionId="ff49bc1f-f6a6-4ccf-b78b-72b561a42bd6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0023543-70d8-e8c3-52fb-9f1d5be4c5fc" executionId="d2f402da-071c-443f-a045-ba2e6bee22e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cf8e86af-938d-dc88-28d5-47a0888cbbf6" executionId="73dc16d9-6bef-4602-9e4d-103720b9c0b1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1fa94a7-6865-fc7b-f171-2c89f4cfa0b5" executionId="34092aa5-4c40-4d56-9f5b-bd2e54deb0a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d228be95-61b5-faa5-8d6e-f14f7eb3077b" executionId="a3c08e74-916a-4681-9a12-9a1aabb3902b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e7d30bbf-6029-b18e-67cc-bd80a406e438" executionId="76fbd3c4-5886-45d6-9787-d76f020c32ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ed08e473-2dba-4d18-da59-9cb539de914d" executionId="2896cc68-1577-46f6-ab87-de41819501b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f34a02a7-139c-5db6-f66c-3a47e661f645" executionId="8e1818a9-12da-4eac-9282-5e7f12d0261c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fbb0dd6e-b7dd-8f92-d511-30c119a8406c" executionId="3f6bd579-b63c-478d-864e-31d55262c961" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fdc600d9-be0d-02d4-169a-cc986a42ef6d" executionId="3bc0508a-ef8c-4ffd-818a-3ba0e850bb09" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="be9fc9be-0924-4c9a-ba84-aaf20201cc54" testId="309295dc-6116-7350-30d2-46bed9c7d223" testName="getY_ValueTestTime" computerName="WHEATLY" duration="00:00:00.0444407" startTime="2012-06-20T10:57:22.2721768+12:00" endTime="2012-06-20T10:57:22.6782000+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="be9fc9be-0924-4c9a-ba84-aaf20201cc54">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;12.5&gt;. Actual:&lt;1.67449E-09&gt;. </Message>
+          <StackTrace>   at MathTest.fPointTest.getY_ValueTestTime() in C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\fPointTest.cs:line 177
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="647cf1ef-5e3a-4635-8f66-ce5c7fff3501" testId="30998afc-2944-e13b-f8b3-3e8bf0e1ce4f" testName="setX_DateTest" computerName="WHEATLY" duration="00:00:00.0067471" startTime="2012-06-20T10:57:22.6822002+12:00" endTime="2012-06-20T10:57:22.7062016+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="647cf1ef-5e3a-4635-8f66-ce5c7fff3501">
+    </UnitTestResult>
+    <UnitTestResult executionId="513e9507-14e5-4b95-a0a2-7884c28cd88a" testId="5daea82e-210e-64b5-5f47-c70057d506bf" testName="Y_DistanceTest" computerName="WHEATLY" duration="00:00:00.0124651" startTime="2012-06-20T10:57:22.7222025+12:00" endTime="2012-06-20T10:57:22.7612047+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="513e9507-14e5-4b95-a0a2-7884c28cd88a">
+    </UnitTestResult>
+    <UnitTestResult executionId="837431f9-01b7-48da-8c0b-568b9f6e2231" testId="63325f22-7d10-67cf-eef9-86a620d2144c" testName="setY_ValueTestDouble" computerName="WHEATLY" duration="00:00:00.0003874" startTime="2012-06-20T10:57:22.7772057+12:00" endTime="2012-06-20T10:57:22.7942066+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="837431f9-01b7-48da-8c0b-568b9f6e2231">
+    </UnitTestResult>
+    <UnitTestResult executionId="0899105d-8e9f-4c32-8414-8f6f89e8cda8" testId="6467f6a3-7df3-7605-d2c6-875a5bc201ab" testName="ToStringTest" computerName="WHEATLY" duration="00:00:00.0002636" startTime="2012-06-20T10:57:22.7982069+12:00" endTime="2012-06-20T10:57:22.8042072+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0899105d-8e9f-4c32-8414-8f6f89e8cda8">
+    </UnitTestResult>
+    <UnitTestResult executionId="6c5ed80e-c04d-409e-961a-d4b308b70317" testId="94dbcfb7-2c31-a95d-f576-27f5e95bd368" testName="Y_TimeTest" computerName="WHEATLY" duration="00:00:00.0002630" startTime="2012-06-20T10:57:22.8082074+12:00" endTime="2012-06-20T10:57:22.8142078+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6c5ed80e-c04d-409e-961a-d4b308b70317">
+    </UnitTestResult>
+    <UnitTestResult executionId="ff49bc1f-f6a6-4ccf-b78b-72b561a42bd6" testId="bda542f6-870e-fb28-9310-2ebbbe076c3c" testName="Matrix3x3Test" computerName="WHEATLY" duration="00:00:00.0065886" startTime="2012-06-20T10:57:22.8182080+12:00" endTime="2012-06-20T10:57:22.8322088+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ff49bc1f-f6a6-4ccf-b78b-72b561a42bd6">
+    </UnitTestResult>
+    <UnitTestResult executionId="d2f402da-071c-443f-a045-ba2e6bee22e2" testId="c0023543-70d8-e8c3-52fb-9f1d5be4c5fc" testName="Matrix1x3Test" computerName="WHEATLY" duration="00:00:00.0012822" startTime="2012-06-20T10:57:22.8362090+12:00" endTime="2012-06-20T10:57:22.8442095+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d2f402da-071c-443f-a045-ba2e6bee22e2">
+    </UnitTestResult>
+    <UnitTestResult executionId="73dc16d9-6bef-4602-9e4d-103720b9c0b1" testId="cf8e86af-938d-dc88-28d5-47a0888cbbf6" testName="SecondOrderPolynomialTest" computerName="WHEATLY" duration="00:00:00.0020978" startTime="2012-06-20T10:57:22.8472097+12:00" endTime="2012-06-20T10:57:22.8562102+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="73dc16d9-6bef-4602-9e4d-103720b9c0b1">
+    </UnitTestResult>
+    <UnitTestResult executionId="34092aa5-4c40-4d56-9f5b-bd2e54deb0a3" testId="d1fa94a7-6865-fc7b-f171-2c89f4cfa0b5" testName="Y_TimeTests" computerName="WHEATLY" duration="00:00:00.0003390" startTime="2012-06-20T10:57:22.8602104+12:00" endTime="2012-06-20T10:57:22.8662107+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="34092aa5-4c40-4d56-9f5b-bd2e54deb0a3">
+    </UnitTestResult>
+    <UnitTestResult executionId="a3c08e74-916a-4681-9a12-9a1aabb3902b" testId="d228be95-61b5-faa5-8d6e-f14f7eb3077b" testName="X_DateTest" computerName="WHEATLY" duration="00:00:00.0003808" startTime="2012-06-20T10:57:22.8702110+12:00" endTime="2012-06-20T10:57:22.8772114+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a3c08e74-916a-4681-9a12-9a1aabb3902b">
+    </UnitTestResult>
+    <UnitTestResult executionId="76fbd3c4-5886-45d6-9787-d76f020c32ec" testId="e7d30bbf-6029-b18e-67cc-bd80a406e438" testName="getNameTest" computerName="WHEATLY" duration="00:00:00.0004424" startTime="2012-06-20T10:57:22.8892121+12:00" endTime="2012-06-20T10:57:22.9142135+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="76fbd3c4-5886-45d6-9787-d76f020c32ec">
+    </UnitTestResult>
+    <UnitTestResult executionId="2896cc68-1577-46f6-ab87-de41819501b4" testId="ed08e473-2dba-4d18-da59-9cb539de914d" testName="Matrix3x3InverseTest" computerName="WHEATLY" duration="00:00:00.0019647" startTime="2012-06-20T10:57:22.9302144+12:00" endTime="2012-06-20T10:57:22.9492155+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2896cc68-1577-46f6-ab87-de41819501b4">
+    </UnitTestResult>
+    <UnitTestResult executionId="8e1818a9-12da-4eac-9282-5e7f12d0261c" testId="f34a02a7-139c-5db6-f66c-3a47e661f645" testName="setY_ValueTestTime" computerName="WHEATLY" duration="00:00:00.0012905" startTime="2012-06-20T10:57:22.9582160+12:00" endTime="2012-06-20T10:57:22.9772171+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e1818a9-12da-4eac-9282-5e7f12d0261c">
+    </UnitTestResult>
+    <UnitTestResult executionId="3f6bd579-b63c-478d-864e-31d55262c961" testId="fbb0dd6e-b7dd-8f92-d511-30c119a8406c" testName="getDataTest" computerName="WHEATLY" duration="00:00:00.0010307" startTime="2012-06-20T10:57:22.9922179+12:00" endTime="2012-06-20T10:57:23.0012185+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3f6bd579-b63c-478d-864e-31d55262c961">
+    </UnitTestResult>
+    <UnitTestResult executionId="3bc0508a-ef8c-4ffd-818a-3ba0e850bb09" testId="fdc600d9-be0d-02d4-169a-cc986a42ef6d" testName="getStatusTest" computerName="WHEATLY" duration="00:00:00.0003797" startTime="2012-06-20T10:57:23.0112190+12:00" endTime="2012-06-20T10:57:23.0452210+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3bc0508a-ef8c-4ffd-818a-3ba0e850bb09">
+    </UnitTestResult>
+  </Results>
+</TestRun>

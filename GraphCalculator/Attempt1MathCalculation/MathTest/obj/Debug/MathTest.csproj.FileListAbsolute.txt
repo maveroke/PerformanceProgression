@@ -25,4 +25,3 @@ C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalcu
 C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\obj\Debug\MathTest.dll
 C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\obj\Debug\MathTest.pdb
-C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\bin\Debug\ZedGraph.dll

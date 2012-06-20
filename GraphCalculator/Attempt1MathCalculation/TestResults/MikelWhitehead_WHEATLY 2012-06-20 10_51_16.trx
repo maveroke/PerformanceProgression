@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0b425eb3-412f-47bf-9887-2e4abd436d47" name="MikelWhitehead@WHEATLY 2012-06-20 10:51:16" runUser="WHEATLY\MikelWhitehead" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="a523dc7b-8ddb-43ec-9e72-2285008632b5">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="MikelWhitehead_WHEATLY 2012-06-20 10_51_16">
+      <DeploymentItem filename="C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\bin\Debug\ZedGraph.dll" />
+      <DeploymentItem filename="C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\Attempt1MathCalculation\bin\Debug\Attempt1MathCalculation.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-06-20T10:51:16.8742772+12:00" queuing="2012-06-20T10:51:22.7606139+12:00" start="2012-06-20T10:51:23.0216288+12:00" finish="2012-06-20T10:51:23.8206745+12:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="getY_ValueTestTime" storage="c:\users\mikelwhitehead\performanceprogression\graphcalculator\attempt1mathcalculation\mathtest\bin\debug\mathtest.dll" id="309295dc-6116-7350-30d2-46bed9c7d223">
+      <Execution id="0122d24f-603c-40aa-a3fd-507c326b36cb" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/GraphCalculator/Attempt1MathCalculation/MathTest/bin/Debug/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.fPointTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getY_ValueTestTime" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="309295dc-6116-7350-30d2-46bed9c7d223" executionId="0122d24f-603c-40aa-a3fd-507c326b36cb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="0122d24f-603c-40aa-a3fd-507c326b36cb" testId="309295dc-6116-7350-30d2-46bed9c7d223" testName="getY_ValueTestTime" computerName="WHEATLY" duration="00:00:00.1950442" startTime="2012-06-20T10:51:23.0966331+12:00" endTime="2012-06-20T10:51:23.6646656+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0122d24f-603c-40aa-a3fd-507c326b36cb">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;25/12/2000 0:12.50&gt;. Actual:&lt;25/12/2000 16560:0.00&gt;. </Message>
+          <StackTrace>   at MathTest.fPointTest.getY_ValueTestTime() in C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\Attempt1MathCalculation\MathTest\fPointTest.cs:line 176
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
