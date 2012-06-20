@@ -38,7 +38,7 @@ namespace Attempt1MathCalculation
         public string chartName;
         public bool Male_Female;
         public string eventName;
-        public string DoB;
+        public string DoB = "1/1/1990";
 
 
 
@@ -60,15 +60,18 @@ namespace Attempt1MathCalculation
             myPane = zgc.GraphPane;
 
             // Set the titles and axis labels
-            myPane.Title.Text = "My Test Graph";
-            myPane.XAxis.Title.Text = "X Value";
-            myPane.YAxis.Title.Text = "My Y Axis";
-            myPane.XAxis.Type = AxisType.Date;
-            myPane.XAxis.Scale.Format = "dd'/'MM'/'yyyy";
+            myPane.Title.Text = "100m Performance Progression for Michael Whitehead";
+            myPane.XAxis.Title.Text = "Age of Athletes";
+            myPane.YAxis.Title.Text = "Performance of Athletes";
+            myPane.XAxis.Type = AxisType.Linear;
             myPane.YAxis.Type = AxisType.Date;
-            myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
-            myPane.Y2Axis.Scale.MajorUnit = DateUnit.Minute;
-            myPane.Y2Axis.Scale.MinorUnit = DateUnit.Second;
+
+            myPane.XAxis.Scale.Max = 35;
+            myPane.XAxis.Scale.Min = 10;
+
+            //myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
+            myPane.YAxis.Scale.MajorUnit = DateUnit.Minute;
+            myPane.YAxis.Scale.MinorUnit = DateUnit.Second;
             zgc.IsEnableHPan = false;
 
         }
@@ -76,10 +79,8 @@ namespace Attempt1MathCalculation
         {
             zg1.Location = new Point(10, 10);
             // Leave a small margin around the outside of the control
-            zg1.Size = new Size(this.ClientRectangle.Width - 20, this.ClientRectangle.Height - 20);
+            zg1.Size = new Size(panel1.Width - 20, panel1.Height - 20);
             myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
-            myPane.Y2Axis.Scale.MajorUnit = DateUnit.Minute;
-            myPane.Y2Axis.Scale.MinorUnit = DateUnit.Second;
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -182,9 +183,9 @@ namespace Attempt1MathCalculation
                                 //if x_val needs changing
                                 if (locationXY.X == 0)
                                 {
-                                    //string[] t = valueToAddToExcel.Split('/');
-                                    //string value = t[1] + "/" + t[0] + "/" + t[2] + " 12:00:00 AM";
-                                    ListOfUserDataPoints[locationXY.Y].setX_Date(Convert.ToDateTime(valueToAddToExcel));
+
+                                    //age of the athlete
+                                    ListOfUserDataPoints[locationXY.Y].setX_Date(dateFromNow(valueToAddToExcel));
                                 }
                                 //if y_val needs changing
                                 if (locationXY.X == 1)
@@ -203,6 +204,23 @@ namespace Attempt1MathCalculation
             {
                 MessageBox.Show("" + ee);
             }
+        }
+
+        private float dateFromNow(string value)
+        {
+            // 1.
+            // Parse the date and put in DateTime object.
+            DateTime startDate = DateTime.Parse(DoB);
+
+            DateTime now = Convert.ToDateTime(value);
+
+            // 3.
+            // Get the TimeSpan of the difference.
+            TimeSpan elapsed = now.Subtract(startDate);
+
+            float daysAgo = (float)(elapsed.TotalDays / 365);
+            daysAgo = (float)(Math.Truncate(daysAgo * 100) / 100);
+            return daysAgo;
         }
 
         private string checkFormat()
@@ -256,7 +274,7 @@ namespace Attempt1MathCalculation
             for (int i = 0; i < UserDataPoints.Count; i++)
             {
                 
-                list.Add(new XDate(UserDataPoints[i].getX_Date()), new XDate(UserDataPoints[i].getY_Value_AsDate()));
+                list.Add(UserDataPoints[i].getX_Date(), new XDate(UserDataPoints[i].getY_Value_AsDate()));
             }
             
 
@@ -290,7 +308,7 @@ namespace Attempt1MathCalculation
         {
             foreach (fPoint f in ListOfUserDataPoints)
             {
-                if (f.getX_Date().CompareTo(new DateTime(1111, 11, 11)) != 0 && f.getY_Value_AsFloat().CompareTo(1.1f) != 0)
+                if (f.getX_Date().CompareTo(11111f) != 0 && f.getY_Value_AsFloat().CompareTo(1.1f) != 0)
                 {
                     UserDataPoints.Add(f);
                 }

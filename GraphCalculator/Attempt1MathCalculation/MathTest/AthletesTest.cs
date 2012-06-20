@@ -44,7 +44,7 @@ namespace MathTest
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
         {
-            List<fPoint> pt = new List<fPoint>() { new fPoint(new DateTime(1111, 11, 11), 2, false), new fPoint(new DateTime(4321, 11, 11), 3, false), new fPoint(new DateTime(1112, 11, 11), 3, false), new fPoint(new DateTime(1123, 11, 11), 4, false), new fPoint(new DateTime(1234, 11, 11), 5, false) };
+            List<fPoint> pt = new List<fPoint>() { new fPoint(12f, 2, false), new fPoint(13f, 3, false), new fPoint(13.5f, 3, false), new fPoint(14.44f, 4, false), new fPoint(15f, 5, false) };
             target = new Athletes("Name","Medal",pt); // TODO: Initialize to an appropriate value
         }
         //
@@ -98,7 +98,7 @@ namespace MathTest
         [TestMethod()]
         public void getDataTest()
         {
-            List<fPoint> expected = new List<fPoint>() { new fPoint(new DateTime(1111, 11, 11), 2, false), new fPoint(new DateTime(4321, 11, 11), 3, false), new fPoint(new DateTime(1112, 11, 11), 3, false), new fPoint(new DateTime(1123, 11, 11), 4, false), new fPoint(new DateTime(1234, 11, 11), 5, false) };
+            List<fPoint> expected = new List<fPoint>() { new fPoint(12f, 2, false), new fPoint(13f, 3, false), new fPoint(13.5f, 3, false), new fPoint(14.44f, 4, false), new fPoint(15f, 5, false) };
             List<fPoint> actual = target.getData();
             
             for (int i = 0; i < expected.Count; i++)

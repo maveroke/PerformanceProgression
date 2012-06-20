@@ -7,28 +7,28 @@ namespace Attempt1MathCalculation
 {
     class fPoint
     {
-        protected DateTime X_valDate;
+        protected float X_valAge;
         protected float Y_Val;
         protected bool Time = false;
 
         public fPoint()
         {
-            X_valDate = new DateTime(1111, 11, 11);
+            X_valAge = 11111f;
             Y_Val = 11111f;
         }
         public fPoint(bool time)
         {
             Time = true;
-            X_valDate = new DateTime(1111, 11, 11);
+            X_valAge = 11111f;
             convertTofloatTimeValue(1.1f);
         }
         /// <summary>
         /// Stores a Performance for Track Events
         /// </summary>
-        public fPoint(DateTime x, float y,bool time)
+        public fPoint(float x, float y, bool time)
         {
             Time = time;
-            X_valDate = x;
+            X_valAge = x;
             Y_Val = y;
         }
 
@@ -55,15 +55,15 @@ namespace Attempt1MathCalculation
             float tempval = ((24 * Y_Val) * 60) * 60;
             return tempval;
         }
-        public DateTime getX_Date()
+        public float getX_Date()
         {
-            return X_valDate;
+            return X_valAge;
         }
 
-        public void setX_Date(DateTime date)
+        public void setX_Date(float date)
         {
 
-            X_valDate = date;
+            X_valAge = date;
             
         }
 
@@ -81,7 +81,7 @@ namespace Attempt1MathCalculation
             int secs = (int)sec;
             string[] temp = sec.ToString().Split('.');
 
-            int split = Convert.ToInt32(temp[1].Substring(0,2));
+            int split = Convert.ToInt32(temp[1].Substring(0, 2));
             DateTime dt = new DateTime(2000, 1, 1, 0, mins, secs, split);
             DateTime dtt = new DateTime();
             dtt.AddHours(0);
@@ -105,10 +105,10 @@ namespace Attempt1MathCalculation
                 int mins = Convert.ToInt32((ipet - seconds) / 60);
                 string newtime = mins + ":" + string.Format("{0:0.00}", seconds);
 
-                return X_valDate.Date.ToString("dd'/'MM'/'yyyy") + " " + newtime;
+                return X_valAge + " " + newtime;
             }
             else
-                return X_valDate.Date.ToString("dd'/'MM'/'yyyy") + " " + Y_Val;
+                return X_valAge + " " + Y_Val;
         }
 
     }
