@@ -67,9 +67,9 @@ namespace Attempt1MathCalculation
             myPane.XAxis.Scale.Format = "dd'/'MM'/'yyyy";
             myPane.YAxis.Type = AxisType.Date;
             myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
-
+            myPane.Y2Axis.Scale.MajorUnit = DateUnit.Minute;
+            myPane.Y2Axis.Scale.MinorUnit = DateUnit.Second;
             zgc.IsEnableHPan = false;
-
 
         }
         private void SetSize()
@@ -77,6 +77,9 @@ namespace Attempt1MathCalculation
             zg1.Location = new Point(10, 10);
             // Leave a small margin around the outside of the control
             zg1.Size = new Size(this.ClientRectangle.Width - 20, this.ClientRectangle.Height - 20);
+            myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
+            myPane.Y2Axis.Scale.MajorUnit = DateUnit.Minute;
+            myPane.Y2Axis.Scale.MinorUnit = DateUnit.Second;
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -252,9 +255,10 @@ namespace Attempt1MathCalculation
             PointPairList list = new PointPairList();
             for (int i = 0; i < UserDataPoints.Count; i++)
             {
-                DateTime de = new DateTime(0001, 1, 1, 0, 0, 11+i, 50);
-                list.Add(new XDate(UserDataPoints[i].getX_Date()), new XDate(de));
+                
+                list.Add(new XDate(UserDataPoints[i].getX_Date()), new XDate(UserDataPoints[i].getY_Value_AsDate()));
             }
+            
 
             // Generate a blue curve with circle symbols, and "My Curve 2" in the legend
             LineItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.Circle);
@@ -286,7 +290,7 @@ namespace Attempt1MathCalculation
         {
             foreach (fPoint f in ListOfUserDataPoints)
             {
-                if (f.getX_Date().CompareTo(new DateTime(1111, 11, 11)) != 0 && f.getY_Value().CompareTo(1.1f) != 0)
+                if (f.getX_Date().CompareTo(new DateTime(1111, 11, 11)) != 0 && f.getY_Value_AsFloat().CompareTo(1.1f) != 0)
                 {
                     UserDataPoints.Add(f);
                 }

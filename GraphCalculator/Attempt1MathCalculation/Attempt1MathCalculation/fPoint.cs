@@ -67,12 +67,29 @@ namespace Attempt1MathCalculation
             
         }
 
-        public float getY_Value()
+        public float getY_Value_AsFloat()
         {
             if (Time) return convertTofloatTimeNumber();
             else return Y_Val;
+            
         }
+        public DateTime getY_Value_AsDate()
+        {
+            double sec = Y_Val % 60;
 
+            int mins = Convert.ToInt32((Y_Val - sec) / 60);
+            int secs = (int)sec;
+            string[] temp = sec.ToString().Split('.');
+
+            int split = Convert.ToInt32(temp[1].Substring(0,2));
+            DateTime dt = new DateTime(2000, 1, 1, 0, mins, secs, split);
+            DateTime dtt = new DateTime();
+            dtt.AddHours(0);
+            dtt.AddMinutes(mins);
+            dtt.AddSeconds(secs);
+            dtt.AddMilliseconds(secs);
+            return dtt;
+        }
         public void setY_Value(float performance)
         {
             Y_Val = performance;
