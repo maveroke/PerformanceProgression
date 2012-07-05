@@ -58,10 +58,10 @@ namespace mdisample
             contentsMain.OPButtonClicked += new EventHandler(OP_contents_ButtonClicked);
             contentsMain.Show();
 
-            mainProgramDisable();
-            PP = new ProductProtection.ProductProtection();
-            PP.continueButtonClicked += new EventHandler(continueButtonClicked_ButtonClicked);
-            PP.Show();
+            //mainProgramDisable();
+            //PP = new ProductProtection.ProductProtection();
+            //PP.continueButtonClicked += new EventHandler(continueButtonClicked_ButtonClicked);
+            //PP.Show();
             
         }
 

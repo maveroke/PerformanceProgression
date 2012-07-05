@@ -1,0 +1,14 @@
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\bin\Debug\ZedGraph.Demo.exe
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\bin\Debug\ZedGraph.Demo.pdb
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\bin\Debug\ZedGraph.dll
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ZedGraph.Demo.Properties.Resources.resources
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ZedGraph.Demo.ChartTabForm.resources
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ZedGraph.Demo.AboutForm.resources
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ZedGraph.Demo.ZedGraph.Demo.LicenseForm.resources
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ResGen.read.1.tlog
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ResGen.write.1.tlog
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ZedGraph.Demo.exe
+C:\Users\Joris\Desktop\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ZedGraph.Demo.pdb
+C:\Users\Joris\PerformanceProgression\GraphCalculator\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ZedGraph.Demo.exe
+C:\Users\Joris\PerformanceProgression\GraphCalculator\zedGraph_demo_5.1.2\InteractiveDemo\obj\Debug\ZedGraph.Demo.pdb

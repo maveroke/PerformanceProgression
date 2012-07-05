@@ -554,32 +554,34 @@ namespace mdisample
                                     if (valueToAddToExcel.Contains(":") && valueToAddToExcel.Contains(".")) { }
                                     else
                                     {
-                                        
-                                        string[] tempDate = valueToAddToExcel.Split(':', '.');
-                                        
-                                        switch (eventName)
+                                        if (valueToAddToExcel.CompareTo("") != 0) 
                                         {
-                                            case "W100m":
-                                            case "M100m":
-                                            case "W100m Hurdles":
-                                            case "M110m Hurdles":
-                                            case "W200m":
-                                            case "M200m":
-                                            case "M400m":
-                                                //if its in the form aa:bb then { assume 00:aa.bb }
-                                                //if its in the form aa.bb then { assume 00:aa.bb }
+                                            string[] tempDate = valueToAddToExcel.Split(':', '.');
 
-                                                valueToAddToExcel = "00:" + tempDate[0] + "." + tempDate[1];
-                                                break;
-                                            default:
-                                                //if its in the form aa:bb then { assume aa:bb.00 }
-                                                //if its in the form aa.bb then { assume 00:aa.bb }
-                                                if (valueToAddToExcel.Contains(":"))
-                                                    valueToAddToExcel = tempDate[0] + ":" + tempDate[1] + ".00";
-                                                else
+                                            switch (eventName)
+                                            {
+                                                case "W100m":
+                                                case "M100m":
+                                                case "W100m Hurdles":
+                                                case "M110m Hurdles":
+                                                case "W200m":
+                                                case "M200m":
+                                                case "M400m":
+                                                    //if its in the form aa:bb then { assume 00:aa.bb }
+                                                    //if its in the form aa.bb then { assume 00:aa.bb }
+
                                                     valueToAddToExcel = "00:" + tempDate[0] + "." + tempDate[1];
+                                                    break;
+                                                default:
+                                                    //if its in the form aa:bb then { assume aa:bb.00 }
+                                                    //if its in the form aa.bb then { assume 00:aa.bb }
+                                                    if (valueToAddToExcel.Contains(":"))
+                                                        valueToAddToExcel = tempDate[0] + ":" + tempDate[1] + ".00";
+                                                    else
+                                                        valueToAddToExcel = "00:" + tempDate[0] + "." + tempDate[1];
 
-                                                break;
+                                                    break;
+                                            }
                                         }
                                     }
                                     dataGridView1.CurrentCell.Value = valueToAddToExcel;

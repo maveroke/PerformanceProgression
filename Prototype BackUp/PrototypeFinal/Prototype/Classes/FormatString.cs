@@ -113,8 +113,14 @@ namespace WindowsFormsApplicationValueInput
                     else return "Invalid number";
 
                 }
+                else if (Str.CompareTo("") == 0)
+                {
+                    return "working";
+                }
                 else
+                {
                     return negativeResponse;
+                }
             }
             catch
             {

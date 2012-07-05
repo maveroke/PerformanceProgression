@@ -20,7 +20,7 @@ namespace Attempt1MathCalculation
         }
         private Boolean FormSaved = true;
         private string tempValueInCell;
-        private string PerformanceEG = "e.g. mm:ss.ss";
+        private string PerformanceEG = "e.g. 7000";
         private bool setUP;
 
         private List<Athletes> ListOfAthletes;
@@ -33,21 +33,28 @@ namespace Attempt1MathCalculation
         GraphPane myPane;
 
         //used to initialise the form
-        public string fileloc;
-        public bool newopen;
-        public string chartName;
-        public bool Male_Female;
-        public string eventName;
-        public string DoB = "1/1/1990";
+        private string fileloc;
+        private bool newopen;
+        private string chartName;
+        private bool Male_Female;
+        private string eventName;
+        private string DoB = "1/1/1990";
 
-
+        public void initialiseForm(string fileLocation,string theChartName,string theEventName,string theDateOfBirth,bool newOpen,bool MaleFemale){
+         fileloc = fileLocation;
+         newopen = newOpen;
+         chartName = theChartName;
+         Male_Female = MaleFemale;
+         eventName = theEventName;
+         DoB = theDateOfBirth;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             setUP = true;
             for (int i = 0; i < 150; i++)
             {
-                ListOfUserDataPoints.Add(new fPoint(true));
+                ListOfUserDataPoints.Add(new fPoint());
             }
             CreateGraph(zg1);
             SetSize();
@@ -60,19 +67,51 @@ namespace Attempt1MathCalculation
             myPane = zgc.GraphPane;
 
             // Set the titles and axis labels
-            myPane.Title.Text = "100m Performance Progression for Michael Whitehead";
+            myPane.Title.Text = chartName;
             myPane.XAxis.Title.Text = "Age of Athletes";
             myPane.YAxis.Title.Text = "Performance of Athletes";
+            //sets the XY value types
             myPane.XAxis.Type = AxisType.Linear;
-            myPane.YAxis.Type = AxisType.Date;
+  ////          //myPane.YAxis.Type = AxisType.Date;
+            myPane.YAxis.Type = AxisType.Linear;
 
+            //max and min for standard view
             myPane.XAxis.Scale.Max = 35;
             myPane.XAxis.Scale.Min = 10;
+            
+  ////          //myPane.YAxis.Scale.Max = new XDate(2000, 1, 1, 0, 0, 15, 0);
+  ////          //myPane.YAxis.Scale.Min = new XDate(2000, 1, 1, 0, 0, 8, 0);
+            myPane.YAxis.Scale.Max = 10000;
+            myPane.YAxis.Scale.Min = 1000;
 
-            //myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
-            myPane.YAxis.Scale.MajorUnit = DateUnit.Minute;
-            myPane.YAxis.Scale.MinorUnit = DateUnit.Second;
-            zgc.IsEnableHPan = false;
+            // Enable the X and Y axis grids
+            myPane.XAxis.MajorGrid.IsVisible = true;
+            myPane.YAxis.MajorGrid.IsVisible = true;
+
+
+  ////         //myPane.YAxis.Scale.MajorUnit = DateUnit.Second;
+  ////         //myPane.YAxis.Scale.MajorStep = 0.40;    
+            myPane.YAxis.Scale.MajorStep = 500;
+            myPane.YAxis.Scale.MinorStep = 100;
+
+
+            myPane.YAxis.Scale.MajorStepAuto = false;
+
+  ////          //myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
+
+            
+
+
+            //zgc.IsEnableHPan = false;
+
+            // Fill the axis background with a color gradient
+            myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
+            // Fill the pane background with a color gradient
+            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
+            // Calculate the Axis Scale Ranges
+            zg1.AxisChange();
+
+            zg1.Invalidate();
 
         }
         private void SetSize()
@@ -80,7 +119,7 @@ namespace Attempt1MathCalculation
             zg1.Location = new Point(10, 10);
             // Leave a small margin around the outside of the control
             zg1.Size = new Size(panel1.Width - 20, panel1.Height - 20);
-            myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
+            //myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -185,7 +224,7 @@ namespace Attempt1MathCalculation
                                 {
 
                                     //age of the athlete
-                                    ListOfUserDataPoints[locationXY.Y].setX_Date(dateFromNow(valueToAddToExcel));
+                                    ListOfUserDataPoints[locationXY.Y].setX_Age(dateFromNow(valueToAddToExcel));
                                 }
                                 //if y_val needs changing
                                 if (locationXY.X == 1)
@@ -256,13 +295,8 @@ namespace Attempt1MathCalculation
         {
             createNewList();
 
-            string temp = "";
 
-            for (int i = 0; i < 150; i++)
-            {
-                temp = temp + "\r\n" + ListOfUserDataPoints[i].ToString(true);
-            }
-            MessageBox.Show(temp);
+
 
             // Make up some data points from the Sine function
             float[] iper_x = { 11.5f, 2, 3 };
@@ -274,7 +308,8 @@ namespace Attempt1MathCalculation
             for (int i = 0; i < UserDataPoints.Count; i++)
             {
                 
-                list.Add(UserDataPoints[i].getX_Date(), new XDate(UserDataPoints[i].getY_Value_AsDate()));
+ ////               //list.Add(UserDataPoints[i].getX_Age(), new XDate(UserDataPoints[i].getY_Value_AsDate()));
+                list.Add(UserDataPoints[i].getX_Age(), UserDataPoints[i].getY_Value_AsFloat());
             }
             
 
@@ -287,10 +322,6 @@ namespace Attempt1MathCalculation
             // Make the symbols opaque by filling them with white
             myCurve.Symbol.Fill = new Fill(Color.White);
 
-
-
-
-
             // Fill the axis background with a color gradient
             myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
             // Fill the pane background with a color gradient
@@ -299,16 +330,13 @@ namespace Attempt1MathCalculation
             zg1.AxisChange();
 
             zg1.Invalidate();
-        }
-        private void sortList()
-        {
-
+            CreateTrendline ct = new CreateTrendline(ListOfUserDataPoints);
         }
         private void createNewList()
         {
             foreach (fPoint f in ListOfUserDataPoints)
             {
-                if (f.getX_Date().CompareTo(11111f) != 0 && f.getY_Value_AsFloat().CompareTo(1.1f) != 0)
+                if (f.getX_Age().CompareTo(11111f) != 0 && f.getY_Value_AsFloat().CompareTo(1.1f) != 0)
                 {
                     UserDataPoints.Add(f);
                 }
