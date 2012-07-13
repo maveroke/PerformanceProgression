@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ZedGraph;
 
 namespace Attempt1MathCalculation
 {
@@ -11,6 +12,18 @@ namespace Attempt1MathCalculation
         protected List<fPoint> MaxMin;
         protected List<fPoint> Range;
 
+
+        public PointPairList getTrendList()
+        {
+            PointPairList list = new PointPairList();
+            for (int i = 0; i < Range.Count; i++)
+            {
+
+                ////               //list.Add(UserDataPoints[i].getX_Age(), new XDate(UserDataPoints[i].getY_Value_AsDate()));
+                list.Add(Range[i].getX_Age(), Range[i].getY_Value_AsFloat());
+            }
+            return list;
+        }
         public CreateTrendline(List<fPoint> searchMaxMin)
         {
             MaxMin = searchMaxMin;

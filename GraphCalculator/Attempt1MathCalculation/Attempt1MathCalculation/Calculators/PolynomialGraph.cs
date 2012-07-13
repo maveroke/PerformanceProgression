@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Attempt1MathCalculation
 {
@@ -46,9 +47,13 @@ namespace Attempt1MathCalculation
             float[,] MatrixA_1 = Matrix3x3Inverse(MatrixA);
             float[] MatrixABC = new float[] { 0, 0, 0 };
 
-            MatrixABC[0] = MatrixA_1[0, 0] * MatrixB[0] + MatrixA_1[1, 0] * MatrixB[1] + MatrixA_1[2, 0] * MatrixB[2];
+
+            MessageBox.Show(MatrixA_1[0, 0] + " " + MatrixA_1[1, 0] + " " + MatrixA_1[2, 0] + " \r\n" + MatrixA_1[0, 1] + " " + MatrixA_1[1, 1] + " " + MatrixA_1[2, 1] + " \r\n" + MatrixA_1[0, 2] + " " + MatrixA_1[1, 2] + " " + MatrixA_1[2, 2]);
+            MessageBox.Show(MatrixB[0] + " \r\n" + MatrixB[1] + " \r\n" + MatrixB[2]);
+
+            MatrixABC[2] = MatrixA_1[0, 0] * MatrixB[0] + MatrixA_1[1, 0] * MatrixB[1] + MatrixA_1[2, 0] * MatrixB[2];
             MatrixABC[1] = MatrixA_1[0, 1] * MatrixB[0] + MatrixA_1[1, 1] * MatrixB[1] + MatrixA_1[2, 1] * MatrixB[2];
-            MatrixABC[2] = MatrixA_1[0, 2] * MatrixB[0] + MatrixA_1[1, 2] * MatrixB[1] + MatrixA_1[2, 2] * MatrixB[2];
+            MatrixABC[0] = MatrixA_1[0, 2] * MatrixB[0] + MatrixA_1[1, 2] * MatrixB[1] + MatrixA_1[2, 2] * MatrixB[2];
 
             //returns a b c in a array
             return MatrixABC;
@@ -89,14 +94,18 @@ namespace Attempt1MathCalculation
         protected float[] Matrix1x3(float[] x, float[] y)
         {
             float[] MatrixB = new float[] { 0, 0, 0 };
-            float temp = 0;
-            foreach (float x_val in x)
+            float temp_sqrd = 0;
+            float temp2 = 0;
+            float temp3 = 0;
+            for(int i = 0;i<x.LongLength;i++)
             {
-                temp += x_val * x_val;
+                temp_sqrd = x[i]*x[i];
+                temp2 += x[i] * y[i];
+                temp3 += temp_sqrd*y[i];
             }
             MatrixB[0] = y.Sum();
-            MatrixB[1] = y.Sum() * x.Sum();
-            MatrixB[2] = temp * y.Sum();
+            MatrixB[1] = temp2;
+            MatrixB[2] = temp3;
             return MatrixB;
         }
         protected float[,] Matrix3x3Inverse(float[,] matrix3x3)
