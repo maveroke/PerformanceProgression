@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="629fd1bc-12a3-4aab-96dc-d638e0a31bd3" name="Joris@JORIS-PC 2012-07-15 13:01:01" runUser="Joris-PC\Joris" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="44be0d1b-54c1-46ad-ac31-64749087b4b2">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Joris_JORIS-PC 2012-07-15 13_01_01">
+      <DeploymentItem filename="C:\Users\Joris\PerformanceProgression\Prototype BackUp\PrototypeFinal\Prototype\bin\Release\Prototype.exe" />
+      <DeploymentItem filename="C:\Users\Joris\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraph.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-07-15T13:01:01.7987157+12:00" queuing="2012-07-15T13:01:01.8087163+12:00" start="2012-07-15T13:01:01.8177168+12:00" finish="2012-07-15T13:01:02.0537303+12:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="SecondOrderPolynomialTest2" storage="c:\users\joris\performanceprogression\prototype backup\prototypefinal\mathtest\bin\release\mathtest.dll" id="c7bfa67d-e9e8-b09b-48ea-fdbd29047b8d">
+      <Execution id="56acc9b7-f838-4359-b8ab-ef7174beab3c" />
+      <TestMethod codeBase="C:/Users/Joris/PerformanceProgression/Prototype BackUp/PrototypeFinal/MathTest/bin/Release/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.PolynomialTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SecondOrderPolynomialTest2" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="c7bfa67d-e9e8-b09b-48ea-fdbd29047b8d" executionId="56acc9b7-f838-4359-b8ab-ef7174beab3c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="56acc9b7-f838-4359-b8ab-ef7174beab3c" testId="c7bfa67d-e9e8-b09b-48ea-fdbd29047b8d" testName="SecondOrderPolynomialTest2" computerName="JORIS-PC" duration="00:00:00.0272835" startTime="2012-07-15T13:01:01.8197169+12:00" endTime="2012-07-15T13:01:02.0417296+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="56acc9b7-f838-4359-b8ab-ef7174beab3c">
+    </UnitTestResult>
+  </Results>
+</TestRun>

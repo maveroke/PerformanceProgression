@@ -64,9 +64,9 @@ namespace Attempt1MathCalculation
                 //get ABC off the x,y user data.
                 PolynomialGraph pg = new PolynomialGraph();
                 float[] tempABC = pg.Polynomial(searchMaxMin);
-                MessageBox.Show(searchMaxMin[2].getX_Age()+"");
+                //MessageBox.Show(searchMaxMin[2].getX_Age()+"");
 
-                MessageBox.Show("A: "+tempABC[0] + " B: " + tempABC[1] + " C: " + tempABC[2]);
+                //MessageBox.Show("A: "+tempABC[0] + " B: " + tempABC[1] + " C: " + tempABC[2]);
 
                 //use ABC + equation on range to get Y
                 string temp = "";
@@ -75,8 +75,8 @@ namespace Attempt1MathCalculation
                     p.setY_Value(tempABC[0] * (p.getX_Age() * p.getX_Age()) + tempABC[1] * p.getX_Age() + tempABC[2]);
                     temp += "\r\n" + p.getX_Age()+ " " + p.getY_Value_AsFloat();
                 }
-                MessageBox.Show(temp);
-                MessageBox.Show(Range.Count()+" "+ Range[Range.Count - 1].getX_Age());
+                //MessageBox.Show(temp);
+                //MessageBox.Show(Range.Count()+" "+ Range[Range.Count - 1].getX_Age());
             }
         }
     }

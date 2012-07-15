@@ -79,20 +79,27 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph">
+      <HintPath>..\..\..\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraph.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\GraphCalculation\CreateTrendline.cs" />
     <Compile Include="Classes\CSV.cs" />
     <Compile Include="Classes\FormatString.cs" />
+    <Compile Include="Classes\GraphCalculation\DataTypes\Athletes.cs" />
+    <Compile Include="Classes\GraphCalculation\DataTypes\fPoint.cs" />
+    <Compile Include="Classes\GraphCalculation\PolynomialGraph.cs" />
     <Compile Include="Forms\Information\HelpHTU.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Information\HelpHTU.Designer.cs">
       <DependentUpon>HelpHTU.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MDIForm\Contents.cs">
+    <Compile Include="Forms\MainForms\Base\Contents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MDIForm\Contents.Designer.cs">
+    <Compile Include="Forms\MainForms\Base\Contents.Designer.cs">
       <DependentUpon>Contents.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Information\DataUsed.cs">
@@ -171,17 +178,17 @@
     <Compile Include="Forms\ProgramForms\IntroForm.Designer.cs">
       <DependentUpon>IntroForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MDIForm\MainForm.cs">
+    <Compile Include="Forms\MainForms\Base\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MDIForm\Form2.cs">
+    <Compile Include="Forms\MainForms\Graphs\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Classes\ListViewItemComparer.cs" />
-    <Compile Include="Forms\MDIForm\Key.cs">
+    <Compile Include="Forms\MainForms\Graphs\Key.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MDIForm\Key.Designer.cs">
+    <Compile Include="Forms\MainForms\Graphs\Key.Designer.cs">
       <DependentUpon>Key.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -195,7 +202,7 @@
     <EmbeddedResource Include="Forms\Information\HelpHTU.resx">
       <DependentUpon>HelpHTU.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MDIForm\Contents.resx">
+    <EmbeddedResource Include="Forms\MainForms\Base\Contents.resx">
       <DependentUpon>Contents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Information\DataUsed.resx">
@@ -235,13 +242,13 @@
     <EmbeddedResource Include="Forms\ProgramForms\IntroForm.resx">
       <DependentUpon>IntroForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MDIForm\MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForms\Base\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MDIForm\Form2.resx">
+    <EmbeddedResource Include="Forms\MainForms\Graphs\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MDIForm\Key.resx">
+    <EmbeddedResource Include="Forms\MainForms\Graphs\Key.resx">
       <DependentUpon>Key.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -383,6 +390,7 @@
     <Folder Include="Files\ExcelFiles\Saved\M\Track\" />
     <Folder Include="Files\ExcelFiles\Saved\W\Field\" />
     <Folder Include="Files\ExcelFiles\Saved\W\Track\" />
+    <Folder Include="TrendLines\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

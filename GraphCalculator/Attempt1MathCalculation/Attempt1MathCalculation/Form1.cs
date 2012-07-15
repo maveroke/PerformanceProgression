@@ -40,13 +40,14 @@ namespace Attempt1MathCalculation
         private string eventName;
         private string DoB = "1/1/1990";
 
-        public void initialiseForm(string fileLocation,string theChartName,string theEventName,string theDateOfBirth,bool newOpen,bool MaleFemale){
-         fileloc = fileLocation;
-         newopen = newOpen;
-         chartName = theChartName;
-         Male_Female = MaleFemale;
-         eventName = theEventName;
-         DoB = theDateOfBirth;
+        public void initialiseForm(string fileLocation, string theChartName, string theEventName, string theDateOfBirth, bool newOpen, bool MaleFemale)
+        {
+            fileloc = fileLocation;
+            newopen = newOpen;
+            chartName = theChartName;
+            Male_Female = MaleFemale;
+            eventName = theEventName;
+            DoB = theDateOfBirth;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,7 +59,37 @@ namespace Attempt1MathCalculation
             }
             CreateGraph(zg1);
             SetSize();
+            ReadDataFromExcel();
             setUP = false;
+
+        }
+
+        private void ReadDataFromExcel()
+        {
+            //excelWrapper1.Workbook.ActiveSheet.Unprotect("1500kosmin");
+
+            /////for loop
+
+            ////gets a value from position AIName and returns it as a string
+            //string tempName = excelWrapper1.Workbook.ActiveSheet.Range[AIName].Value.ToString();
+
+            /////end for loop
+
+
+            //Excel.Range range = sheet.get_Range("A1:A5", Missing.Value);
+
+            //if (range1 != null)
+            //{
+            //    foreach (Excel.Range r in range1)
+            //    {
+            //        string user = r.Text;
+            //        string value = r.Value2;
+            //    }
+            //}
+
+
+
+            //excelWrapper1.Workbook.ActiveSheet.Protect("1500kosmin", false);
 
         }
         #region Graph
@@ -72,7 +103,7 @@ namespace Attempt1MathCalculation
             myPane.YAxis.Title.Text = "Performance of Athletes";
             //sets the XY value types
             myPane.XAxis.Type = AxisType.Linear;
-  ////          //myPane.YAxis.Type = AxisType.Date;
+            ////          //myPane.YAxis.Type = AxisType.Date;
             myPane.YAxis.Type = AxisType.Linear;
 
 
@@ -90,23 +121,23 @@ namespace Attempt1MathCalculation
             //max and min for standard view
             myPane.XAxis.Scale.Max = 35;
             myPane.XAxis.Scale.Min = 10;
-            
-  ////          //myPane.YAxis.Scale.Max = new XDate(2000, 1, 1, 0, 0, 15, 0);
-  ////          //myPane.YAxis.Scale.Min = new XDate(2000, 1, 1, 0, 0, 8, 0);
-            myPane.YAxis.Scale.Max = 9000;
-            myPane.YAxis.Scale.Min = 5000;
+
+            ////          //myPane.YAxis.Scale.Max = new XDate(2000, 1, 1, 0, 0, 15, 0);
+            ////          //myPane.YAxis.Scale.Min = new XDate(2000, 1, 1, 0, 0, 8, 0);
+            myPane.YAxis.Scale.Max = 2;
+            myPane.YAxis.Scale.Min = 1;
 
             // Enable the X and Y axis grids
             myPane.XAxis.MajorGrid.IsVisible = true;
             myPane.YAxis.MajorGrid.IsVisible = true;
 
 
-  ////         //myPane.YAxis.Scale.MajorUnit = DateUnit.Second;
-  ////         //myPane.YAxis.Scale.MajorStep = 0.40;  
+            ////         //myPane.YAxis.Scale.MajorUnit = DateUnit.Second;
+            ////         //myPane.YAxis.Scale.MajorStep = 0.40;  
 
-  ////          //myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
+            ////          //myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
 
-            
+
 
 
 
@@ -297,6 +328,8 @@ namespace Attempt1MathCalculation
 
         #endregion
 
+
+        #region MakeDynamic
         private void button1_Click(object sender, EventArgs e)
         {
             createNewList();
@@ -312,11 +345,11 @@ namespace Attempt1MathCalculation
             PointPairList list = new PointPairList();
             for (int i = 0; i < UserDataPoints.Count; i++)
             {
-                
- ////               //list.Add(UserDataPoints[i].getX_Age(), new XDate(UserDataPoints[i].getY_Value_AsDate()));
+
+                ////               //list.Add(UserDataPoints[i].getX_Age(), new XDate(UserDataPoints[i].getY_Value_AsDate()));
                 list.Add(UserDataPoints[i].getX_Age(), UserDataPoints[i].getY_Value_AsFloat());
             }
-            
+
 
             // Generate a blue curve with circle symbols, and "My Curve 2" in the legend
             LineItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.Circle);
@@ -339,7 +372,7 @@ namespace Attempt1MathCalculation
             zg1.AxisChange();
             zg1.IsEnableHPan = true;
             zg1.Invalidate();
-            
+
         }
         private void createNewList()
         {
@@ -351,7 +384,9 @@ namespace Attempt1MathCalculation
                 }
             }
         }
+        #endregion
 
+        #region EventuallyDelete
         private void button2_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Add();
@@ -369,11 +404,11 @@ namespace Attempt1MathCalculation
             dataGridView1[1, 2].Value = "3";
             dataGridView1[1, 3].Value = "4";
 
-            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
-                float a = (float)Convert.ToDouble(dataGridView1[0,i].Value.ToString());
+                float a = (float)Convert.ToDouble(dataGridView1[0, i].Value.ToString());
                 float b = (float)Convert.ToDouble(dataGridView1[1, i].Value.ToString());
-                ListOfUserDataPoints[i] = new fPoint(a,b);
+                ListOfUserDataPoints[i] = new fPoint(a, b);
             }
             dataGridView1[0, 0].Value = "1/1/1991";
             dataGridView1[0, 1].Value = "1/1/1992";
@@ -436,150 +471,150 @@ namespace Attempt1MathCalculation
 
         private void button5_Click(object sender, EventArgs e)
         {
-            for(int i = 0;i<44;i++){dataGridView1.Rows.Add();}
-dataGridView1[0, 0].Value = "19.79";
-dataGridView1[0, 1].Value = "17.88";
-dataGridView1[0, 2].Value = "18.76";
-dataGridView1[0, 3].Value = "18.68";
-dataGridView1[0, 4].Value = "19.72";
-dataGridView1[0, 5].Value = "18.53";
-dataGridView1[0, 6].Value = "18.78";
-dataGridView1[0, 7].Value = "19.68";
-dataGridView1[0, 8].Value = "19.83";
-dataGridView1[0, 9].Value = "19.85";
-dataGridView1[0, 10].Value = "17.89";
-dataGridView1[0, 11].Value = "18.7";
-dataGridView1[0, 12].Value = "19.2";
-dataGridView1[0, 13].Value = "19.78";
-dataGridView1[0, 14].Value = "19.87";
-dataGridView1[0, 15].Value = "17.77";
-dataGridView1[0, 16].Value = "18.57";
-dataGridView1[0, 17].Value = "18.7";
-dataGridView1[0, 18].Value = "19.16";
-dataGridView1[0, 19].Value = "19.16";
-dataGridView1[0, 20].Value = "19.37";
-dataGridView1[0, 21].Value = "19.37";
-dataGridView1[0, 22].Value = "18.43";
-dataGridView1[0, 23].Value = "18.87";
-dataGridView1[0, 24].Value = "18.84";
-dataGridView1[0, 25].Value = "19.2";
-dataGridView1[0, 26].Value = "19.41";
-dataGridView1[0, 27].Value = "19.87";
-dataGridView1[0, 28].Value = "18.87";
-dataGridView1[0, 29].Value = "19.71";
-dataGridView1[0, 30].Value = "17.48";
-dataGridView1[0, 31].Value = "17.59";
-dataGridView1[0, 32].Value = "17.88";
-dataGridView1[0, 33].Value = "18.8";
-dataGridView1[0, 34].Value = "17.86";
-dataGridView1[0, 35].Value = "17.4";
-dataGridView1[0, 36].Value = "17.41";
-dataGridView1[0, 37].Value = "17.57";
-dataGridView1[0, 38].Value = "17.82";
-dataGridView1[0, 39].Value = "17.72";
-dataGridView1[0, 40].Value = "18.85";
-dataGridView1[0, 41].Value = "16.9";
-dataGridView1[0, 42].Value = "17.55";
-dataGridView1[0, 43].Value = "17.74";
-dataGridView1[0, 44].Value = "17.78";
+            for (int i = 0; i < 44; i++) { dataGridView1.Rows.Add(); }
+            dataGridView1[0, 0].Value = "19.79";
+            dataGridView1[0, 1].Value = "17.88";
+            dataGridView1[0, 2].Value = "18.76";
+            dataGridView1[0, 3].Value = "18.68";
+            dataGridView1[0, 4].Value = "19.72";
+            dataGridView1[0, 5].Value = "18.53";
+            dataGridView1[0, 6].Value = "18.78";
+            dataGridView1[0, 7].Value = "19.68";
+            dataGridView1[0, 8].Value = "19.83";
+            dataGridView1[0, 9].Value = "19.85";
+            dataGridView1[0, 10].Value = "17.89";
+            dataGridView1[0, 11].Value = "18.7";
+            dataGridView1[0, 12].Value = "19.2";
+            dataGridView1[0, 13].Value = "19.78";
+            dataGridView1[0, 14].Value = "19.87";
+            dataGridView1[0, 15].Value = "17.77";
+            dataGridView1[0, 16].Value = "18.57";
+            dataGridView1[0, 17].Value = "18.7";
+            dataGridView1[0, 18].Value = "19.16";
+            dataGridView1[0, 19].Value = "19.16";
+            dataGridView1[0, 20].Value = "19.37";
+            dataGridView1[0, 21].Value = "19.37";
+            dataGridView1[0, 22].Value = "18.43";
+            dataGridView1[0, 23].Value = "18.87";
+            dataGridView1[0, 24].Value = "18.84";
+            dataGridView1[0, 25].Value = "19.2";
+            dataGridView1[0, 26].Value = "19.41";
+            dataGridView1[0, 27].Value = "19.87";
+            dataGridView1[0, 28].Value = "18.87";
+            dataGridView1[0, 29].Value = "19.71";
+            dataGridView1[0, 30].Value = "17.48";
+            dataGridView1[0, 31].Value = "17.59";
+            dataGridView1[0, 32].Value = "17.88";
+            dataGridView1[0, 33].Value = "18.8";
+            dataGridView1[0, 34].Value = "17.86";
+            dataGridView1[0, 35].Value = "17.4";
+            dataGridView1[0, 36].Value = "17.41";
+            dataGridView1[0, 37].Value = "17.57";
+            dataGridView1[0, 38].Value = "17.82";
+            dataGridView1[0, 39].Value = "17.72";
+            dataGridView1[0, 40].Value = "18.85";
+            dataGridView1[0, 41].Value = "16.9";
+            dataGridView1[0, 42].Value = "17.55";
+            dataGridView1[0, 43].Value = "17.74";
+            dataGridView1[0, 44].Value = "17.78";
 
-dataGridView1[1, 0].Value = "1.86";
-dataGridView1[1, 1].Value = "1.85";
-dataGridView1[1, 2].Value = "1.85";
-dataGridView1[1, 3].Value = "1.84";
-dataGridView1[1, 4].Value = "1.84";
-dataGridView1[1, 5].Value = "1.83";
-dataGridView1[1, 6].Value = "1.82";
-dataGridView1[1, 7].Value = "1.82";
-dataGridView1[1, 8].Value = "1.82";
-dataGridView1[1, 9].Value = "1.82";
-dataGridView1[1, 10].Value = "1.81";
-dataGridView1[1, 11].Value = "1.81";
-dataGridView1[1, 12].Value = "1.81";
-dataGridView1[1, 13].Value = "1.81";
-dataGridView1[1, 14].Value = "1.81";
-dataGridView1[1, 15].Value = "1.8";
-dataGridView1[1, 16].Value = "1.8";
-dataGridView1[1, 17].Value = "1.8";
-dataGridView1[1, 18].Value = "1.8";
-dataGridView1[1, 19].Value = "1.8";
-dataGridView1[1, 20].Value = "1.8";
-dataGridView1[1, 21].Value = "1.8";
-dataGridView1[1, 22].Value = "1.79";
-dataGridView1[1, 23].Value = "1.79";
-dataGridView1[1, 24].Value = "1.78";
-dataGridView1[1, 25].Value = "1.78";
-dataGridView1[1, 26].Value = "1.78";
-dataGridView1[1, 27].Value = "1.77";
-dataGridView1[1, 28].Value = "1.76";
-dataGridView1[1, 29].Value = "1.76";
-dataGridView1[1, 30].Value = "1.75";
-dataGridView1[1, 31].Value = "1.75";
-dataGridView1[1, 32].Value = "1.75";
-dataGridView1[1, 33].Value = "1.75";
-dataGridView1[1, 34].Value = "1.74";
-dataGridView1[1, 35].Value = "1.73";
-dataGridView1[1, 36].Value = "1.73";
-dataGridView1[1, 37].Value = "1.73";
-dataGridView1[1, 38].Value = "1.73";
-dataGridView1[1, 39].Value = "1.71";
-dataGridView1[1, 40].Value = "1.71";
-dataGridView1[1, 41].Value = "1.7";
-dataGridView1[1, 42].Value = "1.7";
-dataGridView1[1, 43].Value = "1.7";
-dataGridView1[1, 44].Value = "1.69";
+            dataGridView1[1, 0].Value = "1.86";
+            dataGridView1[1, 1].Value = "1.85";
+            dataGridView1[1, 2].Value = "1.85";
+            dataGridView1[1, 3].Value = "1.84";
+            dataGridView1[1, 4].Value = "1.84";
+            dataGridView1[1, 5].Value = "1.83";
+            dataGridView1[1, 6].Value = "1.82";
+            dataGridView1[1, 7].Value = "1.82";
+            dataGridView1[1, 8].Value = "1.82";
+            dataGridView1[1, 9].Value = "1.82";
+            dataGridView1[1, 10].Value = "1.81";
+            dataGridView1[1, 11].Value = "1.81";
+            dataGridView1[1, 12].Value = "1.81";
+            dataGridView1[1, 13].Value = "1.81";
+            dataGridView1[1, 14].Value = "1.81";
+            dataGridView1[1, 15].Value = "1.8";
+            dataGridView1[1, 16].Value = "1.8";
+            dataGridView1[1, 17].Value = "1.8";
+            dataGridView1[1, 18].Value = "1.8";
+            dataGridView1[1, 19].Value = "1.8";
+            dataGridView1[1, 20].Value = "1.8";
+            dataGridView1[1, 21].Value = "1.8";
+            dataGridView1[1, 22].Value = "1.79";
+            dataGridView1[1, 23].Value = "1.79";
+            dataGridView1[1, 24].Value = "1.78";
+            dataGridView1[1, 25].Value = "1.78";
+            dataGridView1[1, 26].Value = "1.78";
+            dataGridView1[1, 27].Value = "1.77";
+            dataGridView1[1, 28].Value = "1.76";
+            dataGridView1[1, 29].Value = "1.76";
+            dataGridView1[1, 30].Value = "1.75";
+            dataGridView1[1, 31].Value = "1.75";
+            dataGridView1[1, 32].Value = "1.75";
+            dataGridView1[1, 33].Value = "1.75";
+            dataGridView1[1, 34].Value = "1.74";
+            dataGridView1[1, 35].Value = "1.73";
+            dataGridView1[1, 36].Value = "1.73";
+            dataGridView1[1, 37].Value = "1.73";
+            dataGridView1[1, 38].Value = "1.73";
+            dataGridView1[1, 39].Value = "1.71";
+            dataGridView1[1, 40].Value = "1.71";
+            dataGridView1[1, 41].Value = "1.7";
+            dataGridView1[1, 42].Value = "1.7";
+            dataGridView1[1, 43].Value = "1.7";
+            dataGridView1[1, 44].Value = "1.69";
 
-for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-{
-    float a = (float)Convert.ToDouble(dataGridView1[0, i].Value.ToString());
-    float b = (float)Convert.ToDouble(dataGridView1[1, i].Value.ToString());
-    ListOfUserDataPoints[i] = new fPoint(a, b);
-}
-dataGridView1[0, 0].Value = "2/26/2011 ";
-dataGridView1[0, 1].Value = "3/28/2009 ";
-dataGridView1[0, 2].Value = "2/13/2010 ";
-dataGridView1[0, 3].Value = "1/16/2010 ";
-dataGridView1[0, 4].Value = "1/28/2011 ";
-dataGridView1[0, 5].Value = "11/21/2009";
-dataGridView1[0, 6].Value = "2/20/2010 ";
-dataGridView1[0, 7].Value = "1/15/2011 ";
-dataGridView1[0, 8].Value = "3/12/2011 ";
-dataGridView1[0, 9].Value = "3/19/2011 ";
-dataGridView1[0, 10].Value = "4/3/2009  ";
-dataGridView1[0, 11].Value = "1/23/2010 ";
-dataGridView1[0, 12].Value = "7/23/2010 ";
-dataGridView1[0, 13].Value = "2/19/2011 ";
-dataGridView1[0, 14].Value = "3/26/2011 ";
-dataGridView1[0, 15].Value = "2/15/2009 ";
-dataGridView1[0, 16].Value = "12/5/2009 ";
-dataGridView1[0, 17].Value = "1/22/2010 ";
-dataGridView1[0, 18].Value = "7/9/2010  ";
-dataGridView1[0, 19].Value = "7/10/2010 ";
-dataGridView1[0, 20].Value = "9/23/2010 ";
-dataGridView1[0, 21].Value = "9/25/2010 ";
-dataGridView1[0, 22].Value = "10/15/2009";
-dataGridView1[0, 23].Value = "3/27/2010 ";
-dataGridView1[0, 24].Value = "3/14/2010 ";
-dataGridView1[0, 25].Value = "7/25/2010 ";
-dataGridView1[0, 26].Value = "10/10/2010";
-dataGridView1[0, 27].Value = "3/25/2011 ";
-dataGridView1[0, 28].Value = "3/26/2010 ";
-dataGridView1[0, 29].Value = "1/25/2011 ";
-dataGridView1[0, 30].Value = "11/1/2008 ";
-dataGridView1[0, 31].Value = "12/13/2008";
-dataGridView1[0, 32].Value = "3/28/2009 ";
-dataGridView1[0, 33].Value = "2/27/2010 ";
-dataGridView1[0, 34].Value = "3/21/2009 ";
-dataGridView1[0, 35].Value = "10/4/2008 ";
-dataGridView1[0, 36].Value = "10/7/2008 ";
-dataGridView1[0, 37].Value = "12/6/2008 ";
-dataGridView1[0, 38].Value = "3/7/2009  ";
-dataGridView1[0, 39].Value = "1/31/2009 ";
-dataGridView1[0, 40].Value = "3/18/2010 ";
-dataGridView1[0, 41].Value = "4/4/2008  ";
-dataGridView1[0, 42].Value = "11/29/2008";
-dataGridView1[0, 43].Value = "2/7/2009  ";
-dataGridView1[0, 44].Value = "2/20/2009 ";
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            {
+                float a = (float)Convert.ToDouble(dataGridView1[0, i].Value.ToString());
+                float b = (float)Convert.ToDouble(dataGridView1[1, i].Value.ToString());
+                ListOfUserDataPoints[i] = new fPoint(a, b);
+            }
+            dataGridView1[0, 0].Value = "2/26/2011 ";
+            dataGridView1[0, 1].Value = "3/28/2009 ";
+            dataGridView1[0, 2].Value = "2/13/2010 ";
+            dataGridView1[0, 3].Value = "1/16/2010 ";
+            dataGridView1[0, 4].Value = "1/28/2011 ";
+            dataGridView1[0, 5].Value = "11/21/2009";
+            dataGridView1[0, 6].Value = "2/20/2010 ";
+            dataGridView1[0, 7].Value = "1/15/2011 ";
+            dataGridView1[0, 8].Value = "3/12/2011 ";
+            dataGridView1[0, 9].Value = "3/19/2011 ";
+            dataGridView1[0, 10].Value = "4/3/2009  ";
+            dataGridView1[0, 11].Value = "1/23/2010 ";
+            dataGridView1[0, 12].Value = "7/23/2010 ";
+            dataGridView1[0, 13].Value = "2/19/2011 ";
+            dataGridView1[0, 14].Value = "3/26/2011 ";
+            dataGridView1[0, 15].Value = "2/15/2009 ";
+            dataGridView1[0, 16].Value = "12/5/2009 ";
+            dataGridView1[0, 17].Value = "1/22/2010 ";
+            dataGridView1[0, 18].Value = "7/9/2010  ";
+            dataGridView1[0, 19].Value = "7/10/2010 ";
+            dataGridView1[0, 20].Value = "9/23/2010 ";
+            dataGridView1[0, 21].Value = "9/25/2010 ";
+            dataGridView1[0, 22].Value = "10/15/2009";
+            dataGridView1[0, 23].Value = "3/27/2010 ";
+            dataGridView1[0, 24].Value = "3/14/2010 ";
+            dataGridView1[0, 25].Value = "7/25/2010 ";
+            dataGridView1[0, 26].Value = "10/10/2010";
+            dataGridView1[0, 27].Value = "3/25/2011 ";
+            dataGridView1[0, 28].Value = "3/26/2010 ";
+            dataGridView1[0, 29].Value = "1/25/2011 ";
+            dataGridView1[0, 30].Value = "11/1/2008 ";
+            dataGridView1[0, 31].Value = "12/13/2008";
+            dataGridView1[0, 32].Value = "3/28/2009 ";
+            dataGridView1[0, 33].Value = "2/27/2010 ";
+            dataGridView1[0, 34].Value = "3/21/2009 ";
+            dataGridView1[0, 35].Value = "10/4/2008 ";
+            dataGridView1[0, 36].Value = "10/7/2008 ";
+            dataGridView1[0, 37].Value = "12/6/2008 ";
+            dataGridView1[0, 38].Value = "3/7/2009  ";
+            dataGridView1[0, 39].Value = "1/31/2009 ";
+            dataGridView1[0, 40].Value = "3/18/2010 ";
+            dataGridView1[0, 41].Value = "4/4/2008  ";
+            dataGridView1[0, 42].Value = "11/29/2008";
+            dataGridView1[0, 43].Value = "2/7/2009  ";
+            dataGridView1[0, 44].Value = "2/20/2009 ";
 
         }
 
@@ -607,5 +642,12 @@ dataGridView1[0, 44].Value = "2/20/2009 ";
             dataGridView1[0, 1].Value = "1/1/2011";
             dataGridView1[0, 2].Value = "1/1/2015";
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+        }
+        #endregion
+
     }
 }

@@ -65,3 +65,4 @@ C:\Users\Joris\PerformanceProgression\Prototype BackUp\PrototypeFinal\Prototype\
 C:\Users\Joris\PerformanceProgression\Prototype BackUp\PrototypeFinal\Prototype\obj\x86\Release\GenerateResource.write.3.tlog
 C:\Users\Joris\PerformanceProgression\Prototype BackUp\PrototypeFinal\Prototype\obj\x86\Release\Prototype.exe.manifest
 C:\Users\Joris\PerformanceProgression\Prototype BackUp\PrototypeFinal\Prototype\obj\x86\Release\Prototype.application
+C:\Users\Joris\PerformanceProgression\Prototype BackUp\PrototypeFinal\Prototype\bin\Release\ZedGraph.dll

@@ -48,8 +48,8 @@ namespace Attempt1MathCalculation
             float[] MatrixABC = new float[] { 0, 0, 0 };
 
 
-            MessageBox.Show(MatrixA_1[0, 0] + " " + MatrixA_1[1, 0] + " " + MatrixA_1[2, 0] + " \r\n" + MatrixA_1[0, 1] + " " + MatrixA_1[1, 1] + " " + MatrixA_1[2, 1] + " \r\n" + MatrixA_1[0, 2] + " " + MatrixA_1[1, 2] + " " + MatrixA_1[2, 2]);
-            MessageBox.Show(MatrixB[0] + " \r\n" + MatrixB[1] + " \r\n" + MatrixB[2]);
+            //MessageBox.Show(MatrixA_1[0, 0] + " " + MatrixA_1[1, 0] + " " + MatrixA_1[2, 0] + " \r\n" + MatrixA_1[0, 1] + " " + MatrixA_1[1, 1] + " " + MatrixA_1[2, 1] + " \r\n" + MatrixA_1[0, 2] + " " + MatrixA_1[1, 2] + " " + MatrixA_1[2, 2]);
+            //MessageBox.Show(MatrixB[0] + " \r\n" + MatrixB[1] + " \r\n" + MatrixB[2]);
 
             MatrixABC[2] = MatrixA_1[0, 0] * MatrixB[0] + MatrixA_1[1, 0] * MatrixB[1] + MatrixA_1[2, 0] * MatrixB[2];
             MatrixABC[1] = MatrixA_1[0, 1] * MatrixB[0] + MatrixA_1[1, 1] * MatrixB[1] + MatrixA_1[2, 1] * MatrixB[2];
