@@ -481,6 +481,7 @@
             this.CNradioButtonM.TabStop = true;
             this.CNradioButtonM.Text = "Male";
             this.CNradioButtonM.UseVisualStyleBackColor = true;
+            this.CNradioButtonM.CheckedChanged += new System.EventHandler(this.CNradioButtonM_CheckedChanged_1);
             this.CNradioButtonM.Enter += new System.EventHandler(this.CNtextBoxName_Enter);
             // 
             // CNlabel9

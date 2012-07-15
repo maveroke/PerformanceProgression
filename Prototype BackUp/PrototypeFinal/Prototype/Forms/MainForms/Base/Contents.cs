@@ -604,5 +604,48 @@ namespace Prototype
         {
             webBrowser_Data.Url = new Uri(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Data_Comparison.html"));
         }
+
+        private void CNradioButtonM_CheckedChanged_1(object sender, EventArgs e)
+        {
+            int localON = 0;
+            if (CNcomboBoxEvent.Items.Contains("Decathlon"))
+            {
+                localON = CNcomboBoxEvent.Items.IndexOf("Decathlon");
+                CNcomboBoxEvent.Items.RemoveAt(localON);
+            }
+            if (CNcomboBoxEvent.Items.Contains("Heptathlon"))
+            {
+                localON = CNcomboBoxEvent.Items.IndexOf("Heptathlon");
+                CNcomboBoxEvent.Items.RemoveAt(localON);
+            }
+
+            if (CNradioButtonF.Checked)
+                CNcomboBoxEvent.Items.Insert(localON, "Heptathlon");
+            else
+                CNcomboBoxEvent.Items.Insert(localON, "Decathlon");
+
+
+
+
+            int localES = 0;
+            if (CNcomboBoxEvent.Items.Contains("110m Hurdles"))
+            {
+                localES = CNcomboBoxEvent.Items.IndexOf("110m Hurdles");
+                CNcomboBoxEvent.Items.RemoveAt(localES);
+            }
+            if (CNcomboBoxEvent.Items.Contains("100m Hurdles"))
+            {
+                localES = CNcomboBoxEvent.Items.IndexOf("100m Hurdles");
+                CNcomboBoxEvent.Items.RemoveAt(localES);
+            }
+
+            if (CNradioButtonF.Checked)
+                CNcomboBoxEvent.Items.Insert(localES, "100m Hurdles");
+            else
+                CNcomboBoxEvent.Items.Insert(localES, "110m Hurdles");
+
+            if (CNcomboBoxEvent.Text.CompareTo("") == 0)
+                CNcomboBoxEvent.Text = "100m";
+        }
     }
 }

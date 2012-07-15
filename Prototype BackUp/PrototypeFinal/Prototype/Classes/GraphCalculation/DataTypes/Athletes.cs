@@ -40,5 +40,10 @@ namespace Attempt1MathCalculation
             Status = status;
             Data = data;
         }
+        public Athletes()
+        {
+            AthleteName = "default";
+            Status = "default";
+        }
     }
 }

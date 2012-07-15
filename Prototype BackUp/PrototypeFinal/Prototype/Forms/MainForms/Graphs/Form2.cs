@@ -11,6 +11,9 @@ using EmbeddedExcel;
 using WindowsFormsApplicationValueInput;
 using CoolPrintPreview;
 using Prototype;
+using System.Collections.Generic;
+using Attempt1MathCalculation;
+using System.Linq;
 
 namespace mdisample
 {
@@ -30,6 +33,14 @@ namespace mdisample
         public bool Male_Female;
         public string eventName;
         public string DoB;
+
+        private List<Athletes> ListOfAthletes = new List<Athletes>(150);
+        //total dataset of user data
+        private List<fPoint> ListOfUserDataPoints = new List<fPoint>(150);
+        //dataset of user points X & Y
+        private List<fPoint> UserDataPoints = new List<fPoint>(150);
+        private List<fPoint> ListOfUserDataCurve = new List<fPoint>(150);
+
 
         private Timer timer;
         private SplitContainer splitContainer1;
@@ -59,6 +70,7 @@ namespace mdisample
         private System.Windows.Forms.MenuItem menuItemSave;
         private System.Windows.Forms.MenuItem menuItem4;
         private ZedGraph.ZedGraphControl zg1;
+        private System.Windows.Forms.MenuItem menuItem5;
         private bool keyVisible = false;
 
         public Form2()
@@ -106,6 +118,8 @@ namespace mdisample
             this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.sFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.zg1 = new ZedGraph.ZedGraphControl();
+            this.excelWrapper1 = new EmbeddedExcel.ExcelWrapper();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DateofEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Performance = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,8 +127,7 @@ namespace mdisample
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panelLoad = new System.Windows.Forms.Panel();
-            this.zg1 = new ZedGraph.ZedGraphControl();
-            this.excelWrapper1 = new EmbeddedExcel.ExcelWrapper();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -127,7 +140,8 @@ namespace mdisample
             // 
             this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemCFile,
-            this.menuItem2});
+            this.menuItem2,
+            this.menuItem5});
             // 
             // menuItemCFile
             // 
@@ -227,6 +241,37 @@ namespace mdisample
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
+            // zg1
+            // 
+            this.zg1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.zg1.EditButtons = System.Windows.Forms.MouseButtons.Left;
+            this.zg1.IsEnableSelection = true;
+            this.zg1.Location = new System.Drawing.Point(0, 0);
+            this.zg1.Name = "zg1";
+            this.zg1.PanModifierKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.None)));
+            this.zg1.ScrollGrace = 0D;
+            this.zg1.ScrollMaxX = 0D;
+            this.zg1.ScrollMaxY = 0D;
+            this.zg1.ScrollMaxY2 = 0D;
+            this.zg1.ScrollMinX = 0D;
+            this.zg1.ScrollMinY = 0D;
+            this.zg1.ScrollMinY2 = 0D;
+            this.zg1.Size = new System.Drawing.Size(452, 193);
+            this.zg1.TabIndex = 3;
+            // 
+            // excelWrapper1
+            // 
+            this.excelWrapper1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.excelWrapper1.Location = new System.Drawing.Point(9, 164);
+            this.excelWrapper1.Name = "excelWrapper1";
+            this.excelWrapper1.Size = new System.Drawing.Size(126, 0);
+            this.excelWrapper1.TabIndex = 1;
+            this.excelWrapper1.ToolBarVisible = false;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -300,36 +345,11 @@ namespace mdisample
             this.panelLoad.Size = new System.Drawing.Size(108, 319);
             this.panelLoad.TabIndex = 2;
             // 
-            // zg1
+            // menuItem5
             // 
-            this.zg1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.zg1.EditButtons = System.Windows.Forms.MouseButtons.Left;
-            this.zg1.IsEnableSelection = true;
-            this.zg1.Location = new System.Drawing.Point(0, 0);
-            this.zg1.Name = "zg1";
-            this.zg1.PanModifierKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.None)));
-            this.zg1.ScrollGrace = 0D;
-            this.zg1.ScrollMaxX = 0D;
-            this.zg1.ScrollMaxY = 0D;
-            this.zg1.ScrollMaxY2 = 0D;
-            this.zg1.ScrollMinX = 0D;
-            this.zg1.ScrollMinY = 0D;
-            this.zg1.ScrollMinY2 = 0D;
-            this.zg1.Size = new System.Drawing.Size(452, 193);
-            this.zg1.TabIndex = 3;
-            // 
-            // excelWrapper1
-            // 
-            this.excelWrapper1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.excelWrapper1.Location = new System.Drawing.Point(9, 164);
-            this.excelWrapper1.Name = "excelWrapper1";
-            this.excelWrapper1.Size = new System.Drawing.Size(126, 0);
-            this.excelWrapper1.TabIndex = 1;
-            this.excelWrapper1.ToolBarVisible = false;
+            this.menuItem5.Index = 2;
+            this.menuItem5.Text = "AthletesCollected";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // Form2
             // 
@@ -358,6 +378,7 @@ namespace mdisample
         }
         #endregion
 
+        #region LOAD
         private void Form2_Load(object sender, System.EventArgs e)
         {
             progressBar1.Value = 5;
@@ -426,6 +447,7 @@ namespace mdisample
                 timer.Stop();
                 if (newopen)//if new then add initial values once
                 {
+                    addValuesToListofAthletes();
                     addValuesToExcel();
                 }
                 else//get values from the excel sheet and display then in the dataGridView
@@ -451,6 +473,94 @@ namespace mdisample
             progressBar1.Hide();
             panelLoad.Hide();
             setUP = false;
+        }
+
+        /// <summary>
+        /// adds athletes from the excel sheet to a list within the C# program
+        /// to be used to display lines in the graph
+        /// </summary>
+        private void addValuesToListofAthletes()
+        {
+            excelWrapper1.Workbook.ActiveSheet.Unprotect("1500kosmin");
+            int rowCount = excelWrapper1.Workbook.ActiveSheet.UsedRange.Rows.Count-1;
+            Microsoft.Office.Interop.Excel.Range last1 = excelWrapper1.Workbook.ActiveSheet.Cells.SpecialCells(Microsoft.Office.Interop.Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
+            Microsoft.Office.Interop.Excel.Range range1 = excelWrapper1.Workbook.ActiveSheet.Range("C1", "C" + rowCount);
+            Microsoft.Office.Interop.Excel.Range last2 = excelWrapper1.Workbook.ActiveSheet.Cells.SpecialCells(Microsoft.Office.Interop.Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
+            Microsoft.Office.Interop.Excel.Range range2 = excelWrapper1.Workbook.ActiveSheet.Range("G1", "G" + rowCount);
+            Microsoft.Office.Interop.Excel.Range last3 = excelWrapper1.Workbook.ActiveSheet.Cells.SpecialCells(Microsoft.Office.Interop.Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
+            Microsoft.Office.Interop.Excel.Range range3 = excelWrapper1.Workbook.ActiveSheet.Range("K1", "K" + rowCount);
+            
+            List<fPoint> ft = new List<fPoint>();
+            ft.Add(new fPoint());
+            Athletes at = new Athletes("","",ft);
+            for (int f = 0; f < 150; f++)
+            {
+                ListOfAthletes.Add(at);
+            }
+
+            //Microsoft.Office.Interop.Excel.Range range_2 = excelWrapper1.Workbook.ActiveSheet.Range("E2:H300");
+            //Microsoft.Office.Interop.Excel.Range range_2_Check = excelWrapper1.Workbook.ActiveSheet.Range("G2:G300");
+
+            //Microsoft.Office.Interop.Excel.Range range_3 = excelWrapper1.Workbook.ActiveSheet.Range("I2:L300");
+            //Microsoft.Office.Interop.Excel.Range range_3_Check = excelWrapper1.Workbook.ActiveSheet.Range("K2:K300");
+            
+            List<fPoint> temp = new List<fPoint>{new fPoint(),new fPoint(),new fPoint()};
+            int i = 0;//counter of 3
+            int j = 2;//counter of rows
+            int k = 0;//counter of Athletes
+            foreach (Microsoft.Office.Interop.Excel.Range r in range1)
+                {
+                if (excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString().CompareTo(".") == 0) { j++; }
+                if (excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["C" + j] == null) { break; }
+
+                        temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["D" + j].Value.ToString()));
+                        i++;
+
+                    if (i == 3) 
+                    {
+                        ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["A"+j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["B"+j].Value2.ToString(), temp);
+                            k++;
+                        i = 0;
+                    }
+                    j++;   
+                }
+
+            i = 0;//counter of 3
+            j = 2;//counter of rows
+            foreach (Microsoft.Office.Interop.Excel.Range r in range2)
+            {
+                if (excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString().CompareTo(".") == 0) { j++; }
+                if (excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["G" + j] == null) { break; }
+                    temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["H" + j].Value.ToString()));
+                    i++;
+                if (i == 3)
+                {
+                    ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["E" + j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["F" + j].Value2.ToString(), temp);
+                    k++;
+                    i = 0;
+                }
+                j++;
+            }
+            i = 0;//counter of 3
+            j = 2;//counter of rows
+            foreach (Microsoft.Office.Interop.Excel.Range r in range3)
+            {
+                if (excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0) { j++; }
+                if (j > rowCount || excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["K" + j] == null) { break; }
+
+                    temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["L" + j].Value.ToString()));
+                    i++;
+
+                if (i == 3)
+                {
+                    ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["I" + j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["J" + j].Value2.ToString(), temp);
+                    k++;
+                    i = 0;
+                }
+                j++;
+            }
+
+            excelWrapper1.Workbook.ActiveSheet.Protect("1500kosmin", false);
         }
         /// <summary>
         /// gets the values from the excel Document and adds it to the dataGridView
@@ -508,6 +618,8 @@ namespace mdisample
             panelLoad.Hide();
             setUP = false;
         }
+        #endregion
+
         /// <summary>
         /// resize the forms to appropriate sizes
         /// </summary>
@@ -828,6 +940,15 @@ namespace mdisample
             {
                 MessageBox.Show("Error occured while trying to copy the graph: " + gg);
             }
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            string r = "";
+            foreach(Athletes a in ListOfAthletes){
+                r +=a.getName()+"\r\n";
+            }
+            MessageBox.Show(r);
         }
     }
 }
