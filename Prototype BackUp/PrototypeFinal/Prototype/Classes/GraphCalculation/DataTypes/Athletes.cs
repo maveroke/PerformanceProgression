@@ -41,11 +41,15 @@ namespace Attempt1MathCalculation
         /// <param name="data">List of Points of the athletes Dates and Performances</param>
         public Athletes(string athleteName, string status, List<fPoint> data)
         {
-            CreateTrendline ct = new CreateTrendline(data);
+            if (data[0].getX_Age().CompareTo(1111f) != 0)
+            {
+                CreateTrendline ct = new CreateTrendline(data);
+                list = ct.getTrendList();
+            }
             AthleteName = athleteName;
             Status = status;
             Data = data;
-            list = ct.getTrendList();
+            
         }
         public Athletes()
         {

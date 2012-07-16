@@ -103,9 +103,9 @@ namespace mdisample
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItemCFile = new System.Windows.Forms.MenuItem();
             this.menuItemSave = new System.Windows.Forms.MenuItem();
@@ -244,8 +244,8 @@ namespace mdisample
             // 
             this.splitContainer1.Panel2.Controls.Add(this.excelWrapper1);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(636, 193);
-            this.splitContainer1.SplitterDistance = 454;
+            this.splitContainer1.Size = new System.Drawing.Size(868, 375);
+            this.splitContainer1.SplitterDistance = 619;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
@@ -266,17 +266,18 @@ namespace mdisample
             this.zg1.ScrollMinX = 0D;
             this.zg1.ScrollMinY = 0D;
             this.zg1.ScrollMinY2 = 0D;
-            this.zg1.Size = new System.Drawing.Size(452, 193);
+            this.zg1.Size = new System.Drawing.Size(617, 375);
             this.zg1.TabIndex = 3;
+            this.zg1.PointValueEvent += new ZedGraph.ZedGraphControl.PointValueHandler(this.zg1_PointValueEvent);
             // 
             // excelWrapper1
             // 
             this.excelWrapper1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.excelWrapper1.Location = new System.Drawing.Point(9, 164);
+            this.excelWrapper1.Location = new System.Drawing.Point(0, 0);
             this.excelWrapper1.Name = "excelWrapper1";
-            this.excelWrapper1.Size = new System.Drawing.Size(126, 0);
+            this.excelWrapper1.Size = new System.Drawing.Size(245, 375);
             this.excelWrapper1.TabIndex = 1;
             this.excelWrapper1.ToolBarVisible = false;
             // 
@@ -289,19 +290,19 @@ namespace mdisample
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DateofEvent,
             this.Performance});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 4;
-            this.dataGridView1.Size = new System.Drawing.Size(178, 214);
+            this.dataGridView1.Size = new System.Drawing.Size(245, 396);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
@@ -309,17 +310,17 @@ namespace mdisample
             // DateofEvent
             // 
             this.DateofEvent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DateofEvent.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DateofEvent.DefaultCellStyle = dataGridViewCellStyle4;
             this.DateofEvent.HeaderText = "DateofEvent";
             this.DateofEvent.Name = "DateofEvent";
             // 
             // Performance
             // 
             this.Performance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "12:21.13";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Performance.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "12:21.13";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Performance.DefaultCellStyle = dataGridViewCellStyle5;
             this.Performance.HeaderText = "Performance";
             this.Performance.Name = "Performance";
             // 
@@ -356,7 +357,7 @@ namespace mdisample
             // Form2
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(636, 193);
+            this.ClientSize = new System.Drawing.Size(868, 375);
             this.Controls.Add(this.panelLoad);
             this.Controls.Add(this.splitContainer1);
             this.Menu = this.mainMenu1;
@@ -974,7 +975,7 @@ namespace mdisample
             myPane.YAxis.Type = AxisType.Linear;
 
 
-
+            myPane.Legend.IsVisible = false;
 
 
             //max and min for standard view
@@ -1055,6 +1056,12 @@ namespace mdisample
         {
         }
         #endregion
+
+        private string zg1_PointValueEvent(ZedGraphControl sender, GraphPane pane, CurveItem curve, int iPt)
+        {
+
+            return  (curve.Label.Text);
+        }
 
 
     }
