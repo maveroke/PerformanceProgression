@@ -103,9 +103,9 @@ namespace mdisample
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItemCFile = new System.Windows.Forms.MenuItem();
             this.menuItemSave = new System.Windows.Forms.MenuItem();
@@ -290,14 +290,14 @@ namespace mdisample
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DateofEvent,
             this.Performance});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -310,17 +310,17 @@ namespace mdisample
             // DateofEvent
             // 
             this.DateofEvent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DateofEvent.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DateofEvent.DefaultCellStyle = dataGridViewCellStyle1;
             this.DateofEvent.HeaderText = "DateofEvent";
             this.DateofEvent.Name = "DateofEvent";
             // 
             // Performance
             // 
             this.Performance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Format = "12:21.13";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Performance.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "12:21.13";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Performance.DefaultCellStyle = dataGridViewCellStyle2;
             this.Performance.HeaderText = "Performance";
             this.Performance.Name = "Performance";
             // 
@@ -551,6 +551,7 @@ namespace mdisample
             j = 2;//counter of rows
             foreach (Microsoft.Office.Interop.Excel.Range r in range3)
             {
+
                 if (excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0) { j++; }
                 if (j > rowCount || excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["K" + j] == null) { break; }
 
@@ -947,6 +948,7 @@ namespace mdisample
         private void menuItem5_Click(object sender, EventArgs e)
         {
             string r = "";
+            string p = "";
             int i= 1;
             foreach (Athletes a in ListOfAthletes)
             {
@@ -955,9 +957,15 @@ namespace mdisample
                     r += a.getName() + "\r\n";
                     i++;
                 }
+                if (a.getName().CompareTo("Arthur Abele") == 0 || a.getName().CompareTo("Michael Schrader") == 0 || a.getName().CompareTo("Willem Coertzen") == 0)
+                {
+                    p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                }
             }
             r += "Count of Athletes: " + i;
             MessageBox.Show(r);
+            MessageBox.Show(p);
+
         }
 
         #region graph
@@ -1030,8 +1038,12 @@ namespace mdisample
             {
                 Color col = Color.Black;
                 if (a.getStatus().CompareTo("Medal") == 0) { col = Color.Red; }
-                else if (a.getStatus().CompareTo("Medal") == 0) { col = Color.Blue; }
+                else if (a.getStatus().CompareTo("Final") == 0) { col = Color.Blue; }
                 else { col = Color.Purple; }
+                if (a.getName().CompareTo("Arthur Abele") == 0) 
+                {
+                    int i = 0; i++;
+                }
                 myPane.CurveList.Add(new LineItem(a.getName(), a.getCurveData(), col, SymbolType.None));
                     
                 
