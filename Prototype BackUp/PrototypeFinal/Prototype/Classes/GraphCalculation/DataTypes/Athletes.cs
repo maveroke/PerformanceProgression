@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using ZedGraph;
 
 namespace Attempt1MathCalculation
 {
@@ -14,6 +15,7 @@ namespace Attempt1MathCalculation
         protected string AthleteName;
         protected string Status;
         protected List<fPoint> Data;
+        protected PointPairList list;
 
         public string getName()
         {
@@ -27,7 +29,10 @@ namespace Attempt1MathCalculation
         {
             return Data;
         }
-
+        public PointPairList getCurveData()
+        {
+            return list;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -36,9 +41,11 @@ namespace Attempt1MathCalculation
         /// <param name="data">List of Points of the athletes Dates and Performances</param>
         public Athletes(string athleteName, string status, List<fPoint> data)
         {
+            CreateTrendline ct = new CreateTrendline(data);
             AthleteName = athleteName;
             Status = status;
             Data = data;
+            list = ct.getTrendList();
         }
         public Athletes()
         {

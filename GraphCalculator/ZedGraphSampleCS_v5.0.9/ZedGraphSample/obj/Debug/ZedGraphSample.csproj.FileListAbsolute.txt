@@ -1,0 +1,10 @@
+C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraphSample\bin\Debug\ZedGraphSample.exe
+C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraphSample\bin\Debug\ZedGraphSample.pdb
+C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraphSample\bin\Debug\ZedGraph.dll
+C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraphSample\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraphSample\obj\Debug\ZedGraphSample.Form1.resources
+C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraphSample\obj\Debug\ZedGraphSample.Properties.Resources.resources
+C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraphSample\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraphSample\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraphSample\obj\Debug\ZedGraphSample.exe
+C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraphSample\obj\Debug\ZedGraphSample.pdb

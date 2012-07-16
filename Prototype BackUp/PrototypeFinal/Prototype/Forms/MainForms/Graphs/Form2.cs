@@ -14,6 +14,7 @@ using Prototype;
 using System.Collections.Generic;
 using Attempt1MathCalculation;
 using System.Linq;
+using ZedGraph;
 
 namespace mdisample
 {
@@ -41,6 +42,7 @@ namespace mdisample
         private List<fPoint> UserDataPoints = new List<fPoint>(150);
         private List<fPoint> ListOfUserDataCurve = new List<fPoint>(150);
 
+        GraphPane myPane;
 
         private Timer timer;
         private SplitContainer splitContainer1;
@@ -115,6 +117,7 @@ namespace mdisample
             this.menuItemPrint = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.sFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -127,7 +130,6 @@ namespace mdisample
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panelLoad = new System.Windows.Forms.Panel();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -212,6 +214,12 @@ namespace mdisample
             this.menuItem4.Shortcut = System.Windows.Forms.Shortcut.CtrlW;
             this.menuItem4.Text = "Graph Image";
             this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 2;
+            this.menuItem5.Text = "AthletesCollected";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // oFileDlg
             // 
@@ -345,12 +353,6 @@ namespace mdisample
             this.panelLoad.Size = new System.Drawing.Size(108, 319);
             this.panelLoad.TabIndex = 2;
             // 
-            // menuItem5
-            // 
-            this.menuItem5.Index = 2;
-            this.menuItem5.Text = "AthletesCollected";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
-            // 
             // Form2
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
@@ -445,9 +447,12 @@ namespace mdisample
             if (this.excelWrapper1.m_XlApplication != null)
             {
                 timer.Stop();
+                CreateGraph(zg1);
+                addValuesToListofAthletes();
+                addLinestoGraph();
                 if (newopen)//if new then add initial values once
                 {
-                    addValuesToListofAthletes();
+                    
                     addValuesToExcel();
                 }
                 else//get values from the excel sheet and display then in the dataGridView
@@ -843,6 +848,7 @@ namespace mdisample
 
         private void Form2_Resize(object sender, EventArgs e)
         {
+            SetSize();
             if (keyVisible)
             {
                 key.Hide();
@@ -859,11 +865,10 @@ namespace mdisample
 
         private void Form2_Activated(object sender, EventArgs e)
         {
-            excelWrapper1.Focus();
+            //excelWrapper1.Focus();
             dataGridView1.Focus();
         }
 
-        public int closeCount = 1;
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             //MessageBox.Show("C: 2");
@@ -883,9 +888,6 @@ namespace mdisample
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             //MessageBox.Show("C: 1");
-            //closeCount++;
-            //if (closeCount == 2)
-            //{
             if (!FormSaved)
             {
                 DialogResult result = MessageBox.Show("Do you want to save changes you made to the" + chartName.Substring(3) + "?", "Save",
@@ -910,7 +912,6 @@ namespace mdisample
                 }
                 else
                 {
-                    //closeCount = 0;
                     e.Cancel = true;
                 }
             }
@@ -945,10 +946,116 @@ namespace mdisample
         private void menuItem5_Click(object sender, EventArgs e)
         {
             string r = "";
-            foreach(Athletes a in ListOfAthletes){
-                r +=a.getName()+"\r\n";
+            int i= 1;
+            foreach (Athletes a in ListOfAthletes)
+            {
+                if (a.getName().CompareTo("") != 0)
+                {
+                    r += a.getName() + "\r\n";
+                    i++;
+                }
             }
+            r += "Count of Athletes: " + i;
             MessageBox.Show(r);
         }
+
+        #region graph
+        private void CreateGraph(ZedGraphControl zgc)
+        {
+            myPane = zgc.GraphPane;
+
+            // Set the titles and axis labels
+            myPane.Title.Text = chartName;
+            myPane.XAxis.Title.Text = "Age of Athletes";
+            myPane.YAxis.Title.Text = "Performance of Athletes";
+            //sets the XY value types
+            myPane.XAxis.Type = AxisType.Linear;
+            ////          //myPane.YAxis.Type = AxisType.Date;
+            myPane.YAxis.Type = AxisType.Linear;
+
+
+
+
+
+            //max and min for standard view
+            myPane.XAxis.Scale.Max = 35;
+            myPane.XAxis.Scale.Min = 10;
+
+            ////          //myPane.YAxis.Scale.Max = new XDate(2000, 1, 1, 0, 0, 15, 0);
+            ////          //myPane.YAxis.Scale.Min = new XDate(2000, 1, 1, 0, 0, 8, 0);
+            myPane.YAxis.Scale.Max = 2;
+            myPane.YAxis.Scale.Min = 1;
+
+            // Enable the X and Y axis grids
+            myPane.XAxis.MajorGrid.IsVisible = true;
+            myPane.YAxis.MajorGrid.IsVisible = true;
+
+
+            ////         //myPane.YAxis.Scale.MajorUnit = DateUnit.Second;
+            ////         //myPane.YAxis.Scale.MajorStep = 0.40;  
+
+            ////          //myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
+
+
+
+
+
+            // Fill the axis background with a color gradient
+            myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
+            // Fill the pane background with a color gradient
+            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
+            // Calculate the Axis Scale Ranges
+            zg1.AxisChange();
+
+            zg1.Invalidate();
+
+        }
+        private void SetSize()
+        {
+            zg1.Location = new System.Drawing.Point(10, 10);
+            // Leave a small margin around the outside of the control
+            zg1.Size = new Size(splitContainer1.Panel1.Width - 20, splitContainer1.Panel1.Height - 20);
+            //myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
+        }
+
+        private void addLinestoGraph()
+        {
+            // Generate a blue curve with circle symbols, and "My Curve 2" in the legend
+            //LineItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.Circle);
+            //myCurve.Line.IsVisible = false;
+
+            CreateTrendline ct = new CreateTrendline(ListOfUserDataPoints);
+            foreach (Athletes a in ListOfAthletes)
+            {
+                Color col = Color.Black;
+                if (a.getStatus().CompareTo("Medal") == 0) { col = Color.Red; }
+                else if (a.getStatus().CompareTo("Medal") == 0) { col = Color.Blue; }
+                else { col = Color.Purple; }
+                myPane.CurveList.Add(new LineItem(a.getName(), a.getCurveData(), col, SymbolType.None));
+                    
+                
+            }
+            
+            //CurveItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.None);
+            // Fill the area under the curve with a white-red gradient at 45 degrees
+            //myCurve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
+            // Make the symbols opaque by filling them with white
+            //myCurve.Symbol.Fill = new Fill(Color.White);
+
+            // Fill the axis background with a color gradient
+            myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
+            // Fill the pane background with a color gradient
+            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
+            // Calculate the Axis Scale Ranges
+            zg1.AxisChange();
+            zg1.IsEnableHPan = true;
+            zg1.Invalidate();
+        }
+        private void addUserDatatoGraph()
+        {
+        }
+        #endregion
+
+
     }
 }
