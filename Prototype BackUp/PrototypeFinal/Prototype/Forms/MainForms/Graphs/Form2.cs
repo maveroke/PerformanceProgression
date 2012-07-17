@@ -504,11 +504,6 @@ namespace mdisample
                 ListOfAthletes.Add(at);
             }
 
-            //Microsoft.Office.Interop.Excel.Range range_2 = excelWrapper1.Workbook.ActiveSheet.Range("E2:H300");
-            //Microsoft.Office.Interop.Excel.Range range_2_Check = excelWrapper1.Workbook.ActiveSheet.Range("G2:G300");
-
-            //Microsoft.Office.Interop.Excel.Range range_3 = excelWrapper1.Workbook.ActiveSheet.Range("I2:L300");
-            //Microsoft.Office.Interop.Excel.Range range_3_Check = excelWrapper1.Workbook.ActiveSheet.Range("K2:K300");
             
             List<fPoint> temp = new List<fPoint>{new fPoint(),new fPoint(),new fPoint()};
             int i = 0;//counter of 3
@@ -553,7 +548,7 @@ namespace mdisample
             {
 
                 if (excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0) { j++; }
-                if (j > rowCount || excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["K" + j] == null) { break; }
+                if (excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["K" + j] == null) { break; }
 
                     temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["L" + j].Value.ToString()));
                     i++;
@@ -956,16 +951,24 @@ namespace mdisample
                 {
                     r += a.getName() + "\r\n";
                     i++;
-                }
-                if (a.getName().CompareTo("Arthur Abele") == 0 || a.getName().CompareTo("Michael Schrader") == 0 || a.getName().CompareTo("Willem Coertzen") == 0)
-                {
-                    p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                    if (a.getName().CompareTo("Arthur Abele") == 0 || a.getName().CompareTo("Michael Schrader") == 0 || a.getName().CompareTo("Willem Coertzen") == 0)
+                    {
+                        p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                    }
+                    if (a.getName().CompareTo("Timo Tompuri") == 0 )
+                    {
+                        p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                    }
+                    if (a.getName().CompareTo("Timo Aaltonen") == 0)
+                    {
+                        p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                    }
                 }
             }
             r += "Count of Athletes: " + i;
             MessageBox.Show(r);
             MessageBox.Show(p);
-
+            
         }
 
         #region graph
