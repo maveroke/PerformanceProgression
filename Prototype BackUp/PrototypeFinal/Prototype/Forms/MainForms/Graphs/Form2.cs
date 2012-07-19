@@ -122,7 +122,6 @@ namespace mdisample
             this.sFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.zg1 = new ZedGraph.ZedGraphControl();
-            this.excelWrapper1 = new EmbeddedExcel.ExcelWrapper();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DateofEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Performance = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -130,6 +129,7 @@ namespace mdisample
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panelLoad = new System.Windows.Forms.Panel();
+            this.excelWrapper1 = new EmbeddedExcel.ExcelWrapper();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -244,7 +244,7 @@ namespace mdisample
             // 
             this.splitContainer1.Panel2.Controls.Add(this.excelWrapper1);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(868, 375);
+            this.splitContainer1.Size = new System.Drawing.Size(868, 354);
             this.splitContainer1.SplitterDistance = 619;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
@@ -266,20 +266,9 @@ namespace mdisample
             this.zg1.ScrollMinX = 0D;
             this.zg1.ScrollMinY = 0D;
             this.zg1.ScrollMinY2 = 0D;
-            this.zg1.Size = new System.Drawing.Size(617, 375);
+            this.zg1.Size = new System.Drawing.Size(617, 354);
             this.zg1.TabIndex = 3;
             this.zg1.PointValueEvent += new ZedGraph.ZedGraphControl.PointValueHandler(this.zg1_PointValueEvent);
-            // 
-            // excelWrapper1
-            // 
-            this.excelWrapper1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.excelWrapper1.Location = new System.Drawing.Point(0, 0);
-            this.excelWrapper1.Name = "excelWrapper1";
-            this.excelWrapper1.Size = new System.Drawing.Size(245, 375);
-            this.excelWrapper1.TabIndex = 1;
-            this.excelWrapper1.ToolBarVisible = false;
             // 
             // dataGridView1
             // 
@@ -302,7 +291,7 @@ namespace mdisample
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 4;
-            this.dataGridView1.Size = new System.Drawing.Size(245, 396);
+            this.dataGridView1.Size = new System.Drawing.Size(245, 375);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
@@ -354,10 +343,22 @@ namespace mdisample
             this.panelLoad.Size = new System.Drawing.Size(108, 319);
             this.panelLoad.TabIndex = 2;
             // 
+            // excelWrapper1
+            // 
+            this.excelWrapper1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.excelWrapper1.Location = new System.Drawing.Point(0, 0);
+            this.excelWrapper1.Name = "excelWrapper1";
+            this.excelWrapper1.Size = new System.Drawing.Size(245, 375);
+            this.excelWrapper1.TabIndex = 1;
+            this.excelWrapper1.ToolBarVisible = false;
+            this.excelWrapper1.Visible = false;
+            // 
             // Form2
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(868, 375);
+            this.ClientSize = new System.Drawing.Size(868, 354);
             this.Controls.Add(this.panelLoad);
             this.Controls.Add(this.splitContainer1);
             this.Menu = this.mainMenu1;
@@ -502,7 +503,7 @@ namespace mdisample
             for (int f = 0; f < 150; f++)
             {
                 ListOfAthletes.Add(at);
-            }
+            }+-
 
             
             List<fPoint> temp = new List<fPoint>{new fPoint(),new fPoint(),new fPoint()};
