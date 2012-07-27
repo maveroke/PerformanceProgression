@@ -5,16 +5,16 @@ using System.Text;
 
 namespace Attempt1MathCalculation
 {
-    class fPoint
+    struct fPoint
     {
-        protected float X_valAge;
-        protected float Y_Val;
+        private float X_valAge;
+        private float Y_Val;
 
-        public fPoint()
+        public static fPoint ConstructDefault()
         {
-            X_valAge = 1111f;
-            Y_Val = 1111f;
+            return new fPoint(1111f, 1111f);
         }
+
         /// <summary>
         /// Stores a Performance for Track Events
         /// </summary>

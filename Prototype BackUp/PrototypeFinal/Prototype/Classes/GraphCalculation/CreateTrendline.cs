@@ -20,6 +20,7 @@ namespace Attempt1MathCalculation
             {
 
                 ////               //list.Add(UserDataPoints[i].getX_Age(), new XDate(UserDataPoints[i].getY_Value_AsDate()));
+                
                 list.Add(Range[i].getX_Age(), Range[i].getY_Value_AsFloat());
             }
             return list;
@@ -48,33 +49,37 @@ namespace Attempt1MathCalculation
                 Range = new List<fPoint>((int)maxRange);
                 for (int i = 0; i < maxRange; i++)
                 {
-                    Range.Add(new fPoint());
+                    Range.Add(fPoint.ConstructDefault());
                 }
 
                 double percentValue = smallest.getX_Age() + rangeMM;
 
                 Range[0] = smallest;
                 Range[(int)(maxRange - 1)] = largest;
-                for (int i = 1; i < maxRange; i++)
-                {
-                    Range[i] = new fPoint((float)percentValue, 1111f);
-                    percentValue += rangeMM;
-                }
 
                 //get ABC off the x,y user data.
                 PolynomialGraph pg = new PolynomialGraph();
                 float[] tempABC = pg.Polynomial(searchMaxMin);
+
+                for (int i = 1; i < maxRange; i++)
+                {
+                    float x_val = (float)percentValue;
+                    Range[i] = new fPoint(x_val, tempABC[0] * (x_val * x_val) + tempABC[1] * x_val + tempABC[2]);
+                    percentValue += rangeMM;
+                }
+
+
                 //MessageBox.Show(searchMaxMin[2].getX_Age()+"");
 
                 //MessageBox.Show("A: "+tempABC[0] + " B: " + tempABC[1] + " C: " + tempABC[2]);
 
                 //use ABC + equation on range to get Y
-                string temp = "";
-                foreach (fPoint p in Range)
-                {
-                    p.setY_Value(tempABC[0] * (p.getX_Age() * p.getX_Age()) + tempABC[1] * p.getX_Age() + tempABC[2]);
-                    temp += "\r\n" + p.getX_Age() + " " + p.getY_Value_AsFloat();
-                }
+                //string temp = "";
+                //foreach (fPoint p in Range)
+                //{
+                //    p.setY_Value();
+                //    //temp += "\r\n" + p.getX_Age() + " " + p.getY_Value_AsFloat();
+                //}
                 //MessageBox.Show(temp);
                 //MessageBox.Show(Range.Count()+" "+ Range[Range.Count - 1].getX_Age());
             }

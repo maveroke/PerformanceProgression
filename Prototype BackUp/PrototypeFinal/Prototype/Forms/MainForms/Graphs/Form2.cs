@@ -244,7 +244,7 @@ namespace mdisample
             // 
             this.splitContainer1.Panel2.Controls.Add(this.excelWrapper1);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(868, 354);
+            this.splitContainer1.Size = new System.Drawing.Size(868, 291);
             this.splitContainer1.SplitterDistance = 619;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
@@ -266,7 +266,7 @@ namespace mdisample
             this.zg1.ScrollMinX = 0D;
             this.zg1.ScrollMinY = 0D;
             this.zg1.ScrollMinY2 = 0D;
-            this.zg1.Size = new System.Drawing.Size(617, 354);
+            this.zg1.Size = new System.Drawing.Size(617, 291);
             this.zg1.TabIndex = 3;
             this.zg1.PointValueEvent += new ZedGraph.ZedGraphControl.PointValueHandler(this.zg1_PointValueEvent);
             // 
@@ -291,7 +291,7 @@ namespace mdisample
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 4;
-            this.dataGridView1.Size = new System.Drawing.Size(245, 375);
+            this.dataGridView1.Size = new System.Drawing.Size(245, 312);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
@@ -350,7 +350,7 @@ namespace mdisample
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.excelWrapper1.Location = new System.Drawing.Point(0, 0);
             this.excelWrapper1.Name = "excelWrapper1";
-            this.excelWrapper1.Size = new System.Drawing.Size(245, 375);
+            this.excelWrapper1.Size = new System.Drawing.Size(245, 312);
             this.excelWrapper1.TabIndex = 1;
             this.excelWrapper1.ToolBarVisible = false;
             this.excelWrapper1.Visible = false;
@@ -358,7 +358,7 @@ namespace mdisample
             // Form2
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(868, 354);
+            this.ClientSize = new System.Drawing.Size(868, 291);
             this.Controls.Add(this.panelLoad);
             this.Controls.Add(this.splitContainer1);
             this.Menu = this.mainMenu1;
@@ -454,7 +454,7 @@ namespace mdisample
                 addLinestoGraph();
                 if (newopen)//if new then add initial values once
                 {
-                    
+
                     addValuesToExcel();
                 }
                 else//get values from the excel sheet and display then in the dataGridView
@@ -489,43 +489,40 @@ namespace mdisample
         private void addValuesToListofAthletes()
         {
             excelWrapper1.Workbook.ActiveSheet.Unprotect("1500kosmin");
-            int rowCount = excelWrapper1.Workbook.ActiveSheet.UsedRange.Rows.Count-1;
+            int rowCount = excelWrapper1.Workbook.ActiveSheet.UsedRange.Rows.Count - 1;
             Microsoft.Office.Interop.Excel.Range last1 = excelWrapper1.Workbook.ActiveSheet.Cells.SpecialCells(Microsoft.Office.Interop.Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
             Microsoft.Office.Interop.Excel.Range range1 = excelWrapper1.Workbook.ActiveSheet.Range("C1", "C" + rowCount);
             Microsoft.Office.Interop.Excel.Range last2 = excelWrapper1.Workbook.ActiveSheet.Cells.SpecialCells(Microsoft.Office.Interop.Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
             Microsoft.Office.Interop.Excel.Range range2 = excelWrapper1.Workbook.ActiveSheet.Range("G1", "G" + rowCount);
             Microsoft.Office.Interop.Excel.Range last3 = excelWrapper1.Workbook.ActiveSheet.Cells.SpecialCells(Microsoft.Office.Interop.Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
             Microsoft.Office.Interop.Excel.Range range3 = excelWrapper1.Workbook.ActiveSheet.Range("K1", "K" + rowCount);
-            
-            List<fPoint> ft = new List<fPoint>();
-            ft.Add(new fPoint());
-            Athletes at = new Athletes("","",ft);
+
+            List<fPoint> temp = new List<fPoint> { fPoint.ConstructDefault(), fPoint.ConstructDefault(), fPoint.ConstructDefault() };
+            Athletes at = new Athletes("", "", temp);
             for (int f = 0; f < 150; f++)
             {
                 ListOfAthletes.Add(at);
-            }+-
-
+            }
             
-            List<fPoint> temp = new List<fPoint>{new fPoint(),new fPoint(),new fPoint()};
             int i = 0;//counter of 3
             int j = 2;//counter of rows
             int k = 0;//counter of Athletes
             foreach (Microsoft.Office.Interop.Excel.Range r in range1)
-                {
+            {
                 if (excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString().CompareTo(".") == 0) { j++; }
                 if (excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["C" + j] == null) { break; }
 
-                        temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["D" + j].Value.ToString()));
-                        i++;
+                temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["D" + j].Value.ToString()));
+                i++;
 
-                    if (i == 3) 
-                    {
-                        ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["A"+j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["B"+j].Value2.ToString(), temp);
-                            k++;
-                        i = 0;
-                    }
-                    j++;   
+                if (i == 3)
+                {
+                    ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["A" + j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["B" + j].Value2.ToString(), temp);
+                    k++;
+                    i = 0;
                 }
+                j++;
+            }
 
             i = 0;//counter of 3
             j = 2;//counter of rows
@@ -533,8 +530,8 @@ namespace mdisample
             {
                 if (excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString().CompareTo(".") == 0) { j++; }
                 if (excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["G" + j] == null) { break; }
-                    temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["H" + j].Value.ToString()));
-                    i++;
+                temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["H" + j].Value.ToString()));
+                i++;
                 if (i == 3)
                 {
                     ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["E" + j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["F" + j].Value2.ToString(), temp);
@@ -551,8 +548,8 @@ namespace mdisample
                 if (excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0) { j++; }
                 if (excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["K" + j] == null) { break; }
 
-                    temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["L" + j].Value.ToString()));
-                    i++;
+                temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["L" + j].Value.ToString()));
+                i++;
 
                 if (i == 3)
                 {
@@ -579,13 +576,13 @@ namespace mdisample
                 {//Left hand Column
                     DataGridViewCell cell = dataGridView1.Rows[(i - 3)].Cells[0];
                     dataGridView1.CurrentCell = cell;
-                   //gets the date out of Excel 
+                    //gets the date out of Excel 
                     string DateOfEventTemp = excelWrapper1.Workbook.ActiveSheet.Range[AIName].Value.ToString();
-                   //splits the date off from time
+                    //splits the date off from time
                     string[] Temp = DateOfEventTemp.Split(' ');
 
                     //splits the date up into 3
-                    string[] dateOut = Temp[0].Split('/') ;
+                    string[] dateOut = Temp[0].Split('/');
                     //changes mm/dd/yyyy to dd/mm/yyyy
                     string disp = dateOut[1] + "/" + dateOut[0] + "/" + dateOut[2];
 
@@ -605,14 +602,14 @@ namespace mdisample
                     }
                     else
                     {
-                        dataGridView1.CurrentCell.Value = ""+excelWrapper1.Workbook.ActiveSheet.Range[AKName].Value;
+                        dataGridView1.CurrentCell.Value = "" + excelWrapper1.Workbook.ActiveSheet.Range[AKName].Value;
                     }
                     //dataGridView1.Columns[1].DefaultCellStyle.Format = "HH:mm:ss";
                     dataGridView1.Rows[dataGridView1.CurrentCellAddress.Y].Cells[dataGridView1.CurrentCellAddress.X].Style.ForeColor = Color.Black;
                 }
 
-                if(progressBar1.Value<=99)
-                progressBar1.Value = progressBar1.Value + (i / 100);
+                if (progressBar1.Value <= 99)
+                    progressBar1.Value = progressBar1.Value + (i / 100);
             }
             DataGridViewCell cellwe = dataGridView1.Rows[0].Cells[0];
             dataGridView1.CurrentCell = cellwe;
@@ -672,7 +669,8 @@ namespace mdisample
                                 string valueToAddToExcel = dataGridView1.CurrentCell.Value.ToString();
 
                                 //working in the DateOfPerformanceColumn
-                                if (locationColumn.Contains("AI")) {
+                                if (locationColumn.Contains("AI"))
+                                {
                                     string[] tempDate = valueToAddToExcel.Split('/');
                                     if (Convert.ToInt32(tempDate[1]) <= 12)
                                     {
@@ -691,7 +689,7 @@ namespace mdisample
                                     if (valueToAddToExcel.Contains(":") && valueToAddToExcel.Contains(".")) { }
                                     else
                                     {
-                                        if (valueToAddToExcel.CompareTo("") != 0) 
+                                        if (valueToAddToExcel.CompareTo("") != 0)
                                         {
                                             string[] tempDate = valueToAddToExcel.Split(':', '.');
 
@@ -874,7 +872,7 @@ namespace mdisample
             {
                 key.Close();
             }
-            
+
             //if (MdiChildren.Length == 0)
             //{
             //    Contents ct = new Contents();
@@ -902,7 +900,7 @@ namespace mdisample
                     //Dont Save
                     //excelWrapper1.Close(false);
                     //MessageBox.Show(this.Text+".xlsx");
-                    
+
                     //excelWrapper1.m_XlApplication.Workbooks[this.Text + ".xlsx"].Activate();
                     //excelWrapper1.namesTest(this.Text+".xlsx");
                     excelWrapper1.Workbook.Saved = true;
@@ -913,7 +911,7 @@ namespace mdisample
                     e.Cancel = true;
                 }
             }
-           // }
+            // }
         }
 
         private void menuItemSave_Click(object sender, EventArgs e)
@@ -945,18 +943,20 @@ namespace mdisample
         {
             string r = "";
             string p = "";
-            int i= 1;
+            int i = 1;
             foreach (Athletes a in ListOfAthletes)
             {
                 if (a.getName().CompareTo("") != 0)
                 {
-                    r += a.getName() + "\r\n";
+                    //r += a.getName() + "\r\n";
+                   // r += a.getName() + " " + a.getStatus() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                    r += a.getName() + " " + a.getStatus() + " (" + a.getCurveData()[0].X + "," + a.getCurveData()[0].Y + ")," + "(" + a.getCurveData()[50].X + "," + a.getCurveData()[50].Y + ")," + "(" + a.getCurveData()[100].X + "," + a.getCurveData()[100].Y + ")" + "\r\n";
                     i++;
                     if (a.getName().CompareTo("Arthur Abele") == 0 || a.getName().CompareTo("Michael Schrader") == 0 || a.getName().CompareTo("Willem Coertzen") == 0)
                     {
-                        p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                        //p += 
                     }
-                    if (a.getName().CompareTo("Timo Tompuri") == 0 )
+                    if (a.getName().CompareTo("Timo Tompuri") == 0)
                     {
                         p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
                     }
@@ -969,7 +969,7 @@ namespace mdisample
             r += "Count of Athletes: " + i;
             MessageBox.Show(r);
             MessageBox.Show(p);
-            
+
         }
 
         #region graph
@@ -981,37 +981,56 @@ namespace mdisample
             myPane.Title.Text = chartName;
             myPane.XAxis.Title.Text = "Age of Athletes";
             myPane.YAxis.Title.Text = "Performance of Athletes";
-            //sets the XY value types
+
+
+                                            //sets the XY value types
             myPane.XAxis.Type = AxisType.Linear;
             ////          //myPane.YAxis.Type = AxisType.Date;
             myPane.YAxis.Type = AxisType.Linear;
-
-
-            myPane.Legend.IsVisible = false;
-
-
-            //max and min for standard view
+                        //max and min for standard view
             myPane.XAxis.Scale.Max = 35;
             myPane.XAxis.Scale.Min = 10;
-
-            ////          //myPane.YAxis.Scale.Max = new XDate(2000, 1, 1, 0, 0, 15, 0);
-            ////          //myPane.YAxis.Scale.Min = new XDate(2000, 1, 1, 0, 0, 8, 0);
-            myPane.YAxis.Scale.Max = 2;
-            myPane.YAxis.Scale.Min = 1;
-
-            // Enable the X and Y axis grids
+                        // Enable the X and Y axis grids
             myPane.XAxis.MajorGrid.IsVisible = true;
             myPane.YAxis.MajorGrid.IsVisible = true;
 
+            myPane.Legend.IsVisible = false;
 
-            ////         //myPane.YAxis.Scale.MajorUnit = DateUnit.Second;
-            ////         //myPane.YAxis.Scale.MajorStep = 0.40;  
+            switch (PerformanceEG)
+            {
+                case "e.g. mm:ss.ss":
+                    //sets the XY value types
+                    myPane.XAxis.Type = AxisType.Linear;
+                    myPane.YAxis.Type = AxisType.Date;
 
-            ////          //myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
+
+                    myPane.YAxis.Scale.Max = new XDate(2000, 1, 1, 0, 0, 15, 0);
+                    myPane.YAxis.Scale.Min = new XDate(2000, 1, 1, 0, 0, 8, 0);
 
 
 
 
+                    myPane.YAxis.Scale.MajorUnit = DateUnit.Second;
+                    myPane.YAxis.Scale.MajorStep = 0.40;
+
+                    myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
+                    break;
+                ///////////////////////////////////////////////////////////////////////////////////////////////
+
+                case "e.g. 7000":
+
+                    myPane.YAxis.Scale.Max = 10000;
+                    myPane.YAxis.Scale.Min = 4000;
+
+                    break;
+                ///////////////////////////////////////////////////////////////////////////////////////////////
+                case "e.g. mm.cc":
+
+                    myPane.YAxis.Scale.Max = 2;
+                    myPane.YAxis.Scale.Min = 1;
+                    break;
+                ///////////////////////////////////////////////////////////////////////////////////////////////
+            }
 
             // Fill the axis background with a color gradient
             myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
@@ -1043,16 +1062,12 @@ namespace mdisample
                 Color col = Color.Black;
                 if (a.getStatus().CompareTo("Medal") == 0) { col = Color.Red; }
                 else if (a.getStatus().CompareTo("Final") == 0) { col = Color.Blue; }
-                else { col = Color.Purple; }
-                if (a.getName().CompareTo("Arthur Abele") == 0) 
-                {
-                    int i = 0; i++;
-                }
+                else if (a.getStatus().CompareTo("Other") == 0) { col = Color.Purple; }
                 myPane.CurveList.Add(new LineItem(a.getName(), a.getCurveData(), col, SymbolType.None));
-                    
-                
+
+
             }
-            
+
             //CurveItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.None);
             // Fill the area under the curve with a white-red gradient at 45 degrees
             //myCurve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
@@ -1076,7 +1091,7 @@ namespace mdisample
         private string zg1_PointValueEvent(ZedGraphControl sender, GraphPane pane, CurveItem curve, int iPt)
         {
 
-            return  (curve.Label.Text);
+            return (curve.Label.Text);
         }
 
 

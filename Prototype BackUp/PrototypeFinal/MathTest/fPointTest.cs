@@ -70,7 +70,7 @@ namespace MathTest
         [TestMethod()]
         public void fPointConstructorTest()
         {
-            fPoint target = new fPoint();
+            fPoint target = fPoint.ConstructDefault();
             Assert.AreEqual(target.getX_Age(), 1111f);
             Assert.AreEqual(target.getY_Value_AsFloat(), 1111f);
 
@@ -97,7 +97,7 @@ namespace MathTest
         [TestMethod()]
         public void fPointConstructorTest2()
         {
-            fPoint target = new fPoint();
+            fPoint target = fPoint.ConstructDefault();
 
             DateTime dt = new DateTime(2000, 1, 1, 0, 18, 31, 0);
 
@@ -111,7 +111,7 @@ namespace MathTest
         [TestMethod()]
         public void getX_AgeTest()
         {
-            fPoint target = new fPoint(); // TODO: Initialize to an appropriate value
+            fPoint target = fPoint.ConstructDefault();// TODO: Initialize to an appropriate value
             float expected = 1111f; // TODO: Initialize to an appropriate value
             float actual;
             actual = target.getX_Age();
@@ -136,7 +136,7 @@ namespace MathTest
         [TestMethod()]
         public void getY_Value_AsFloatTest()
         {
-            fPoint target = new fPoint(); // TODO: Initialize to an appropriate value
+            fPoint target = fPoint.ConstructDefault();// TODO: Initialize to an appropriate value
             float expected = 1111F; // TODO: Initialize to an appropriate value
             float actual;
             actual = target.getY_Value_AsFloat();
@@ -149,7 +149,7 @@ namespace MathTest
         [TestMethod()]
         public void setX_AgeTest()
         {
-            fPoint target = new fPoint(); // TODO: Initialize to an appropriate value
+            fPoint target = fPoint.ConstructDefault();// TODO: Initialize to an appropriate value
             float date = 120F; // TODO: Initialize to an appropriate value
             target.setX_Age(date);
             Assert.AreEqual(target.getX_Age(), date);
@@ -161,7 +161,7 @@ namespace MathTest
         [TestMethod()]
         public void setY_ValueTest()
         {
-            fPoint target = new fPoint(); // TODO: Initialize to an appropriate value
+            fPoint target = fPoint.ConstructDefault();// TODO: Initialize to an appropriate value
             float performance = 1230F; // TODO: Initialize to an appropriate value
             target.setY_Value(performance);
             Assert.AreEqual(target.getY_Value_AsFloat(), performance);
