@@ -498,7 +498,7 @@ namespace mdisample
             Microsoft.Office.Interop.Excel.Range range3 = excelWrapper1.Workbook.ActiveSheet.Range("K1", "K" + rowCount);
 
             List<fPoint> temp = new List<fPoint> { fPoint.ConstructDefault(), fPoint.ConstructDefault(), fPoint.ConstructDefault() };
-            Athletes at = new Athletes("", "", temp);
+            Athletes at = new Athletes();
             for (int f = 0; f < 150; f++)
             {
                 ListOfAthletes.Add(at);
@@ -943,32 +943,37 @@ namespace mdisample
         {
             string r = "";
             string p = "";
-            int i = 1;
+            int i = 0;
             foreach (Athletes a in ListOfAthletes)
             {
-                if (a.getName().CompareTo("") != 0)
+                if (a.getName() != null)
                 {
-                    //r += a.getName() + "\r\n";
-                   // r += a.getName() + " " + a.getStatus() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
-                    r += a.getName() + " " + a.getStatus() + " (" + a.getCurveData()[0].X + "," + a.getCurveData()[0].Y + ")," + "(" + a.getCurveData()[50].X + "," + a.getCurveData()[50].Y + ")," + "(" + a.getCurveData()[100].X + "," + a.getCurveData()[100].Y + ")" + "\r\n";
-                    i++;
-                    if (a.getName().CompareTo("Arthur Abele") == 0 || a.getName().CompareTo("Michael Schrader") == 0 || a.getName().CompareTo("Willem Coertzen") == 0)
+                    if (a.getName().CompareTo("") != 0)
                     {
-                        //p += 
-                    }
-                    if (a.getName().CompareTo("Timo Tompuri") == 0)
-                    {
-                        p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
-                    }
-                    if (a.getName().CompareTo("Timo Aaltonen") == 0)
-                    {
-                        p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                        //r += a.getName() + "\r\n";
+                        // r += a.getName() + " " + a.getStatus() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                        r += a.getName() + " " + a.getStatus() + " (" + a.getCurveData()[0].X + "," + a.getCurveData()[0].Y + ")," + "(" + a.getCurveData()[50].X + "," + a.getCurveData()[50].Y + ")," + "(" + a.getCurveData()[100].X + "," + a.getCurveData()[100].Y + ")" + "\r\n";
+                        i++;
+                        if (a.getName().CompareTo("Arthur Abele") == 0 || a.getName().CompareTo("Michael Schrader") == 0 || a.getName().CompareTo("Willem Coertzen") == 0)
+                        {
+                            //p += 
+                        }
+                        if (a.getName().CompareTo("Timo Tompuri") == 0)
+                        {
+                            p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                        }
+                        if (a.getName().CompareTo("Timo Aaltonen") == 0)
+                        {
+                            p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                        }
+                        r += "Count of Athletes: " + i;
                     }
                 }
+                
             }
-            r += "Count of Athletes: " + i;
-            MessageBox.Show(r);
-            MessageBox.Show(p);
+                
+                MessageBox.Show(r);
+                MessageBox.Show(p);
 
         }
 
@@ -1052,7 +1057,7 @@ namespace mdisample
 
         private void addLinestoGraph()
         {
-            // Generate a blue curve with circle symbols, and "My Curve 2" in the legend
+            //Generate a blue curve with circle symbols, and "My Curve 2" in the legend
             //LineItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.Circle);
             //myCurve.Line.IsVisible = false;
 
@@ -1060,11 +1065,13 @@ namespace mdisample
             foreach (Athletes a in ListOfAthletes)
             {
                 Color col = Color.Black;
-                if (a.getStatus().CompareTo("Medal") == 0) { col = Color.Red; }
-                else if (a.getStatus().CompareTo("Final") == 0) { col = Color.Blue; }
-                else if (a.getStatus().CompareTo("Other") == 0) { col = Color.Purple; }
-                myPane.CurveList.Add(new LineItem(a.getName(), a.getCurveData(), col, SymbolType.None));
-
+                if (a.getName() != null)
+                {
+                    if (a.getStatus().CompareTo("Medal") == 0) { col = Color.Red; }
+                    else if (a.getStatus().CompareTo("Final") == 0) { col = Color.Blue; }
+                    else if (a.getStatus().CompareTo("Other") == 0) { col = Color.Purple; }
+                    myPane.CurveList.Add(new LineItem(a.getName(), a.getCurveData(), col, SymbolType.None));
+                }
 
             }
 
@@ -1082,9 +1089,6 @@ namespace mdisample
             zg1.AxisChange();
             zg1.IsEnableHPan = true;
             zg1.Invalidate();
-        }
-        private void addUserDatatoGraph()
-        {
         }
         #endregion
 

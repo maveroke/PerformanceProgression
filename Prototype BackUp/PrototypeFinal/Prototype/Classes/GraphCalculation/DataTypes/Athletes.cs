@@ -7,16 +7,38 @@ using ZedGraph;
 
 namespace Attempt1MathCalculation
 {
-    /// <summary>
-    /// Stores Athlete and Data associated to them
-    /// </summary>
-    class Athletes
+    struct Athletes
     {
-        protected string AthleteName;
-        protected string Status;
-        protected List<fPoint> Data;
-        protected PointPairList list;
+        private string AthleteName;
+        private string Status;
+        private List<fPoint> Data;
+        private PointPairList List;
 
+        public static Athletes ConstructDefault()
+        {
+            return new Athletes("default", "default", new List<fPoint>());
+        }
+        /// <param name="athleteName">Name of the athlete</param>
+        /// <param name="status">Placing the athlete got "Medal":"Final":"Other"</param>
+        /// <param name="data">List of Points of the athletes Dates and Performances</param>
+        public Athletes(string athleteName, string status, List<fPoint> data)
+        {
+            this.AthleteName = athleteName;
+            this.Status = status;
+            this.Data = new List<fPoint>();
+            this.List = new PointPairList();
+
+            if (data[0].getX_Age().CompareTo(1111f) != 0)
+            {
+                CreateTrendline ct = new CreateTrendline(data);
+                List = ct.getTrendList();
+            }
+            
+            AthleteName = athleteName;
+            Status = status;
+            Data = data;
+
+        }
         public string getName()
         {
             return AthleteName;
@@ -31,35 +53,8 @@ namespace Attempt1MathCalculation
         }
         public PointPairList getCurveData()
         {
-            return list;
+            return List;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="athleteName">Name of the athlete</param>
-        /// <param name="status">Placing the athlete got "Medal":"Final":"Other"</param>
-        /// <param name="data">List of Points of the athletes Dates and Performances</param>
-        public Athletes(string athleteName, string status, List<fPoint> data)
-        {
-            if (athleteName.CompareTo("Arthur Abele") == 0) {
-                int i = 0;
-                i++;
-            }
 
-            if (data[0].getX_Age().CompareTo(1111f) != 0)
-            {
-                CreateTrendline ct = new CreateTrendline(data);
-                list = ct.getTrendList();
-            }
-            AthleteName = athleteName;
-            Status = status;
-            Data = data;
-            
-        }
-        public Athletes()
-        {
-            AthleteName = "default";
-            Status = "default";
-        }
-    }
+     }
 }

@@ -31,12 +31,9 @@ namespace Attempt1MathCalculation
 
         public void setX_Age(float date)
         {
-
             X_valAge = date;
-
         }
-
-
+        
         public float getY_Value_AsFloat()
         {
             return Y_Val;
