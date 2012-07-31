@@ -27,7 +27,12 @@ namespace Attempt1MathCalculation
         }
         public CreateTrendline(List<fPoint> searchMaxMin)
         {
-            MaxMin = searchMaxMin;
+            MaxMin = new List<fPoint>(searchMaxMin.Count);
+            foreach (fPoint a in searchMaxMin)
+            {
+                MaxMin.Add(a);
+            }
+            //MaxMin = searchMaxMin;
 
             if (MaxMin.Count >= 2)
             {
@@ -39,12 +44,24 @@ namespace Attempt1MathCalculation
                     if (smallest.getX_Age().CompareTo(f.getX_Age()) > 0) { smallest = f; }
                 }
 
+                float x = smallest.getX_Age();                              //starting x value
+
+                float range = largest.getX_Age() - smallest.getX_Age();     //range
+
+                double maxRange = range * 50;                               //the maximum amount of range points
+
+                float delta = 0.02f;                                        //the increment of age
+
+
+
+
+
 
                 //method to set hundreds of values in a list between the Min and Max values
-                double rangeMM = largest.getX_Age() - smallest.getX_Age();
+                //double rangeMM = largest.getX_Age() - smallest.getX_Age();
 
-                double maxRange = rangeMM * 50;
-                rangeMM = 0.02;
+                //double maxRange = rangeMM * 50;
+                //rangeMM = 0.02;
 
                 Range = new List<fPoint>((int)maxRange);
                 for (int i = 0; i < maxRange; i++)
@@ -52,22 +69,23 @@ namespace Attempt1MathCalculation
                     Range.Add(fPoint.ConstructDefault());
                 }
 
-                double percentValue = smallest.getX_Age() + rangeMM;
+                //double percentValue = smallest.getX_Age() + rangeMM;
 
                 Range[0] = smallest;
-                Range[(int)(maxRange - 1)] = largest;
+                //Range[(int)(maxRange-1)] = largest;
 
                 //get ABC off the x,y user data.
                 PolynomialGraph pg = new PolynomialGraph();
-                float[] tempABC = pg.Polynomial(searchMaxMin);
+                float[] tempABC = pg.Polynomial(MaxMin);
 
                 for (int i = 1; i < maxRange; i++)
                 {
-                    float x_val = (float)percentValue;
+                    float x_val = x;
                     Range[i] = new fPoint(x_val, tempABC[0] * (x_val * x_val) + tempABC[1] * x_val + tempABC[2]);
-                    percentValue += rangeMM;
+                    x = x_val + delta;
                 }
-
+                int p = 0;
+                p++;
 
                 //MessageBox.Show(searchMaxMin[2].getX_Age()+"");
 

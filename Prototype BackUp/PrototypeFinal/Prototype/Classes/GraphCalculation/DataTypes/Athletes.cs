@@ -27,7 +27,10 @@ namespace Attempt1MathCalculation
             this.Status = status;
             this.Data = new List<fPoint>();
             this.List = new PointPairList();
-
+            if (athleteName.CompareTo("Arthur Abele") == 0) {
+                int g = 0; 
+                g++;
+            }
             if (data[0].getX_Age().CompareTo(1111f) != 0)
             {
                 CreateTrendline ct = new CreateTrendline(data);

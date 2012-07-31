@@ -952,7 +952,7 @@ namespace mdisample
                     {
                         //r += a.getName() + "\r\n";
                         // r += a.getName() + " " + a.getStatus() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
-                        r += a.getName() + " " + a.getStatus() + " (" + a.getCurveData()[0].X + "," + a.getCurveData()[0].Y + ")," + "(" + a.getCurveData()[50].X + "," + a.getCurveData()[50].Y + ")," + "(" + a.getCurveData()[100].X + "," + a.getCurveData()[100].Y + ")" + "\r\n";
+                        r += a.getName() + " " + a.getStatus() + " (" + (int)a.getCurveData()[0].X + "," + (int)a.getCurveData()[0].Y + ")," + "(" + (int)a.getCurveData()[50].X + "," + (int)a.getCurveData()[50].Y + ")," + "(" + (int)a.getCurveData()[100].X + "," + (int)a.getCurveData()[100].Y + ")" + "\r\n";
                         i++;
                         if (a.getName().CompareTo("Arthur Abele") == 0 || a.getName().CompareTo("Michael Schrader") == 0 || a.getName().CompareTo("Willem Coertzen") == 0)
                         {
