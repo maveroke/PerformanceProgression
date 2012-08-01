@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="43c8ceed-1028-4beb-b841-455e274d343a" name="MikelWhitehead@WHEATLY 2012-08-01 13:20:36" runUser="WHEATLY\MikelWhitehead" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="44be0d1b-54c1-46ad-ac31-64749087b4b2">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="MikelWhitehead_WHEATLY 2012-08-01 13_20_36">
+      <DeploymentItem filename="C:\Users\MikelWhitehead\PerformanceProgression\Prototype BackUp\PrototypeFinal\Prototype\bin\Release\Prototype.exe" />
+      <DeploymentItem filename="C:\Users\MikelWhitehead\PerformanceProgression\GraphCalculator\ZedGraphSampleCS_v5.0.9\ZedGraph.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-08-01T13:20:36.4699508+12:00" queuing="2012-08-01T13:20:38.1450466+12:00" start="2012-08-01T13:20:38.3610589+12:00" finish="2012-08-01T13:23:42.2565772+12:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="WHEATLY" outcome="Error" timestamp="2012-08-01T13:23:42.2545771+12:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="SecondOrderPolynomialTest2" storage="c:\users\mikelwhitehead\performanceprogression\prototype backup\prototypefinal\mathtest\bin\release\mathtest.dll" id="c7bfa67d-e9e8-b09b-48ea-fdbd29047b8d">
+      <Execution id="5070ce8f-f38b-44e4-98d4-d4379f98f510" />
+      <TestMethod codeBase="C:/Users/MikelWhitehead/PerformanceProgression/Prototype BackUp/PrototypeFinal/MathTest/bin/Release/MathTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MathTest.PolynomialTest, MathTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SecondOrderPolynomialTest2" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="c7bfa67d-e9e8-b09b-48ea-fdbd29047b8d" executionId="5070ce8f-f38b-44e4-98d4-d4379f98f510" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="5070ce8f-f38b-44e4-98d4-d4379f98f510" testId="c7bfa67d-e9e8-b09b-48ea-fdbd29047b8d" testName="SecondOrderPolynomialTest2" computerName="WHEATLY" duration="00:03:03.5534987" startTime="2012-08-01T13:20:38.7030785+12:00" endTime="2012-08-01T13:23:42.2565772+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5070ce8f-f38b-44e4-98d4-d4379f98f510">
+    </UnitTestResult>
+  </Results>
+</TestRun>

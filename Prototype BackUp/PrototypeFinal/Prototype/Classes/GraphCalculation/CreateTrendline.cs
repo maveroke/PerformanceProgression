@@ -21,7 +21,7 @@ namespace Attempt1MathCalculation
 
                 ////               //list.Add(UserDataPoints[i].getX_Age(), new XDate(UserDataPoints[i].getY_Value_AsDate()));
                 
-                list.Add(Range[i].getX_Age(), Range[i].getY_Value_AsFloat());
+                list.Add(Range[i].getX_Age(), Range[i].getY_Value_Asdouble());
             }
             return list;
         }
@@ -44,13 +44,13 @@ namespace Attempt1MathCalculation
                     if (smallest.getX_Age().CompareTo(f.getX_Age()) > 0) { smallest = f; }
                 }
 
-                float x = smallest.getX_Age();                              //starting x value
+                double x = smallest.getX_Age();                              //starting x value
 
-                float range = largest.getX_Age() - smallest.getX_Age();     //range
+                double range = largest.getX_Age() - smallest.getX_Age();     //range
 
                 double maxRange = range * 50;                               //the maximum amount of range points
 
-                float delta = 0.02f;                                        //the increment of age
+                double delta = 0.02f;                                        //the increment of age
 
 
 
@@ -76,11 +76,11 @@ namespace Attempt1MathCalculation
 
                 //get ABC off the x,y user data.
                 PolynomialGraph pg = new PolynomialGraph();
-                float[] tempABC = pg.Polynomial(MaxMin);
+                double[] tempABC = pg.Polynomial(MaxMin);
 
                 for (int i = 1; i < maxRange; i++)
                 {
-                    float x_val = x;
+                    double x_val = x;
                     Range[i] = new fPoint(x_val, tempABC[0] * (x_val * x_val) + tempABC[1] * x_val + tempABC[2]);
                     x = x_val + delta;
                 }
@@ -96,7 +96,7 @@ namespace Attempt1MathCalculation
                 //foreach (fPoint p in Range)
                 //{
                 //    p.setY_Value();
-                //    //temp += "\r\n" + p.getX_Age() + " " + p.getY_Value_AsFloat();
+                //    //temp += "\r\n" + p.getX_Age() + " " + p.getY_Value_Asdouble();
                 //}
                 //MessageBox.Show(temp);
                 //MessageBox.Show(Range.Count()+" "+ Range[Range.Count - 1].getX_Age());

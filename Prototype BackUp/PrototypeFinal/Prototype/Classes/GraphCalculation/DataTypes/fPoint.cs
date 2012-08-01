@@ -7,8 +7,8 @@ namespace Attempt1MathCalculation
 {
     struct fPoint
     {
-        private float X_valAge;
-        private float Y_Val;
+        private double X_valAge;
+        private double Y_Val;
 
         public static fPoint ConstructDefault()
         {
@@ -18,23 +18,23 @@ namespace Attempt1MathCalculation
         /// <summary>
         /// Stores a Performance for Track Events
         /// </summary>
-        public fPoint(float x, float y)
+        public fPoint(double x, double y)
         {
             X_valAge = x;
             Y_Val = y;
         }
 
-        public float getX_Age()
+        public double getX_Age()
         {
             return X_valAge;
         }
 
-        public void setX_Age(float date)
+        public void setX_Age(double date)
         {
             X_valAge = date;
         }
         
-        public float getY_Value_AsFloat()
+        public double getY_Value_Asdouble()
         {
             return Y_Val;
         }
@@ -50,7 +50,7 @@ namespace Attempt1MathCalculation
             return dt;
         }
 
-        public void setY_Value(float performance)
+        public void setY_Value(double performance)
         {
             Y_Val = performance;
         }
@@ -77,18 +77,18 @@ namespace Attempt1MathCalculation
         /// eg time = 3mins 40 secs 1 split :: number = 220.1 :: value = 0.00254745...
         /// </summary>
         /// <param name="value"></param>
-        private void convertTofloatTimeValue(float value)
+        private void convertTodoubleTimeValue(double value)
         {
-            float tempval = ((value / 60) / 60) / 24;
+            double tempval = ((value / 60) / 60) / 24;
             Y_Val = tempval;
         }
         /// <summary>
         /// converts a value of 24 hours to a combination number
         /// eg value = 0.00254745... :: number = 220.1 :: time = 3mins 40 secs 1 split
         /// </summary>
-        private float convertTofloatTimeNumber()
+        private double convertTodoubleTimeNumber()
         {
-            float tempval = ((24 * Y_Val) * 60) * 60;
+            double tempval = ((24 * Y_Val) * 60) * 60;
             return tempval;
         }
     }

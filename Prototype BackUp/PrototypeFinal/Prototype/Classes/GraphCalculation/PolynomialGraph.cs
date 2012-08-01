@@ -8,7 +8,7 @@ namespace Attempt1MathCalculation
 {
     class PolynomialGraph
     {
-        public float[] Polynomial(List<fPoint> list)
+        public double[] Polynomial(List<fPoint> list)
         {
             List<fPoint> temp = new List<fPoint>();
             foreach (fPoint t in list)
@@ -19,33 +19,33 @@ namespace Attempt1MathCalculation
                 }
 
             }
-            float[] listX = Enumerable.Repeat(-1f, temp.Count).ToArray();
-            float[] listY = Enumerable.Repeat(-1f, temp.Count).ToArray();
+            double[] listX = Enumerable.Repeat(-1.0, temp.Count).ToArray();
+            double[] listY = Enumerable.Repeat(-1.0, temp.Count).ToArray();
 
             int i = 0;
             foreach (fPoint f in temp)
             {
                 listX[i] = f.getX_Age();
-                listY[i] = f.getY_Value_AsFloat();
+                listY[i] = f.getY_Value_Asdouble();
                 i++;
             }
             return SecondOrderPolynomial(listX, listY);
         }
         /// <summary>
-        /// takes 2 float arrays of all x,y values
+        /// takes 2 double arrays of all x,y values
         /// </summary>
         /// <returns>
-        /// returns a float array of the values a,b,c for the equation
+        /// returns a double array of the values a,b,c for the equation
         /// y = ax^2+bx+c
         /// </returns>
-        public float[] SecondOrderPolynomial(float[] x, float[] y)
+        public double[] SecondOrderPolynomial(double[] x, double[] y)
         {
 
             //initialise the matrix
-            float[,] MatrixA = Matrix3x3(x);
-            float[] MatrixB = Matrix1x3(x, y);
-            float[,] MatrixA_1 = Matrix3x3Inverse(MatrixA);
-            float[] MatrixABC = new float[] { 0, 0, 0 };
+            double[,] MatrixA = Matrix3x3(x);
+            double[] MatrixB = Matrix1x3(x, y);
+            double[,] MatrixA_1 = Matrix3x3Inverse(MatrixA);
+            double[] MatrixABC = new double[] { 0, 0, 0 };
 
 
             //MessageBox.Show(MatrixA_1[0, 0] + " " + MatrixA_1[1, 0] + " " + MatrixA_1[2, 0] + " \r\n" + MatrixA_1[0, 1] + " " + MatrixA_1[1, 1] + " " + MatrixA_1[2, 1] + " \r\n" + MatrixA_1[0, 2] + " " + MatrixA_1[1, 2] + " " + MatrixA_1[2, 2]);
@@ -59,44 +59,44 @@ namespace Attempt1MathCalculation
             return MatrixABC;
         }
 
-        protected float[,] Matrix3x3(float[] x)
+        protected double[,] Matrix3x3(double[] x)
         {
-            float[,] MatrixA = new float[,]{
+            double[,] MatrixA = new double[,]{
                 {0, 0, 0},
 	            {0, 0, 0},
 	            {0, 0, 0},
             };
 
 
-            float temp_xx = 0;
-            float temp_xxx = 0;
-            float temp_xxxx = 0;
+            double temp_xx = 0;
+            double temp_xxx = 0;
+            double temp_xxxx = 0;
 
-            foreach (float value in x)
+            foreach (double value in x)
             {
                 temp_xx += value * value;
                 temp_xxx += value * value * value;
                 temp_xxxx += value * value * value * value;
             }
             MatrixA[0, 0] = x.Count();
-            MatrixA[1, 0] = x.Sum();
-            MatrixA[2, 0] = temp_xx;
             MatrixA[0, 1] = x.Sum();
-            MatrixA[1, 1] = temp_xx;
-            MatrixA[2, 1] = temp_xxx;
             MatrixA[0, 2] = temp_xx;
+            MatrixA[1, 0] = x.Sum();
+            MatrixA[1, 1] = temp_xx;
             MatrixA[1, 2] = temp_xxx;
+            MatrixA[2, 0] = temp_xx;
+            MatrixA[2, 1] = temp_xxx;
             MatrixA[2, 2] = temp_xxxx;
 
             return MatrixA;
         }
 
-        protected float[] Matrix1x3(float[] x, float[] y)
+        protected double[] Matrix1x3(double[] x, double[] y)
         {
-            float[] MatrixB = new float[] { 0, 0, 0 };
-            float temp_sqrd = 0;
-            float temp2 = 0;
-            float temp3 = 0;
+            double[] MatrixB = new double[] { 0, 0, 0 };
+            double temp_sqrd = 0;
+            double temp2 = 0;
+            double temp3 = 0;
             for (int i = 0; i < x.LongLength; i++)
             {
                 temp_sqrd = x[i] * x[i];
@@ -108,7 +108,7 @@ namespace Attempt1MathCalculation
             MatrixB[2] = temp3;
             return MatrixB;
         }
-        protected float[,] Matrix3x3Inverse(float[,] matrix3x3)
+        protected double[,] Matrix3x3Inverse(double[,] matrix3x3)
         {
             /* 0,0 = 11
              * 1,0 = 12
@@ -123,19 +123,19 @@ namespace Attempt1MathCalculation
              * 2,2 = 33
              */
 
-            float a11 = matrix3x3[0, 0];
-            float a12 = matrix3x3[1, 0];
-            float a13 = matrix3x3[2, 0];
-            float a21 = matrix3x3[0, 1];
-            float a22 = matrix3x3[1, 1];
-            float a23 = matrix3x3[2, 1];
-            float a31 = matrix3x3[0, 2];
-            float a32 = matrix3x3[1, 2];
-            float a33 = matrix3x3[2, 2];
+            double a11 = matrix3x3[0, 0];
+            double a12 = matrix3x3[1, 0];
+            double a13 = matrix3x3[2, 0];
+            double a21 = matrix3x3[0, 1];
+            double a22 = matrix3x3[1, 1];
+            double a23 = matrix3x3[2, 1];
+            double a31 = matrix3x3[0, 2];
+            double a32 = matrix3x3[1, 2];
+            double a33 = matrix3x3[2, 2];
 
-            float DET = 1 / (a11 * (a33 * a22 - a32 * a23) - a21 * (a33 * a12 - a32 * a13) + a31 * (a23 * a12 - a22 * a13));
+            double DET = 1 / (a11 * (a33 * a22 - a32 * a23) - a21 * (a33 * a12 - a32 * a13) + a31 * (a23 * a12 - a22 * a13));
 
-            float[,] MatrixA_1 = new float[,]{
+            double[,] MatrixA_1 = new double[,]{
             {DET*(a33*a22-a32*a23),     DET*(-(a33*a12-a32*a13)),   DET*(a23*a12-a22*a13)},
             {DET*(-(a33*a21-a31*a23)),  DET*(a33*a11-a31*a13),      DET*(-(a23*a11-a21*a13))},
             {DET*(a32*a21-a31*a22),     DET*(-(a32*a11-a31*a12)),   DET*(a22*a11-a21*a12)}

@@ -122,6 +122,7 @@ namespace mdisample
             this.sFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.zg1 = new ZedGraph.ZedGraphControl();
+            this.excelWrapper1 = new EmbeddedExcel.ExcelWrapper();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DateofEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Performance = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,7 +130,6 @@ namespace mdisample
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panelLoad = new System.Windows.Forms.Panel();
-            this.excelWrapper1 = new EmbeddedExcel.ExcelWrapper();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -270,6 +270,17 @@ namespace mdisample
             this.zg1.TabIndex = 3;
             this.zg1.PointValueEvent += new ZedGraph.ZedGraphControl.PointValueHandler(this.zg1_PointValueEvent);
             // 
+            // excelWrapper1
+            // 
+            this.excelWrapper1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.excelWrapper1.Location = new System.Drawing.Point(0, 0);
+            this.excelWrapper1.Name = "excelWrapper1";
+            this.excelWrapper1.Size = new System.Drawing.Size(245, 312);
+            this.excelWrapper1.TabIndex = 1;
+            this.excelWrapper1.ToolBarVisible = false;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -342,18 +353,6 @@ namespace mdisample
             this.panelLoad.Name = "panelLoad";
             this.panelLoad.Size = new System.Drawing.Size(108, 319);
             this.panelLoad.TabIndex = 2;
-            // 
-            // excelWrapper1
-            // 
-            this.excelWrapper1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.excelWrapper1.Location = new System.Drawing.Point(0, 0);
-            this.excelWrapper1.Name = "excelWrapper1";
-            this.excelWrapper1.Size = new System.Drawing.Size(245, 312);
-            this.excelWrapper1.TabIndex = 1;
-            this.excelWrapper1.ToolBarVisible = false;
-            this.excelWrapper1.Visible = false;
             // 
             // Form2
             // 
@@ -512,7 +511,7 @@ namespace mdisample
                 if (excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString().CompareTo(".") == 0) { j++; }
                 if (excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["C" + j] == null) { break; }
 
-                temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["D" + j].Value.ToString()));
+                temp[i] = new fPoint((double)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["C" + j].Value.ToString()), (double)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["D" + j].Value.ToString()));
                 i++;
 
                 if (i == 3)
@@ -530,7 +529,7 @@ namespace mdisample
             {
                 if (excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString().CompareTo(".") == 0) { j++; }
                 if (excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["G" + j] == null) { break; }
-                temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["H" + j].Value.ToString()));
+                temp[i] = new fPoint((double)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["G" + j].Value.ToString()), (double)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["H" + j].Value.ToString()));
                 i++;
                 if (i == 3)
                 {
@@ -548,7 +547,7 @@ namespace mdisample
                 if (excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0) { j++; }
                 if (excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString().CompareTo(".") == 0 || excelWrapper1.Workbook.ActiveSheet.Range["K" + j] == null) { break; }
 
-                temp[i] = new fPoint((float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString()), (float)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["L" + j].Value.ToString()));
+                temp[i] = new fPoint((double)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["K" + j].Value.ToString()), (double)Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["L" + j].Value.ToString()));
                 i++;
 
                 if (i == 3)
@@ -951,7 +950,7 @@ namespace mdisample
                     if (a.getName().CompareTo("") != 0)
                     {
                         //r += a.getName() + "\r\n";
-                        // r += a.getName() + " " + a.getStatus() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                        // r += a.getName() + " " + a.getStatus() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_Asdouble() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_Asdouble() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_Asdouble() + ")" + "\r\n";
                         r += a.getName() + " " + a.getStatus() + " (" + (int)a.getCurveData()[0].X + "," + (int)a.getCurveData()[0].Y + ")," + "(" + (int)a.getCurveData()[50].X + "," + (int)a.getCurveData()[50].Y + ")," + "(" + (int)a.getCurveData()[100].X + "," + (int)a.getCurveData()[100].Y + ")" + "\r\n";
                         i++;
                         if (a.getName().CompareTo("Arthur Abele") == 0 || a.getName().CompareTo("Michael Schrader") == 0 || a.getName().CompareTo("Willem Coertzen") == 0)
@@ -960,11 +959,11 @@ namespace mdisample
                         }
                         if (a.getName().CompareTo("Timo Tompuri") == 0)
                         {
-                            p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                            p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_Asdouble() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_Asdouble() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_Asdouble() + ")" + "\r\n";
                         }
                         if (a.getName().CompareTo("Timo Aaltonen") == 0)
                         {
-                            p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_AsFloat() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_AsFloat() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_AsFloat() + ")" + "\r\n";
+                            p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_Asdouble() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_Asdouble() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_Asdouble() + ")" + "\r\n";
                         }
                         r += "Count of Athletes: " + i;
                     }

@@ -72,7 +72,7 @@ namespace MathTest
         {
             fPoint target = fPoint.ConstructDefault();
             Assert.AreEqual(target.getX_Age(), 1111f);
-            Assert.AreEqual(target.getY_Value_AsFloat(), 1111f);
+            Assert.AreEqual(target.getY_Value_Asdouble(), 1111f);
 
         }
 
@@ -82,8 +82,8 @@ namespace MathTest
         [TestMethod()]
         public void fPointConstructorTest1()
         {
-            float x = 10F; // TODO: Initialize to an appropriate value
-            float y = 10F; // TODO: Initialize to an appropriate value
+            double x = 10F; // TODO: Initialize to an appropriate value
+            double y = 10F; // TODO: Initialize to an appropriate value
             DateTime dt = new DateTime(2000, 1, 1, 0, 0, 10, 0);
             fPoint target = new fPoint(x, y);
 
@@ -112,8 +112,8 @@ namespace MathTest
         public void getX_AgeTest()
         {
             fPoint target = fPoint.ConstructDefault();// TODO: Initialize to an appropriate value
-            float expected = 1111f; // TODO: Initialize to an appropriate value
-            float actual;
+            double expected = 1111f; // TODO: Initialize to an appropriate value
+            double actual;
             actual = target.getX_Age();
             Assert.AreEqual(expected, actual);
         }
@@ -131,15 +131,15 @@ namespace MathTest
         }
 
         /// <summary>
-        ///A test for getY_Value_AsFloat
+        ///A test for getY_Value_Asdouble
         ///</summary>
         [TestMethod()]
-        public void getY_Value_AsFloatTest()
+        public void getY_Value_AsdoubleTest()
         {
             fPoint target = fPoint.ConstructDefault();// TODO: Initialize to an appropriate value
-            float expected = 1111F; // TODO: Initialize to an appropriate value
-            float actual;
-            actual = target.getY_Value_AsFloat();
+            double expected = 1111F; // TODO: Initialize to an appropriate value
+            double actual;
+            actual = target.getY_Value_Asdouble();
             Assert.AreEqual(expected, actual);
         }
 
@@ -150,7 +150,7 @@ namespace MathTest
         public void setX_AgeTest()
         {
             fPoint target = fPoint.ConstructDefault();// TODO: Initialize to an appropriate value
-            float date = 120F; // TODO: Initialize to an appropriate value
+            double date = 120F; // TODO: Initialize to an appropriate value
             target.setX_Age(date);
             Assert.AreEqual(target.getX_Age(), date);
         }
@@ -162,9 +162,9 @@ namespace MathTest
         public void setY_ValueTest()
         {
             fPoint target = fPoint.ConstructDefault();// TODO: Initialize to an appropriate value
-            float performance = 1230F; // TODO: Initialize to an appropriate value
+            double performance = 1230F; // TODO: Initialize to an appropriate value
             target.setY_Value(performance);
-            Assert.AreEqual(target.getY_Value_AsFloat(), performance);
+            Assert.AreEqual(target.getY_Value_Asdouble(), performance);
         }
     }
 }
