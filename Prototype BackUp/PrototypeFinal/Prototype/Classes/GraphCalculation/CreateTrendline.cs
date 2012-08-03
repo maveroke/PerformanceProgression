@@ -52,11 +52,6 @@ namespace Attempt1MathCalculation
 
                 double delta = 0.02f;                                        //the increment of age
 
-
-
-
-
-
                 //method to set hundreds of values in a list between the Min and Max values
                 //double rangeMM = largest.getX_Age() - smallest.getX_Age();
 

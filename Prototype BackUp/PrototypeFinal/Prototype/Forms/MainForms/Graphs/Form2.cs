@@ -72,7 +72,6 @@ namespace mdisample
         private System.Windows.Forms.MenuItem menuItemSave;
         private System.Windows.Forms.MenuItem menuItem4;
         private ZedGraph.ZedGraphControl zg1;
-        private System.Windows.Forms.MenuItem menuItem5;
         private bool keyVisible = false;
 
         public Form2()
@@ -117,7 +116,6 @@ namespace mdisample
             this.menuItemPrint = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.sFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -142,8 +140,7 @@ namespace mdisample
             // 
             this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemCFile,
-            this.menuItem2,
-            this.menuItem5});
+            this.menuItem2});
             // 
             // menuItemCFile
             // 
@@ -214,12 +211,6 @@ namespace mdisample
             this.menuItem4.Shortcut = System.Windows.Forms.Shortcut.CtrlW;
             this.menuItem4.Text = "Graph Image";
             this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
-            // 
-            // menuItem5
-            // 
-            this.menuItem5.Index = 2;
-            this.menuItem5.Text = "AthletesCollected";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // oFileDlg
             // 
@@ -936,44 +927,6 @@ namespace mdisample
             {
                 MessageBox.Show("Error occured while trying to copy the graph: " + gg);
             }
-        }
-
-        private void menuItem5_Click(object sender, EventArgs e)
-        {
-            string r = "";
-            string p = "";
-            int i = 0;
-            foreach (Athletes a in ListOfAthletes)
-            {
-                if (a.getName() != null)
-                {
-                    if (a.getName().CompareTo("") != 0)
-                    {
-                        //r += a.getName() + "\r\n";
-                        // r += a.getName() + " " + a.getStatus() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_Asdouble() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_Asdouble() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_Asdouble() + ")" + "\r\n";
-                        r += a.getName() + " " + a.getStatus() + " (" + (int)a.getCurveData()[0].X + "," + (int)a.getCurveData()[0].Y + ")," + "(" + (int)a.getCurveData()[50].X + "," + (int)a.getCurveData()[50].Y + ")," + "(" + (int)a.getCurveData()[100].X + "," + (int)a.getCurveData()[100].Y + ")" + "\r\n";
-                        i++;
-                        if (a.getName().CompareTo("Arthur Abele") == 0 || a.getName().CompareTo("Michael Schrader") == 0 || a.getName().CompareTo("Willem Coertzen") == 0)
-                        {
-                            //p += 
-                        }
-                        if (a.getName().CompareTo("Timo Tompuri") == 0)
-                        {
-                            p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_Asdouble() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_Asdouble() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_Asdouble() + ")" + "\r\n";
-                        }
-                        if (a.getName().CompareTo("Timo Aaltonen") == 0)
-                        {
-                            p += a.getName() + " (" + a.getData()[0].getX_Age() + "," + a.getData()[0].getY_Value_Asdouble() + ")," + "(" + a.getData()[1].getX_Age() + "," + a.getData()[1].getY_Value_Asdouble() + ")," + "(" + a.getData()[2].getX_Age() + "," + a.getData()[2].getY_Value_Asdouble() + ")" + "\r\n";
-                        }
-                        r += "Count of Athletes: " + i;
-                    }
-                }
-                
-            }
-                
-                MessageBox.Show(r);
-                MessageBox.Show(p);
-
         }
 
         #region graph
