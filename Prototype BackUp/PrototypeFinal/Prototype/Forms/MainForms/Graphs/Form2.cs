@@ -247,6 +247,7 @@ namespace mdisample
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.zg1.EditButtons = System.Windows.Forms.MouseButtons.Left;
             this.zg1.IsEnableSelection = true;
+            this.zg1.IsShowPointValues = true;
             this.zg1.Location = new System.Drawing.Point(0, 0);
             this.zg1.Name = "zg1";
             this.zg1.PanModifierKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.None)));
@@ -932,6 +933,9 @@ namespace mdisample
         #region graph
         private void CreateGraph(ZedGraphControl zgc)
         {
+
+            excelWrapper1.Workbook.ActiveSheet.Unprotect("1500kosmin");
+            
             myPane = zgc.GraphPane;
 
             // Set the titles and axis labels
@@ -956,19 +960,34 @@ namespace mdisample
             switch (PerformanceEG)
             {
                 case "e.g. mm:ss.ss":
+                                
+
+
                     //sets the XY value types
                     myPane.XAxis.Type = AxisType.Linear;
                     myPane.YAxis.Type = AxisType.Date;
 
+                    string MaxDate = excelWrapper1.Workbook.ActiveSheet.Range["M6"].Value.ToString();
+                    string MinimumDate = excelWrapper1.Workbook.ActiveSheet.Range["N6"].Value.ToString();
 
-                    myPane.YAxis.Scale.Max = new XDate(2000, 1, 1, 0, 0, 15, 0);
-                    myPane.YAxis.Scale.Min = new XDate(2000, 1, 1, 0, 0, 8, 0);
+                    //Note: Currently only working for mins secs and splits. You want to do more than 59 mins for a race its gonna cause you issues
+                    int mins = (int)MaxDate / 60;
+                    int secs = (int)MaxDate % 60;
+                    double splits = Convert.ToDouble((Y_Val - mins * 60 - secs)) * 100;
+                    DateTime dt = new DateTime(2000, 1, 1, 0, mins, secs, Convert.ToInt32(splits));
 
 
+
+                    string[] tempMaxDate = MaxDate.Split('.', ':');
+                    string[] tempMinDate = MaxDate.Split('.', ':');
+                    myPane.YAxis.Scale.Max = new XDate(2000,12,23,1,2,3,4);
+                    myPane.YAxis.Scale.Min = new XDate();
+
+                    
 
 
                     myPane.YAxis.Scale.MajorUnit = DateUnit.Second;
-                    myPane.YAxis.Scale.MajorStep = 0.40;
+                    myPane.YAxis.Scale.MajorStep = excelWrapper1.Workbook.ActiveSheet.Range["O6"].Value;
 
                     myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
                     break;
@@ -988,7 +1007,8 @@ namespace mdisample
                     break;
                 ///////////////////////////////////////////////////////////////////////////////////////////////
             }
-
+                                    
+            excelWrapper1.Workbook.ActiveSheet.Protect("1500kosmin", false);
             // Fill the axis background with a color gradient
             myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
             // Fill the pane background with a color gradient
