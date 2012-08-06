@@ -269,7 +269,7 @@ namespace mdisample
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.excelWrapper1.Location = new System.Drawing.Point(0, 0);
             this.excelWrapper1.Name = "excelWrapper1";
-            this.excelWrapper1.Size = new System.Drawing.Size(245, 312);
+            this.excelWrapper1.Size = new System.Drawing.Size(132, 312);
             this.excelWrapper1.TabIndex = 1;
             this.excelWrapper1.ToolBarVisible = false;
             // 
@@ -971,23 +971,30 @@ namespace mdisample
                     string MinimumDate = excelWrapper1.Workbook.ActiveSheet.Range["N6"].Value.ToString();
 
                     //Note: Currently only working for mins secs and splits. You want to do more than 59 mins for a race its gonna cause you issues
-                    int mins = (int)MaxDate / 60;
-                    int secs = (int)MaxDate % 60;
-                    double splits = Convert.ToDouble((Y_Val - mins * 60 - secs)) * 100;
-                    DateTime dt = new DateTime(2000, 1, 1, 0, mins, secs, Convert.ToInt32(splits));
 
+                        double Maximum = ((24 * excelWrapper1.Workbook.ActiveSheet.Range["M6"].Value) * 60) * 60;
+                        double Maxseconds = Maximum % 60;//secs
+                        int Maxmins = Convert.ToInt32((Maximum - Maxseconds) / 60);//mins
+                        string Maxtemp = Maxseconds.ToString();
+                        if (!Maxseconds.ToString().Contains('.')) { Maxtemp += ".0"; }
+                        string[] MaxSplits = Maxtemp.Split('.');
 
+                        double Minimum = ((24 * excelWrapper1.Workbook.ActiveSheet.Range["N6"].Value) * 60) * 60;
+                        double Minseconds = Minimum % 60;
+                        string Mintemp = Minseconds.ToString();
+                        if (!Minseconds.ToString().Contains('.')) { Mintemp += ".0"; }
+                        int Minmins = Convert.ToInt32((Minimum - Minseconds) / 60);
+                        string[] MinSplits = Mintemp.Split('.');
 
-                    string[] tempMaxDate = MaxDate.Split('.', ':');
-                    string[] tempMinDate = MaxDate.Split('.', ':');
-                    myPane.YAxis.Scale.Max = new XDate(2000,12,23,1,2,3,4);
-                    myPane.YAxis.Scale.Min = new XDate();
+                        myPane.YAxis.Scale.Max = new XDate(2000, 1, 1, 0, Maxmins, Convert.ToInt32(MaxSplits[0]), Convert.ToInt32(MaxSplits[1]));
+                        myPane.YAxis.Scale.Min = new XDate(2000, 1, 1, 0, Minmins, Convert.ToInt32(MinSplits[0]), Convert.ToInt32(MinSplits[1]));
 
-                    
+                        double MajorStep = ((24 * excelWrapper1.Workbook.ActiveSheet.Range["O6"].Value) * 60) * 60;
+                        double MSseconds = MajorStep % 60;
 
 
                     myPane.YAxis.Scale.MajorUnit = DateUnit.Second;
-                    myPane.YAxis.Scale.MajorStep = excelWrapper1.Workbook.ActiveSheet.Range["O6"].Value;
+                    myPane.YAxis.Scale.MajorStep = MSseconds;
 
                     myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
                     break;
@@ -1016,7 +1023,7 @@ namespace mdisample
             // Calculate the Axis Scale Ranges
             zg1.AxisChange();
 
-            zg1.Invalidate();
+            //zg1.Invalidate();
 
         }
         private void SetSize()
@@ -1058,7 +1065,7 @@ namespace mdisample
             // Fill the pane background with a color gradient
             myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
             // Calculate the Axis Scale Ranges
-            zg1.AxisChange();
+            //zg1.AxisChange();
             zg1.IsEnableHPan = true;
             zg1.Invalidate();
         }

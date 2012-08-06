@@ -1,0 +1,222 @@
+[33mcommit 7c23f92f82d23d3d387b9f05e81d7bda9f557d5a[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Sat Aug 4 19:37:52 2012 +1200
+
+    l
+
+[33mcommit 43000341cdf021609e2f62bcab0e1fa0a6de6cc6[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Fri Aug 3 15:43:21 2012 +1200
+
+    s
+
+[33mcommit 4a79bfab54c2a5282b39e73b3a07b147ff219e8a[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed Aug 1 14:30:08 2012 +1200
+
+    working finally
+
+[33mcommit eccfef1675d41dde22f97ff07e811363491b0f94[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed Aug 1 07:36:46 2012 +1200
+
+    Matrix Calculator
+
+[33mcommit 84f0d914d470257e0d3c7899ab45f069cd520f66[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Tue Jul 31 15:52:10 2012 +1200
+
+    g
+
+[33mcommit 742b9d0065f289e4a01621b834eec559a099c31a[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Mon Jul 30 15:49:26 2012 +1200
+
+    Got some more struct classes added. Just need to get the data in the Athlete Struct working now.
+
+[33mcommit f112aa254307a72537f89898da1ed56e2e4e24bb[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Fri Jul 27 13:02:59 2012 +1200
+
+    Needs the curves data checked. The first point is correct, the rest need moving into the right position is all
+
+[33mcommit fcbf9e656fbae02c316907911dbd44d354c2e158[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Fri Jul 20 18:26:18 2012 +1200
+
+    532 assignment
+
+[33mcommit 386175f5c08ad9d154a945b1ccec3f2ca0d37630[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Thu Jul 19 16:09:16 2012 +1200
+
+    Presentation work
+
+[33mcommit 7494f07076805968cd6eafbc4f5ab1dff3bf1513[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed Jul 18 18:00:28 2012 +1200
+
+    report
+
+[33mcommit f7dac0024ec27931560bc0b6e30c541b78adc576[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed Jul 18 09:22:01 2012 +1200
+
+    g
+
+[33mcommit 0672322c86d8b5814a3a0f88c8cd9bffe737aee3[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Tue Jul 17 11:39:37 2012 +1200
+
+    colors working, outliers still an issue. Dont kow what the issue is
+
+[33mcommit f9da6e5ec07df1bd34069d8628bf7bb30e6718d7[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Mon Jul 16 21:47:34 2012 +1200
+
+    i gots the lines of the HP data working correctly
+
+[33mcommit 48f0d4eb0b39bee2e906c12918988a69919013ec[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Mon Jul 16 14:10:58 2012 +1200
+
+    just trying to display the data in the graphs now
+
+[33mcommit bf47717391940e3f25d0fe37c3d09667f4e3a880[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Sun Jul 15 22:54:19 2012 +1200
+
+    got the athlete data going in but have yet to do it without null errors.
+    plan to edit the excel files with double dots to indicate the end of a column.
+
+[33mcommit be49e73a39542b5bdc5faa47ea2a88d467447272[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Sun Jul 15 13:02:54 2012 +1200
+
+    currently sorting out the graphForm to be correct. Will need to make data go into graph dynamically and need to get HP athletes brought out to show in the graph
+
+[33mcommit a958720bc07b68fe1ef5eef5a76e91fed39b192e[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Fri Jul 13 15:59:28 2012 +1200
+
+    graph curve is now working, got the x,y axis to fix now
+
+[33mcommit 30218042757bb4f75da277fac3baf43911a76a1f[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Fri Jul 6 08:08:47 2012 +1200
+
+    Current work envolved around the quadratic equation
+
+[33mcommit 02c81eb62b66c23dfda7d540b54a2350de8a2376[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed Jun 20 20:46:56 2012 +1200
+
+    get the graph to display points correctly
+
+[33mcommit 0f21d9cba5e9b6901cb2b9cfe090f30d8de1db93[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed Jun 20 14:51:41 2012 +1200
+
+    change the X-Axis from date to age...
+
+[33mcommit 83b53eafb78d702a67ae28e17e345655a8d2b955[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed Jun 20 12:21:46 2012 +1200
+
+    now displaying points without a line on the graph also only draws points that have both the X & Y value added
+
+[33mcommit 256bcd40e466fdbe87c391b2a0944d40788b24ea[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed Jun 20 08:37:32 2012 +1200
+
+    most recent update
+
+[33mcommit 2ccf69953f3119180bc1f3c5878595632a3e6bed[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Mon Jun 18 20:04:34 2012 +1200
+
+    Have added a fPoint Class, Athlete Class and altered X,Y values on the graph. Need to add athlete values, plot points, draw curve somehow...
+
+[33mcommit eb9e7fd5fae4686ffb1adcdb348bf4d9419a7b79[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Fri Jun 15 14:05:34 2012 +1200
+
+    Need to figure out how to plot points on graph. Currently plots points but is incorrect. check against excel data.
+
+[33mcommit 39996499398ddb054373ca15a0a408ce762aacaa[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Fri Jun 15 12:10:14 2012 +1200
+
+    WHY WONT THIS LOAD UP!!!
+
+[33mcommit cdacca78c58fbc447f1948923c6374befaa3307e[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Fri Jun 15 12:02:29 2012 +1200
+
+    message
+
+[33mcommit 9485fbe73325eee067d1a22b9cebed032be8999b[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Fri Jun 15 11:45:24 2012 +1200
+
+    MessageTemp
+
+[33mcommit b21382bfdab3a072d403cfd0267f5ae656ffade4[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Tue Jun 12 20:26:38 2012 +1200
+
+    Equation to find A,B,C now works. Tests work also. All that remains is to draw the 2ndOrderPolynomials to the graph
+
+[33mcommit a06b9c514ad4fa813161ef6ddf9246c209120d04[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Mon Jun 11 20:56:11 2012 +1200
+
+    Math Program Added. Still needs Inverse, Multiply and Equation
+
+[33mcommit 9f9c30a4421d476bd7bfaa33db8158401b30a7ce[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed Jun 6 17:23:51 2012 +1200
+
+    quick fix, also added a graph copier to the program
+
+[33mcommit 18df12025ba82e9620b3ca2c9c242da8e20938c3[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Thu May 31 11:22:30 2012 +1200
+
+    DataVolume and DataComparison changed from txt files to HTML
+
+[33mcommit b68166642f51db8b360ee01889517e1b87dd216c[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Wed May 30 16:02:52 2012 +1200
+
+    working on the datagrid, changing it from datagrid display to HTML
+
+[33mcommit 0f29884e28de3b77e866abd785810140005793c3[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Tue May 29 19:55:13 2012 +1200
+
+    Project
+
+[33mcommit fc59f0bbe5b89849f88e6784a28f9ea0752e8711[m
+Author: maveroke <maveroke55@hotmail.com>
+Date:   Tue May 29 19:39:40 2012 +1200
+
+    try and get this without cloning
+
+[33mcommit 7dffe70e115496f1a476d6a21035976c7f41f99c[m
+Author: Michael <maveroke55@hotmail.com>
+Date:   Tue May 29 19:28:50 2012 +1200
+
+    Frst push
+
+[33mcommit a8906b92e4a182c4e23bbaad9a3684adb367c68a[m
+Author: maveroke <maveroke55@hotmail.com>
+Date:   Tue May 29 18:56:16 2012 +1200
+
+    Update README.md
+
+[33mcommit f3d7ddebfce8161ba7cce9a2d778e301456f688a[m
+Author: maveroke <maveroke55@hotmail.com>
+Date:   Mon May 28 23:40:47 2012 -0700
+
+    Initial commit
