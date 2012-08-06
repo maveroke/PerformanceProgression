@@ -42,10 +42,15 @@ namespace Attempt1MathCalculation
         public DateTime getY_Value_AsDate()
         {
             //Note: Currently only working for mins secs and splits. You want to do more than 59 mins for a race its gonna cause you issues
-            int mins = (int)Y_Val / 60;
-            int secs = (int)Y_Val % 60;
-            double splits = Convert.ToDouble((Y_Val - mins * 60 - secs)) * 100;
-            DateTime dt = new DateTime(2000, 1, 1, 0, mins, secs, Convert.ToInt32(splits));
+            double Maximum = ((24 * Y_Val) * 60) * 60;
+            double Maxseconds = Maximum % 60;//secs
+            int Maxmins = Convert.ToInt32((Maximum - Maxseconds) / 60);//mins
+            string Maxtemp = Maxseconds.ToString();
+            if (!Maxseconds.ToString().Contains('.')) { Maxtemp += ".0"; }
+            string[] MaxSplits = Maxtemp.Split('.');
+
+
+            DateTime dt = new DateTime(2000, 1, 1, 0, Maxmins, Convert.ToInt32(MaxSplits[0]), Convert.ToInt32(MaxSplits[1]));
 
             return dt;
         }

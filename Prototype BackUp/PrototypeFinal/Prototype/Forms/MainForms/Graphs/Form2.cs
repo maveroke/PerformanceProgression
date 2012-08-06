@@ -508,7 +508,7 @@ namespace mdisample
 
                 if (i == 3)
                 {
-                    ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["A" + j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["B" + j].Value2.ToString(), temp);
+                    ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["A" + j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["B" + j].Value2.ToString(), temp,PerformanceEG);
                     k++;
                     i = 0;
                 }
@@ -525,7 +525,7 @@ namespace mdisample
                 i++;
                 if (i == 3)
                 {
-                    ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["E" + j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["F" + j].Value2.ToString(), temp);
+                    ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["E" + j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["F" + j].Value2.ToString(), temp, PerformanceEG);
                     k++;
                     i = 0;
                 }
@@ -544,7 +544,7 @@ namespace mdisample
 
                 if (i == 3)
                 {
-                    ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["I" + j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["J" + j].Value2.ToString(), temp);
+                    ListOfAthletes[k] = new Athletes(excelWrapper1.Workbook.ActiveSheet.Range["I" + j].Value.ToString(), excelWrapper1.Workbook.ActiveSheet.Range["J" + j].Value2.ToString(), temp, PerformanceEG);
                     k++;
                     i = 0;
                 }
@@ -1040,7 +1040,6 @@ namespace mdisample
             //LineItem myCurve = myPane.AddCurve("My Curve", list, Color.Blue, SymbolType.Circle);
             //myCurve.Line.IsVisible = false;
 
-            CreateTrendline ct = new CreateTrendline(ListOfUserDataPoints);
             foreach (Athletes a in ListOfAthletes)
             {
                 Color col = Color.Black;
@@ -1049,7 +1048,16 @@ namespace mdisample
                     if (a.getStatus().CompareTo("Medal") == 0) { col = Color.Red; }
                     else if (a.getStatus().CompareTo("Final") == 0) { col = Color.Blue; }
                     else if (a.getStatus().CompareTo("Other") == 0) { col = Color.Purple; }
-                    myPane.CurveList.Add(new LineItem(a.getName(), a.getCurveData(), col, SymbolType.None));
+
+                    if (PerformanceEG.CompareTo("e.g. mm:ss.ss") == 0)
+                    {
+
+                        myPane.CurveList.Add(new LineItem(a.getName(), a.getCurveData(), col, SymbolType.None));
+                    }
+                    else
+                    {
+                        myPane.CurveList.Add(new LineItem(a.getName(), a.getCurveData(), col, SymbolType.None));
+                    }
                 }
 
             }

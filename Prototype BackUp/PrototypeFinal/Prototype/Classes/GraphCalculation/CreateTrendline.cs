@@ -11,6 +11,7 @@ namespace Attempt1MathCalculation
     {
         protected List<fPoint> MaxMin;
         protected List<fPoint> Range;
+        protected string EventType;
 
 
         public PointPairList getTrendList()
@@ -20,13 +21,19 @@ namespace Attempt1MathCalculation
             {
 
                 ////               //list.Add(UserDataPoints[i].getX_Age(), new XDate(UserDataPoints[i].getY_Value_AsDate()));
+                if (EventType.CompareTo("Track") == 0) { 
+                    list.Add(Range[i].getX_Age(),new XDate(Range[i].getY_Value_AsDate())); 
+                }
+                else { 
+                    list.Add(Range[i].getX_Age(), Range[i].getY_Value_Asdouble()); 
+                }
                 
-                list.Add(Range[i].getX_Age(), Range[i].getY_Value_Asdouble());
             }
             return list;
         }
-        public CreateTrendline(List<fPoint> searchMaxMin)
+        public CreateTrendline(List<fPoint> searchMaxMin,string eventType)
         {
+            EventType = eventType;
             MaxMin = new List<fPoint>(searchMaxMin.Count);
             foreach (fPoint a in searchMaxMin)
             {

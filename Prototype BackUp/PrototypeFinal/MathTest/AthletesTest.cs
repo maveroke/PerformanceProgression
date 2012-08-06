@@ -45,7 +45,7 @@ namespace MathTest
         public static void MyClassInitialize(TestContext testContext)
         {
             List<fPoint> pt = new List<fPoint>() { new fPoint(12f, 2), new fPoint(13f, 3), new fPoint(13.5f, 3), new fPoint(14.44f, 4), new fPoint(15f, 5) };
-            target = new Athletes("Name", "Medal", pt); // TODO: Initialize to an appropriate value
+            target = new Athletes("Name", "Medal", pt,"default"); // TODO: Initialize to an appropriate value
         }
         //
         //Use ClassCleanup to run code after all tests in a class have run
