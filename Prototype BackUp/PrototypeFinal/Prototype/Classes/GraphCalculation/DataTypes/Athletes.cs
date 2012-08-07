@@ -24,6 +24,7 @@ namespace Attempt1MathCalculation
         /// <param name="data">List of Points of the athletes Dates and Performances</param>
         public Athletes(string athleteName, string status, List<fPoint> data,string eventType)
         {
+
             this.AthleteName = athleteName;
             this.Status = status;
             this.Data = new List<fPoint>();
@@ -35,7 +36,10 @@ namespace Attempt1MathCalculation
                 CreateTrendline ct = new CreateTrendline(data,this.Event);
                 List = ct.getTrendList();
             }
-            
+            if (athleteName.CompareTo("Asafa Powell") == 0)
+            {
+                
+            }
             AthleteName = athleteName;
             Status = status;
             Data = data;

@@ -44,10 +44,12 @@ namespace Attempt1MathCalculation
             //Note: Currently only working for mins secs and splits. You want to do more than 59 mins for a race its gonna cause you issues
             double Maximum = ((24 * Y_Val) * 60) * 60;
             double Maxseconds = Maximum % 60;//secs
-            int Maxmins = Convert.ToInt32((Maximum - Maxseconds) / 60);//mins
-            string Maxtemp = Maxseconds.ToString();
-            if (!Maxseconds.ToString().Contains('.')) { Maxtemp += ".0"; }
+            double milli = Math.Round(Maxseconds, 3);
+            int Maxmins = Convert.ToInt32((Maximum - milli) / 60);//mins
+            string Maxtemp = milli.ToString();
+            if (!milli.ToString().Contains('.')) { Maxtemp += ".0"; }
             string[] MaxSplits = Maxtemp.Split('.');
+
 
 
             DateTime dt = new DateTime(2000, 1, 1, 0, Maxmins, Convert.ToInt32(MaxSplits[0]), Convert.ToInt32(MaxSplits[1]));

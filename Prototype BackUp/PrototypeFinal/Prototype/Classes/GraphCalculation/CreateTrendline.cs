@@ -95,13 +95,11 @@ namespace Attempt1MathCalculation
 
                 //use ABC + equation on range to get Y
                 //string temp = "";
-                //foreach (fPoint p in Range)
+                //foreach (fPoint g in Range)
                 //{
-                //    p.setY_Value();
-                //    //temp += "\r\n" + p.getX_Age() + " " + p.getY_Value_Asdouble();
+                //    temp += g.getX_Age() + " " + g.getY_Value_AsDate().Minute + ":" + g.getY_Value_AsDate().Second + "." + g.getY_Value_AsDate().Millisecond + "\r\n";
                 //}
                 //MessageBox.Show(temp);
-                //MessageBox.Show(Range.Count()+" "+ Range[Range.Count - 1].getX_Age());
             }
         }
     }
