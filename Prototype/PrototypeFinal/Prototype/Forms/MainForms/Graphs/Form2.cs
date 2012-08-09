@@ -1009,18 +1009,20 @@ namespace mdisample
                     break;
                 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-                case "e.g. 7000":
+                default:
+                    myPane.YAxis.Scale.Max = Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["M6"].Value.ToString());
+                    myPane.YAxis.Scale.Min = Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["N6"].Value.ToString());
 
-                    myPane.YAxis.Scale.Max = 10000;
-                    myPane.YAxis.Scale.Min = 4000;
+                    myPane.YAxis.Scale.MajorStep = Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["O6"].Value.ToString());
+                    myPane.YAxis.Scale.MinorStep = Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["P6"].Value.ToString());
 
                     break;
-                ///////////////////////////////////////////////////////////////////////////////////////////////
-                case "e.g. mm.cc":
+                /////////////////////////////////////////////////////////////////////////////////////////////////
+                //case "e.g. mm.cc":
 
-                    myPane.YAxis.Scale.Max = 2;
-                    myPane.YAxis.Scale.Min = 1;
-                    break;
+                //    myPane.YAxis.Scale.Max = 2;
+                //    myPane.YAxis.Scale.Min = 1;
+                //    break;
                 ///////////////////////////////////////////////////////////////////////////////////////////////
             }
                                     

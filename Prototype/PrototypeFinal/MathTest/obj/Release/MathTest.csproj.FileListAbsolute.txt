@@ -28,3 +28,13 @@ C:\Users\MikelWhitehead\PerformanceProgression\PrototypeDecimal\PrototypeFinal\M
 C:\Users\MikelWhitehead\PerformanceProgression\PrototypeDecimal\PrototypeFinal\MathTest\bin\Release\Prototype_Accessor.exe
 C:\Users\MikelWhitehead\PerformanceProgression\PrototypeDecimal\PrototypeFinal\MathTest\bin\Release\Prototype_Accessor.pdb
 C:\Users\MikelWhitehead\PerformanceProgression\PrototypeDecimal\PrototypeFinal\MathTest\obj\Release\MathTest.pdb
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype\PrototypeFinal\MathTest\bin\Release\MathTest.dll
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype\PrototypeFinal\MathTest\bin\Release\MathTest.pdb
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype\PrototypeFinal\MathTest\bin\Release\Prototype.exe
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype\PrototypeFinal\MathTest\bin\Release\ZedGraph.dll
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype\PrototypeFinal\MathTest\bin\Release\Prototype.pdb
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype\PrototypeFinal\MathTest\bin\Release\Prototype_Accessor.exe
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype\PrototypeFinal\MathTest\bin\Release\Prototype_Accessor.pdb
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype\PrototypeFinal\MathTest\obj\Release\ResolveAssemblyReference.cache
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype\PrototypeFinal\MathTest\obj\Release\MathTest.dll
+C:\Users\MikelWhitehead\PerformanceProgression\Prototype\PrototypeFinal\MathTest\obj\Release\MathTest.pdb
