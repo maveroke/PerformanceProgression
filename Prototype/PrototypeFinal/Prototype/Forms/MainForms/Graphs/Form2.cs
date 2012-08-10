@@ -35,12 +35,15 @@ namespace mdisample
         public string eventName;
         public string DoB;
 
+        PointPairList list = new PointPairList();
+        string Event = "";
         private List<Athletes> ListOfAthletes = new List<Athletes>(150);
         //total dataset of user data
         private List<fPoint> ListOfUserDataPoints = new List<fPoint>(150);
         //dataset of user points X & Y
         private List<fPoint> UserDataPoints = new List<fPoint>(150);
         private List<fPoint> ListOfUserDataCurve = new List<fPoint>(150);
+        private bool addedUserData = false;
 
         GraphPane myPane;
 
@@ -117,6 +120,7 @@ namespace mdisample
             this.menuItemPrint = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.sFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -129,7 +133,6 @@ namespace mdisample
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panelLoad = new System.Windows.Forms.Panel();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -215,6 +218,12 @@ namespace mdisample
             this.menuItem4.Text = "Graph Image";
             this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
             // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 2;
+            this.menuItem5.Text = "test";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
             // oFileDlg
             // 
             this.oFileDlg.AddExtension = false;
@@ -275,6 +284,7 @@ namespace mdisample
             this.excelWrapper1.Size = new System.Drawing.Size(132, 207);
             this.excelWrapper1.TabIndex = 1;
             this.excelWrapper1.ToolBarVisible = false;
+            this.excelWrapper1.Visible = false;
             // 
             // dataGridView1
             // 
@@ -348,12 +358,6 @@ namespace mdisample
             this.panelLoad.Name = "panelLoad";
             this.panelLoad.Size = new System.Drawing.Size(108, 319);
             this.panelLoad.TabIndex = 2;
-            // 
-            // menuItem5
-            // 
-            this.menuItem5.Index = 2;
-            this.menuItem5.Text = "test";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // Form2
             // 
@@ -567,11 +571,16 @@ namespace mdisample
         /// </summary>
         private void addValuesToDataGridView()
         {
+            if (PerformanceEG.CompareTo("e.g. mm:ss.ss") == 0) { Event = "Track"; }
+            else { Event = "Field"; }
+            
+            
             progressBar1.Value = 80;
             for (int i = 3; i <= 150; i++)
             {
                 string AIName = "AI" + i;
                 string AKName = "AK" + i;
+                string tempValueX = "11111", tempValueY = "11111";
                 if (excelWrapper1.Workbook.ActiveSheet.Range[AIName].Value != null)
                 {//Left hand Column
                     DataGridViewCell cell = dataGridView1.Rows[(i - 3)].Cells[0];
@@ -610,6 +619,31 @@ namespace mdisample
 
                 if (progressBar1.Value <= 99)
                     progressBar1.Value = progressBar1.Value + (i / 100);
+
+                ListOfUserDataPoints.Add(new fPoint(Convert.ToDecimal(tempValueX), Convert.ToDecimal(tempValueY)));
+            }
+            //adds any data in the excel file to the user data storage
+            createNewList();
+            for (int j = 0; j < UserDataPoints.Count; j++)
+            {
+                if (Event.CompareTo("Track") == 0)
+                {
+                    list.Add(Convert.ToDouble(UserDataPoints[j].getX_Age()), new XDate(UserDataPoints[j].getY_Value_AsDate()));
+                }
+                else
+                {
+                    list.Add(Convert.ToDouble(UserDataPoints[j].getX_Age()), Convert.ToDouble(UserDataPoints[j].getY_Value_Asdouble()));
+                }
+            }
+            //myPane.CurveList.RemoveAt(myPane.CurveList.Count());
+            if (UserDataPoints.Count > 2)
+            {
+                addedUserData = true;
+                LineItem myPoints = myPane.AddCurve("Points", list, Color.Black, SymbolType.Star);
+                CreateTrendline ct = new CreateTrendline(UserDataPoints, Event);
+                //myPane.CurveList.RemoveAt(myPane.CurveList.Count());
+                LineItem myCurve = myPane.AddCurve("Curve", ct.getTrendList(), Color.Black, SymbolType.None);
+                zg1.Update();
             }
             DataGridViewCell cellwe = dataGridView1.Rows[0].Cells[0];
             dataGridView1.CurrentCell = cellwe;
@@ -633,7 +667,36 @@ namespace mdisample
                 splitContainer1.SplitterDistance = size;
             }
         }
+        private decimal dateFromNow(string value)
+        {
+            // 1.
+            // Parse the date and put in DateTime object.
+            DateTime startDate = DateTime.Parse(DoB);
 
+            DateTime now = Convert.ToDateTime(value);
+
+            // 3.
+            // Get the TimeSpan of the difference.
+            TimeSpan elapsed = now.Subtract(startDate);
+
+            decimal daysAgo = (decimal)(elapsed.TotalDays / 365);
+            daysAgo = (Math.Truncate(daysAgo * 100) / 100);
+            return daysAgo;
+        }
+        /// <summary>
+        /// checks both x and y values in a list and if they arent default vaules then add them to the UserDataPointsList
+        /// </summary>
+        private void createNewList()
+        {
+            UserDataPoints.Clear();
+            foreach (fPoint f in ListOfUserDataPoints)
+            {
+                if (f.getX_Age().CompareTo((decimal)11111) != 0 && f.getY_Value_Asdouble().CompareTo((decimal)11111) != 0)
+                {
+                    UserDataPoints.Add(f);
+                }
+            }
+        }
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             FormSaved = false;
@@ -723,6 +786,31 @@ namespace mdisample
                                 }
                                 dataGridView1.Rows[dataGridView1.CurrentCellAddress.Y].Cells[dataGridView1.CurrentCellAddress.X].Style.ForeColor = Color.Black;
                                 excelWrapper1.Workbook.ActiveSheet.Range(locationColumn).Value = valueToAddToExcel;
+                                //add data to ListOfUserDataPoints
+                                if (dataGridView1.CurrentCellAddress.X == 0)
+                                {
+
+                                    //age of the athlete
+                                    ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y].setX_Age(dateFromNow(valueToAddToExcel));
+
+                                    //checks if its partner exists. If it does, add to UserDataPoints list
+                                    if (ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y].getY_Value_Asdouble().CompareTo((decimal)11111) != 0)
+                                    {
+                                        UserDataPoints.Add(ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y]);
+
+                                    }
+                                }
+                                //if y_val needs changing
+                                if (dataGridView1.CurrentCellAddress.X == 1)
+                                {
+                                    ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y].setY_Value(Convert.ToDecimal(valueToAddToExcel));
+
+                                    //checks if its partner exists. If it does, add to UserDataPoints list
+                                    if (ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y].getX_Age().CompareTo((decimal)11111) != 0)
+                                    {
+                                        UserDataPoints.Add(ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y]);
+                                    }
+                                }
                             }
                         }
                         else
@@ -731,6 +819,34 @@ namespace mdisample
                             excelWrapper1.Workbook.ActiveSheet.Range(locationColumn).Value = dataGridView1.CurrentCell.Value;
                         }
                         excelWrapper1.Workbook.ActiveSheet.Protect("1500kosmin", false);
+
+                        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        if (UserDataPoints.Count > 2)
+                        {
+                            if (addedUserData)
+                            {
+                                myPane.CurveList.RemoveAt(myPane.CurveList.Count() - 1);
+                                myPane.CurveList.RemoveAt(myPane.CurveList.Count() - 1);
+                            }
+                                if (Event.CompareTo("Track") == 0)
+                                {
+                                    list.Add(Convert.ToDouble(UserDataPoints[UserDataPoints.Count - 1].getX_Age()), new XDate(UserDataPoints[UserDataPoints.Count - 1].getY_Value_AsDate()));
+                                }
+                                else
+                                {
+                                    list.Add(Convert.ToDouble(UserDataPoints[UserDataPoints.Count - 1].getX_Age()), Convert.ToDouble(UserDataPoints[UserDataPoints.Count - 1].getY_Value_Asdouble()));
+                                }
+
+                            LineItem myPoints = myPane.AddCurve("Points", list, Color.Black, SymbolType.Star);
+                            CreateTrendline ct = new CreateTrendline(UserDataPoints, Event);
+
+                            LineItem myCurve = myPane.AddCurve("Curve", ct.getTrendList(), Color.Black, SymbolType.None);
+
+                            zg1.Update();
+                        }
+                        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
                     }
                     else { MessageBox.Show(checkFormat()); dataGridView1.CurrentCell.Value = tempValueInCell; }
@@ -1095,12 +1211,14 @@ namespace mdisample
         }
         #endregion
 
+        //change back to only displaying the name
         private string zg1_PointValueEvent(ZedGraphControl sender, GraphPane pane, CurveItem curve, int iPt)
         {
             PointPair pt = curve[iPt];
             return (curve.Label.Text + pt.X.ToString()+" , "+pt.Y.ToString());
         }
 
+        //testing purposes
         private void menuItem5_Click(object sender, EventArgs e)
         {
             string temp = "";
