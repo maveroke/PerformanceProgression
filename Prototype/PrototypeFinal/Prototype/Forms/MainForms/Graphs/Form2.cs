@@ -44,6 +44,7 @@ namespace mdisample
         private List<fPoint> UserDataPoints = new List<fPoint>(150);
         private List<fPoint> ListOfUserDataCurve = new List<fPoint>(150);
         private bool addedUserData = false;
+        private int symbolSize = 3;//sets the size of the userSymbol
 
         GraphPane myPane;
 
@@ -594,6 +595,8 @@ namespace mdisample
                     string[] dateOut = Temp[0].Split('/');
                     //changes mm/dd/yyyy to dd/mm/yyyy
                     string disp = dateOut[1] + "/" + dateOut[0] + "/" + dateOut[2];
+                    //Xvalue placement
+                    tempValueX = Convert.ToString(dateFromNow(dateOut[0] + "/" + dateOut[1] + "/" + dateOut[2]));
 
                     dataGridView1.CurrentCell.Value = disp;
                     dataGridView1.Rows[dataGridView1.CurrentCellAddress.Y].Cells[dataGridView1.CurrentCellAddress.X].Style.ForeColor = Color.Black;
@@ -613,6 +616,7 @@ namespace mdisample
                     {
                         dataGridView1.CurrentCell.Value = "" + excelWrapper1.Workbook.ActiveSheet.Range[AKName].Value;
                     }
+                    tempValueY = excelWrapper1.Workbook.ActiveSheet.Range[AKName].Value.ToString();
                     //dataGridView1.Columns[1].DefaultCellStyle.Format = "HH:mm:ss";
                     dataGridView1.Rows[dataGridView1.CurrentCellAddress.Y].Cells[dataGridView1.CurrentCellAddress.X].Style.ForeColor = Color.Black;
                 }
@@ -639,11 +643,13 @@ namespace mdisample
             if (UserDataPoints.Count > 2)
             {
                 addedUserData = true;
-                LineItem myPoints = myPane.AddCurve("Points", list, Color.Black, SymbolType.Star);
+                LineItem myPoints = myPane.AddCurve("Points", list, Color.Black, SymbolType.Circle);
+                myPoints.Line.IsVisible = false;
+                myPoints.Symbol.Size = symbolSize;
                 CreateTrendline ct = new CreateTrendline(UserDataPoints, Event);
                 //myPane.CurveList.RemoveAt(myPane.CurveList.Count());
                 LineItem myCurve = myPane.AddCurve("Curve", ct.getTrendList(), Color.Black, SymbolType.None);
-                zg1.Update();
+                zg1.Invalidate();
             }
             DataGridViewCell cellwe = dataGridView1.Rows[0].Cells[0];
             dataGridView1.CurrentCell = cellwe;
@@ -821,6 +827,21 @@ namespace mdisample
                         excelWrapper1.Workbook.ActiveSheet.Protect("1500kosmin", false);
 
                         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        if (UserDataPoints.Count > 0)
+                        {
+                            if (Event.CompareTo("Track") == 0)
+                            {
+                                list.Add(Convert.ToDouble(UserDataPoints[UserDataPoints.Count - 1].getX_Age()), new XDate(UserDataPoints[UserDataPoints.Count - 1].getY_Value_AsDate()));
+                            }
+                            else
+                            {
+                                list.Add(Convert.ToDouble(UserDataPoints[UserDataPoints.Count - 1].getX_Age()), Convert.ToDouble(UserDataPoints[UserDataPoints.Count - 1].getY_Value_Asdouble()));
+                            }
+                        }
+                        LineItem myPoints = myPane.AddCurve("Points", list, Color.Black, SymbolType.Circle);
+                        myPoints.Line.IsVisible = false;
+                        myPoints.Symbol.Size = symbolSize;
+
                         if (UserDataPoints.Count > 2)
                         {
                             if (addedUserData)
@@ -828,21 +849,10 @@ namespace mdisample
                                 myPane.CurveList.RemoveAt(myPane.CurveList.Count() - 1);
                                 myPane.CurveList.RemoveAt(myPane.CurveList.Count() - 1);
                             }
-                                if (Event.CompareTo("Track") == 0)
-                                {
-                                    list.Add(Convert.ToDouble(UserDataPoints[UserDataPoints.Count - 1].getX_Age()), new XDate(UserDataPoints[UserDataPoints.Count - 1].getY_Value_AsDate()));
-                                }
-                                else
-                                {
-                                    list.Add(Convert.ToDouble(UserDataPoints[UserDataPoints.Count - 1].getX_Age()), Convert.ToDouble(UserDataPoints[UserDataPoints.Count - 1].getY_Value_Asdouble()));
-                                }
-
-                            LineItem myPoints = myPane.AddCurve("Points", list, Color.Black, SymbolType.Star);
                             CreateTrendline ct = new CreateTrendline(UserDataPoints, Event);
-
                             LineItem myCurve = myPane.AddCurve("Curve", ct.getTrendList(), Color.Black, SymbolType.None);
-
-                            zg1.Update();
+                            addedUserData = true;
+                            zg1.Invalidate();
                         }
                         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -73,14 +73,14 @@ namespace Attempt1MathCalculation
 
                 //double percentValue = smallest.getX_Age() + rangeMM;
 
-                Range[0] = smallest;
+                //Range[0] = smallest;
                 //Range[(int)(maxRange-1)] = largest;
 
                 //get ABC off the x,y user data.
                 PolynomialGraph pg = new PolynomialGraph();
                 decimal[] tempABC = pg.Polynomial(MaxMin);
 
-                for (int i = 1; i < maxRange; i++)
+                for (int i = 0; i < maxRange; i++)
                 {
                     decimal x_val = x;
                     Range[i] = new fPoint(x_val, tempABC[0] * (x_val * x_val) + tempABC[1] * x_val + tempABC[2]);
