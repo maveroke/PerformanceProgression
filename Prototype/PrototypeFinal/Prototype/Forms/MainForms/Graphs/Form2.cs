@@ -610,7 +610,7 @@ namespace mdisample
                         double ipet = ((24 * excelWrapper1.Workbook.ActiveSheet.Range[AKName].Value) * 60) * 60;
                         double seconds = ipet % 60;
                         int mins = Convert.ToInt32((ipet - seconds) / 60);
-                        dataGridView1.CurrentCell.Value = mins + ":" + seconds;
+                        dataGridView1.CurrentCell.Value = mins + ":" + Math.Round(seconds, 2);
                     }
                     else
                     {
@@ -736,7 +736,7 @@ namespace mdisample
                                 ///if(dd/mm/yyyy where mm > 12) export it to excel as dd/mm/yyyy <-so leave it how it is. //its already in mm/dd/yyyy format
 
                                 string valueToAddToExcel = dataGridView1.CurrentCell.Value.ToString();
-
+                                string tempValueForTimes = valueToAddToExcel;
                                 //working in the DateOfPerformanceColumn
                                 if (locationColumn.Contains("AI"))
                                 {
@@ -773,22 +773,33 @@ namespace mdisample
                                                 case "M400m":
                                                     //if its in the form aa:bb then { assume 00:aa.bb }
                                                     //if its in the form aa.bb then { assume 00:aa.bb }
-
-                                                    valueToAddToExcel = "00:" + tempDate[0] + "." + tempDate[1];
+                                                        valueToAddToExcel = "00:" + tempDate[0] + "." + tempDate[1];
+                                                        tempValueForTimes = tempDate[0] + "." + tempDate[1];
                                                     break;
                                                 default:
                                                     //if its in the form aa:bb then { assume aa:bb.00 }
                                                     //if its in the form aa.bb then { assume 00:aa.bb }
                                                     if (valueToAddToExcel.Contains(":"))
+                                                    {
                                                         valueToAddToExcel = tempDate[0] + ":" + tempDate[1] + ".00";
+                                                        double temp = Convert.ToDouble(tempDate[0]) * 60 + Convert.ToDouble(tempDate[1]);
+                                                        tempValueForTimes = temp.ToString();
+                                                    }
                                                     else
+                                                    {
                                                         valueToAddToExcel = "00:" + tempDate[0] + "." + tempDate[1];
-
+                                                        tempValueForTimes = tempDate[0] + "." + tempDate[1];
+                                                    }
                                                     break;
                                             }
                                         }
                                     }
+
                                     dataGridView1.CurrentCell.Value = valueToAddToExcel;
+                                    string[] tempDate1 = valueToAddToExcel.Split(':', '.');
+                                    double temp1 = Convert.ToDouble(tempDate1[0]) * 60 + Convert.ToDouble(tempDate1[1]);
+                                    tempValueForTimes = temp1.ToString()+"."+tempDate1[2];
+
                                 }
                                 dataGridView1.Rows[dataGridView1.CurrentCellAddress.Y].Cells[dataGridView1.CurrentCellAddress.X].Style.ForeColor = Color.Black;
                                 excelWrapper1.Workbook.ActiveSheet.Range(locationColumn).Value = valueToAddToExcel;
@@ -809,8 +820,16 @@ namespace mdisample
                                 //if y_val needs changing
                                 if (dataGridView1.CurrentCellAddress.X == 1)
                                 {
-                                    ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y].setY_Value(Convert.ToDecimal(valueToAddToExcel));
-
+                                    if (Event.CompareTo("Track") == 0)
+                                    {
+                                        double tt = ((Convert.ToDouble(tempValueForTimes) / 60) / 60) / 24;
+                                        ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y].setY_Value(Convert.ToDecimal(tt));
+                                    }
+                                    else
+                                    {
+                                        ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y].setY_Value(Convert.ToDecimal(valueToAddToExcel));
+                                    }
+                                    
                                     //checks if its partner exists. If it does, add to UserDataPoints list
                                     if (ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y].getX_Age().CompareTo((decimal)11111) != 0)
                                     {
