@@ -739,7 +739,7 @@ namespace mdisample
                         chForm.Text = individ[0] + "_" + individ[2] + individ[3];
                         if (individ[2].CompareTo("M") == 0) { chForm.Male_Female = true; }
                         else { chForm.Male_Female = true; }
-                        chForm.chartName = itemEvent.Substring(1) + " Performance Progression for  " + itemName;
+                        chForm.chartName = itemEvent + " Performance Progression for  " + itemName;
                         chForm.fileloc = itemLocation;
                         chForm.DoB = itemDoB;
                         chForm.newopen = false;
