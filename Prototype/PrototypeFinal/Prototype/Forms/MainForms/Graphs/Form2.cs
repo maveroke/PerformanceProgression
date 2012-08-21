@@ -355,9 +355,10 @@ namespace mdisample
             this.panelLoad.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panelLoad.Controls.Add(this.label1);
             this.panelLoad.Controls.Add(this.progressBar1);
-            this.panelLoad.Location = new System.Drawing.Point(528, 0);
+            this.panelLoad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLoad.Location = new System.Drawing.Point(0, 0);
             this.panelLoad.Name = "panelLoad";
-            this.panelLoad.Size = new System.Drawing.Size(108, 319);
+            this.panelLoad.Size = new System.Drawing.Size(868, 186);
             this.panelLoad.TabIndex = 2;
             // 
             // Form2
@@ -459,8 +460,8 @@ namespace mdisample
                 addLinestoGraph();
                 if (newopen)//if new then add initial values once
                 {
-
                     addValuesToExcel();
+                    addValuesToDataGridView();
                 }
                 else//get values from the excel sheet and display then in the dataGridView
                 { addValuesToDataGridView(); }
@@ -806,7 +807,6 @@ namespace mdisample
                                 //add data to ListOfUserDataPoints
                                 if (dataGridView1.CurrentCellAddress.X == 0)
                                 {
-
                                     //age of the athlete
                                     ListOfUserDataPoints[dataGridView1.CurrentCellAddress.Y].setX_Age(dateFromNow(valueToAddToExcel));
 
