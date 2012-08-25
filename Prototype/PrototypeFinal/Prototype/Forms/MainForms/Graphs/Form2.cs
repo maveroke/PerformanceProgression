@@ -1094,8 +1094,9 @@ namespace mdisample
 
             // Set the titles and axis labels
             myPane.Title.Text = chartName;
-            myPane.XAxis.Title.Text = "Age of Athletes";
-            myPane.YAxis.Title.Text = "Performance of Athletes";
+            string XAxisTitle = "Age of Athletes \r\n (yrs)";
+            string YAxisTitle = "Performance of Athletes";
+
 
 
                                             //sets the XY value types
@@ -1115,8 +1116,7 @@ namespace mdisample
             {
                 case "e.g. mm:ss.ss":
                                 
-
-
+                    YAxisTitle+= "\r\n (mm:ss.ss)";
                     //sets the XY value types
                     myPane.XAxis.Type = AxisType.Linear;
                     myPane.YAxis.Type = AxisType.Date;
@@ -1146,15 +1146,21 @@ namespace mdisample
                         double MajorStep = ((24 * excelWrapper1.Workbook.ActiveSheet.Range["O6"].Value) * 60) * 60;
                         double MSseconds = MajorStep % 60;
 
-
+                    
                     myPane.YAxis.Scale.MajorUnit = DateUnit.Second;
                     myPane.YAxis.Scale.MajorStep = MSseconds;
                     myPane.YAxis.Scale.IsReverse = true;
                     myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
                     break;
                 ///////////////////////////////////////////////////////////////////////////////////////////////
-
+                case "e.g. mm.cc":
+                    YAxisTitle += "\r\n (mm.cc)";
+                    //    myPane.YAxis.Scale.Max = 2;
+                    //    myPane.YAxis.Scale.Min = 1;
+                    break;
+                ///////////////////////////////////////////////////////////////////////////////////////////////
                 default:
+                    YAxisTitle += "\r\n (pts)";
                     myPane.YAxis.Scale.Max = Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["M6"].Value.ToString());
                     myPane.YAxis.Scale.Min = Convert.ToDouble(excelWrapper1.Workbook.ActiveSheet.Range["N6"].Value.ToString());
 
@@ -1163,14 +1169,12 @@ namespace mdisample
 
                     break;
                 /////////////////////////////////////////////////////////////////////////////////////////////////
-                //case "e.g. mm.cc":
 
-                //    myPane.YAxis.Scale.Max = 2;
-                //    myPane.YAxis.Scale.Min = 1;
-                //    break;
-                ///////////////////////////////////////////////////////////////////////////////////////////////
             }
-                                    
+            //axis titles
+            myPane.XAxis.Title.Text = XAxisTitle;
+            myPane.YAxis.Title.Text = YAxisTitle;
+
             excelWrapper1.Workbook.ActiveSheet.Protect("1500kosmin", false);
             // Fill the axis background with a color gradient
             myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
