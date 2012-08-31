@@ -1,0 +1,9 @@
+c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\bin\Debug\WebScrapper.exe
+c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\bin\Debug\WebScrapper.pdb
+c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.Form1.resources
+c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.Properties.Resources.resources
+c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.exe
+c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.pdb
