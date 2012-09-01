@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Net;
+using System.IO;
 
 namespace WebScrapper
 {
@@ -42,19 +43,32 @@ namespace WebScrapper
 
         private void button2_Click(object sender, EventArgs e)
         {
-            webBrowser1.Document.InvokeScript("Go!");
-            int i = 0;
             foreach (HtmlElement asd in webBrowser1.Document.All)
             {
-                i++;
                 if (asd.GetAttribute("type").Equals("submit"))
                 {
-                    asd.Focus();
                     asd.InvokeMember("click");
-                    //asd.InvokeMember("Go!");
                     break;
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //http://stackoverflow.com/questions/3640236/converting-htmldocument-domdocument-to-string
+            string result = webBrowser1.DocumentText;
+
+            StreamWriter sw = new StreamWriter("website.txt");
+            sw.Write(result);
+            sw.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string sourceCode = WebWorkerClass.getSourceCode(ur);
+            int startIndex = sourceCode.IndexOf("help: click on placing to see event results in the competition.")+64;
+            int endIndex = sourceCode.IndexOf("</tr></tbody></table>");
+            sourceCode = sourceCode.Substring(startIndex, sourceCode.Length - startIndex);
         }
         
     //private void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)

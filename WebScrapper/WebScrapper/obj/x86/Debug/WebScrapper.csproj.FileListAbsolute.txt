@@ -7,3 +7,12 @@ c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScr
 c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.write.1.tlog
 c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.exe
 c:\users\mikelwhitehead\documents\visual studio 2010\Projects\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.pdb
+C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.exe
+C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.pdb
+C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\bin\Debug\WebScrapper.exe
+C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\bin\Debug\WebScrapper.pdb
+C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.Form1.resources
+C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.Properties.Resources.resources
+C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.write.1.tlog
