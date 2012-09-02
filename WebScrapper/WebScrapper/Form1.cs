@@ -24,6 +24,7 @@ namespace WebScrapper
             //browser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(browser_DocumentCompleted);
             webBrowser1.ScriptErrorsSuppressed = true;
             webBrowser1.Navigate(ur);
+            textBox1.Text = "Glen Ballam";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,37 +66,28 @@ namespace WebScrapper
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string sourceCode = WebWorkerClass.getSourceCode(ur);
-            int startIndex = sourceCode.IndexOf("help: click on placing to see event results in the competition.")+64;
-            int endIndex = sourceCode.IndexOf("</tr></tbody></table>");
-            sourceCode = sourceCode.Substring(startIndex, sourceCode.Length - startIndex);
+            string result = webBrowser1.DocumentText;
+            int startIndex = result.IndexOf("help: click on placing to see event results in the competition.") + 64;
+            int endIndex = result.IndexOf("</td></table></td></tr>",startIndex);
+           
+            string end = result.Substring(startIndex,endIndex-startIndex);
+            
+            StreamWriter sw = new StreamWriter("website.txt");
+            sw.Write(end);
+            sw.Close();
         }
-        
-    //private void browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-    //{
-    //WebBrowser browser = sender as WebBrowser;
-    //HtmlElementCollection imgCollection = browser.Document.GetElementsByTagName("img");
-    //WebClient webClient = new WebClient();
 
-    //foreach (HtmlElement img in imgCollection)
-    //{
-
-    //        string url = img.GetAttribute("src");
-    //        webClient.DownloadFile(url, url.Substring(url.LastIndexOf('/')));
-
-    //}
-    //}
-    //    private void button2_Click(object sender, EventArgs e)
-    //    {
-    //        foreach (string s in listBox1.Items)
-    //        {
-                
-    //            WebClient client = new WebClient();
-    //            string downloadString = client.DownloadString(ur);
-    //            MessageBox.Show(downloadString);
-    //        }
-    //    }
-
-
+        private void button5_Click(object sender, EventArgs e)
+        {
+            foreach (HtmlElement asd in webBrowser1.Document.All)
+            {
+                if (asd.GetAttribute("name").Equals("menupi9"))
+                {
+                    asd.Children[3].SetAttribute("selected", "x");
+                    asd.RaiseEvent("onchange");
+                    break;
+                }
+            }
+        }
     }
 }

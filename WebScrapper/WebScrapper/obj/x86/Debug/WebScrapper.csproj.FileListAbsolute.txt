@@ -16,3 +16,12 @@ C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebS
 C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.Properties.Resources.resources
 C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Joris\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.exe
+C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.pdb
+C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\bin\Debug\WebScrapper.exe
+C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\bin\Debug\WebScrapper.pdb
+C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.Form1.resources
+C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.Properties.Resources.resources
+C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.write.1.tlog
