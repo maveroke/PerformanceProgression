@@ -71,7 +71,6 @@ namespace mdisample
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.MenuItem menuItemSave;
         private System.Windows.Forms.MenuItem menuItem4;
-        private ZedGraph.ZedGraphControl zg1;
         private System.Windows.Forms.MenuItem menuItem5;
         private bool keyVisible = false;
 
@@ -117,10 +116,10 @@ namespace mdisample
             this.menuItemPrint = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.sFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.zg1 = new ZedGraph.ZedGraphControl();
             this.excelWrapper1 = new EmbeddedExcel.ExcelWrapper();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DateofEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,7 +128,6 @@ namespace mdisample
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panelLoad = new System.Windows.Forms.Panel();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -215,6 +213,12 @@ namespace mdisample
             this.menuItem4.Text = "Graph Image";
             this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
             // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 2;
+            this.menuItem5.Text = "test";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
             // oFileDlg
             // 
             this.oFileDlg.AddExtension = false;
@@ -232,47 +236,22 @@ namespace mdisample
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.zg1);
+            this.splitContainer1.Panel1.Controls.Add(this.excelWrapper1);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.excelWrapper1);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Size = new System.Drawing.Size(868, 186);
             this.splitContainer1.SplitterDistance = 619;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
-            // zg1
-            // 
-            this.zg1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.zg1.EditButtons = System.Windows.Forms.MouseButtons.Left;
-            this.zg1.IsEnableSelection = true;
-            this.zg1.IsShowPointValues = true;
-            this.zg1.Location = new System.Drawing.Point(0, 0);
-            this.zg1.Name = "zg1";
-            this.zg1.PanModifierKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.None)));
-            this.zg1.ScrollGrace = 0D;
-            this.zg1.ScrollMaxX = 0D;
-            this.zg1.ScrollMaxY = 0D;
-            this.zg1.ScrollMaxY2 = 0D;
-            this.zg1.ScrollMinX = 0D;
-            this.zg1.ScrollMinY = 0D;
-            this.zg1.ScrollMinY2 = 0D;
-            this.zg1.Size = new System.Drawing.Size(617, 186);
-            this.zg1.TabIndex = 3;
-            this.zg1.PointValueEvent += new ZedGraph.ZedGraphControl.PointValueHandler(this.zg1_PointValueEvent);
-            // 
             // excelWrapper1
             // 
-            this.excelWrapper1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.excelWrapper1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.excelWrapper1.Location = new System.Drawing.Point(0, 0);
             this.excelWrapper1.Name = "excelWrapper1";
-            this.excelWrapper1.Size = new System.Drawing.Size(132, 207);
+            this.excelWrapper1.Size = new System.Drawing.Size(619, 186);
             this.excelWrapper1.TabIndex = 1;
             this.excelWrapper1.ToolBarVisible = false;
             // 
@@ -344,16 +323,11 @@ namespace mdisample
             this.panelLoad.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panelLoad.Controls.Add(this.label1);
             this.panelLoad.Controls.Add(this.progressBar1);
-            this.panelLoad.Location = new System.Drawing.Point(528, 0);
+            this.panelLoad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLoad.Location = new System.Drawing.Point(0, 0);
             this.panelLoad.Name = "panelLoad";
-            this.panelLoad.Size = new System.Drawing.Size(108, 319);
+            this.panelLoad.Size = new System.Drawing.Size(868, 186);
             this.panelLoad.TabIndex = 2;
-            // 
-            // menuItem5
-            // 
-            this.menuItem5.Index = 2;
-            this.menuItem5.Text = "test";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // Form2
             // 
@@ -449,7 +423,7 @@ namespace mdisample
             if (this.excelWrapper1.m_XlApplication != null)
             {
                 timer.Stop();
-                CreateGraph(zg1);
+                //CreateGraph(zg1);
                 addValuesToListofAthletes();
                 addLinestoGraph();
                 if (newopen)//if new then add initial values once
@@ -1032,18 +1006,18 @@ namespace mdisample
             // Fill the pane background with a color gradient
             myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
             // Calculate the Axis Scale Ranges
-            zg1.AxisChange();
-            zg1.RestoreScale(myPane);
-            zg1.ZoomOut(myPane);
+            //zg1.AxisChange();
+            //zg1.RestoreScale(myPane);
+            //zg1.ZoomOut(myPane);
 
             //zg1.Invalidate();
 
         }
         private void SetSize()
         {
-            zg1.Location = new System.Drawing.Point(10, 10);
+            //zg1.Location = new System.Drawing.Point(10, 10);
             // Leave a small margin around the outside of the control
-            zg1.Size = new Size(splitContainer1.Panel1.Width - 20, splitContainer1.Panel1.Height - 20);
+            //zg1.Size = new Size(splitContainer1.Panel1.Width - 20, splitContainer1.Panel1.Height - 20);
             //myPane.YAxis.Scale.Format = "mm':'ss'.'ff"; // 24 hour clock for HH
         }
 
@@ -1090,8 +1064,8 @@ namespace mdisample
             myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
             // Calculate the Axis Scale Ranges
             //zg1.AxisChange();
-            zg1.IsEnableHPan = true;
-            zg1.Invalidate();
+            //zg1.IsEnableHPan = true;
+            //zg1.Invalidate();
         }
         #endregion
 
