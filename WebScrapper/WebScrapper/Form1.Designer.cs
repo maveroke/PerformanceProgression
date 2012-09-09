@@ -29,11 +29,7 @@
         private void InitializeComponent()
         {
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -48,17 +44,6 @@
             this.webBrowser1.Size = new System.Drawing.Size(681, 450);
             this.webBrowser1.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(699, 38);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -68,45 +53,12 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(699, 67);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Go";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(699, 302);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Collect";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(699, 125);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(106, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "CutUp";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(721, 154);
+            this.button5.Location = new System.Drawing.Point(699, 38);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(62, 40);
+            this.button5.Size = new System.Drawing.Size(106, 117);
             this.button5.TabIndex = 7;
             this.button5.Text = "combo";
             this.button5.UseVisualStyleBackColor = true;
@@ -118,11 +70,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 474);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.webBrowser1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -135,11 +83,7 @@
         #endregion
 
         private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
     }
 }
