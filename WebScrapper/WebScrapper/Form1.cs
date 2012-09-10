@@ -19,6 +19,7 @@ namespace WebScrapper
         string athleteBirthDate = "";
         int ageOfCollection;
         int nameChange;
+        string nameOfAthlete;
 
         public Form1()
         {
@@ -29,6 +30,7 @@ namespace WebScrapper
             webBrowser1.ScriptErrorsSuppressed = true;
             webBrowser1.Navigate(ur);
             textBox1.Text = "Glen Ballam";
+            nameOfAthlete = textBox1.Text;
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
@@ -38,59 +40,23 @@ namespace WebScrapper
 
         private void button5_Click(object sender, EventArgs e)
         {
+            int position = AgeStartingPoint();
             foreach (HtmlElement asd in webBrowser1.Document.All.GetElementsByName("Name"))
             {
                 asd.InnerText = textBox1.Text;
             }
             accept();
-
-            
-        }
-        private void accept()
-        {
-            foreach (HtmlElement asd in webBrowser1.Document.All)
-            {
-                if (asd.GetAttribute("type").Equals("submit"))
-                {
-                    asd.InvokeMember("click");
-                    break;
-                }
-            }
-        }
-
-
-
-
-
-        private void comboBox()
-        {
-            int position = AgeStartingPoint();
-
             Uri theAthletePage = webBrowser1.Url;
 
-            foreach (HtmlElement asd in webBrowser1.Document.All)
+            for (; position > 0; position--)
             {
-                if (asd.GetAttribute("name").Equals("menupi9"))
-                {
-                    for (; position > 0; position--)
-                    {
-            #region Start Thread Here
-                        //give the thread a webBrowser using the "theAthletePage" as the URL
-                        NavigateToAgePage(position, asd);
-                        //maybe have a wait in here... i dunno... or a document loaded event that when fired you can do the year collection.
-                        //Then do year collection
-                    }
-                    break;
-                }
-            }
-            #endregion
-        }
+                YearCollection yc = new YearCollection();
+                yc.athletePage = theAthletePage;
+                yc.position = position;
+                Thread thrd = new Thread(new ThreadStart(yc.begin));
+                thrd.Name = nameOfAthlete +" "+ position;
 
-        private void NavigateToAgePage(int position, HtmlElement asd)
-        {
-            nameChange = position;
-            asd.Children[position].SetAttribute("selected", "x");
-            asd.RaiseEvent("onchange");
+            }
         }
         /// <summary>
         /// Collects the age at the top of the page
@@ -112,5 +78,17 @@ namespace WebScrapper
             ageOfCollection = startAge + 1910;
             return DateTime.Today.Year - ageOfCollection + 1;
         }        
+
+        private void accept()
+        {
+            foreach (HtmlElement asd in webBrowser1.Document.All)
+            {
+                if (asd.GetAttribute("type").Equals("submit"))
+                {
+                    asd.InvokeMember("click");
+                    break;
+                }
+            }
+        }
     }
 }
