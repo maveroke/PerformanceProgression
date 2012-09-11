@@ -18,6 +18,8 @@ namespace WebScrapper
         //protected Uri ur = new Uri("http://www.ThisIsWhyImBroke.com/");
         string athleteBirthDate = "";
         int ageOfCollection;
+        int positionYear;
+        string[] list;
         bool treset = false;
         string nameOfAthlete;
 
@@ -33,10 +35,7 @@ namespace WebScrapper
             nameOfAthlete = textBox1.Text;
         }
 
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-        }
+
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -48,7 +47,29 @@ namespace WebScrapper
 
             accept();
             treset = true;
-        }
+            ///I have a solution
+            ///The URL of each page looks like this...
+            ///
+            ///http://www.tilastopaja.org/db/atm.php?ID=96815&Odd=33
+            ///http://www.tilastopaja.org/db/atm.php?ID=96815&Season=2000&Odd=33
+            ///http://www.tilastopaja.org/db/atm.php?ID=96815&Season=2001&Odd=33
+            ///http://www.tilastopaja.org/db/atm.php?ID=96815&Season=2002&Odd=33
+            ///focussing on this section here                ^^^^^^^^^^^^
+            ///so the solution is to get the URL, cut it up, add the &Season=XXXX
+            ///and doneskis for Threading!!!
+                for (; positionYear > 0; positionYear--)
+                {
+                    foreach (HtmlElement asd in webBrowser1.Document.All)
+                    {
+                        if (asd.GetAttribute("name").Equals("menupi9"))
+                        {
+                            NavigateToAgePage(positionYear, asd);
+                            break;
+                        }
+                    }
+                    list[positionYear - 1] = Convert.ToString(webBrowser1.Url);
+                }
+            }
         /// <summary>
         /// Collects the age at the top of the page
         /// Adds 10 years as a start point of when the athlete started performing
@@ -86,21 +107,34 @@ namespace WebScrapper
         {
             if (treset)
             {
-                MessageBox.Show("");
-                Uri theAthletePage = webBrowser1.Url;
-                int position = AgeStartingPoint();
-                for (; position > 0; position--)
-                {
-                    YearCollection yc = new YearCollection();
-                    yc.athletePage = theAthletePage;
-                    yc.position = position;
-                    Thread thrd = new Thread(new ThreadStart(yc.begin));
-                    thrd.Name = nameOfAthlete + " " + position;
-                    thrd.Start();
-                }
+                positionYear = AgeStartingPoint();
+                //MessageBox.Show(position + "");
+                list = new string[positionYear];
+            //    MessageBox.Show("");
+            //    Uri theAthletePage = webBrowser1.Url;
+
+            //    for (; position > 0; position--)
+            //    {
+            //        YearCollection yc = new YearCollection();
+            //        yc.athletePage = theAthletePage;
+            //        yc.position = position;
+            //        Thread thrd = new Thread(new ThreadStart(yc.begin));
+            //        thrd.Name = nameOfAthlete + " " + position;
+            //        thrd.Start();
+            //    }
             }
+        }    
+        private void NavigateToAgePage(int position, HtmlElement asd)
+        {
+            asd.Children[position].SetAttribute("selected", "x");
+            asd.RaiseEvent("onchange");
         }
-    }
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+    }        
+
     class YearCollection
     {
         int nameChange;
@@ -117,14 +151,6 @@ namespace WebScrapper
             webBrowser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(webBrowser_DocumentCompleted);
             System.Diagnostics.Debug.WriteLine(thr.Name + " has begun threading");
 
-            foreach (HtmlElement asd in webBrowser.Document.All)
-            {
-                if (asd.GetAttribute("name").Equals("menupi9"))
-                {
-                    NavigateToAgePage(position, asd);
-                    break;
-                }
-            }
             System.Diagnostics.Debug.WriteLine(thr.Name + " is navigating to its page");
             treset = true;
         }
@@ -137,12 +163,7 @@ namespace WebScrapper
                 CollectData();
             }
         }
-        private void NavigateToAgePage(int position, HtmlElement asd)
-        {
-            nameChange = position;
-            asd.Children[position].SetAttribute("selected", "x");
-            asd.RaiseEvent("onchange");
-        }
+
 
 
         public void CollectData()
