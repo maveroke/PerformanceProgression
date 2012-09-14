@@ -19,7 +19,6 @@ namespace WebScrapper
         string athleteBirthDate = "";
         int ageOfCollection;
         int positionYear;
-        string[] list;
         bool treset = false;
         string nameOfAthlete;
 
@@ -39,7 +38,8 @@ namespace WebScrapper
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            nameOfAthlete = textBox1.Text;
+            progressBar1.Value = 0;
             foreach (HtmlElement asd in webBrowser1.Document.All.GetElementsByName("Name"))
             {
                 asd.InnerText = textBox1.Text;
@@ -57,18 +57,22 @@ namespace WebScrapper
             ///focussing on this section here                ^^^^^^^^^^^^
             ///so the solution is to get the URL, cut it up, add the &Season=XXXX
             ///and doneskis for Threading!!!
-                for (; positionYear > 0; positionYear--)
-                {
-                    foreach (HtmlElement asd in webBrowser1.Document.All)
-                    {
-                        if (asd.GetAttribute("name").Equals("menupi9"))
-                        {
-                            NavigateToAgePage(positionYear, asd);
-                            break;
-                        }
-                    }
-                    list[positionYear - 1] = Convert.ToString(webBrowser1.Url);
-                }
+                //for (; positionYear > 0; positionYear--)
+                //{
+                //    foreach (HtmlElement asd in webBrowser1.Document.All)
+                //    {
+                //        if (asd.GetAttribute("name").Equals("menupi9"))
+                //        {
+                //            NavigateToAgePage(positionYear, asd);
+                //            break;
+                //        }
+                //    }
+                //    list[positionYear - 1] = Convert.ToString(webBrowser1.Url);
+                //}
+            //http://www.tilastopaja.org/db/atm.php?ID=96815&Odd=33
+            //http://www.tilastopaja.org/db/atm.php?ID=96815&Season=2000&Odd=33
+
+            //list = 
             }
         /// <summary>
         /// Collects the age at the top of the page
@@ -107,23 +111,66 @@ namespace WebScrapper
         {
             if (treset)
             {
-                positionYear = AgeStartingPoint();
-                //MessageBox.Show(position + "");
-                list = new string[positionYear];
-            //    MessageBox.Show("");
-            //    Uri theAthletePage = webBrowser1.Url;
+                if (webBrowser1.Url.ToString().Contains("ID="))
+                {
+                    positionYear = AgeStartingPoint();
+                    //MessageBox.Show(position + "");
 
-            //    for (; position > 0; position--)
-            //    {
-            //        YearCollection yc = new YearCollection();
-            //        yc.athletePage = theAthletePage;
-            //        yc.position = position;
-            //        Thread thrd = new Thread(new ThreadStart(yc.begin));
-            //        thrd.Name = nameOfAthlete + " " + position;
-            //        thrd.Start();
-            //    }
+                    string urlString = webBrowser1.Url.ToString();
+                    int posSeasonData = urlString.IndexOf("&") + 1;
+                    int year = ageOfCollection;
+                    int yearName = year;
+                    int i = 0;
+                    for (; positionYear > 0; positionYear--)
+                    {
+                        urlString = urlString.Substring(0, posSeasonData) + "Season=" + year + "&Odd=33";
+                        CollectData(urlString, year);
+                        year++;
+                        progressBar1.Value = 100 / positionYear;
+                        i++;
+                    }
+                    MessageBox.Show("Athlete collection complete");
+                }
+                else
+                {
+                    MessageBox.Show("More than one athlete avaliable!");
+                }
             }
-        }    
+        }
+        public void CollectData(string value,int yearName)
+        {
+            // Open the requested URL
+            WebRequest req = WebRequest.Create(value);
+
+            // Get the stream from the returned web response
+            StreamReader stream = new StreamReader(req.GetResponse().GetResponseStream());
+
+            // Get the stream from the returned web response
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            string strLine;
+            // Read the stream a line at a time and place each one
+            // into the stringbuilder
+            while ((strLine = stream.ReadLine()) != null)
+            {
+                // Ignore blank lines
+                if (strLine.Length > 0)
+                    sb.Append(strLine);
+            }
+            // Finished with the stream so close it now
+            stream.Close();
+
+            string result = sb.ToString();
+            if(!result.Contains("No results during")){
+            int startIndex = result.IndexOf("help: click on placing to see event results in the competition.") + 64;
+            int endIndex = result.IndexOf("</td></table></td></tr>", startIndex);
+
+            string end = result.Substring(startIndex, endIndex - startIndex);
+
+            StreamWriter sw = new StreamWriter(nameOfAthlete+"_"+yearName + ".txt");
+            sw.Write(end);
+            sw.Close();
+            }
+        }
         private void NavigateToAgePage(int position, HtmlElement asd)
         {
             asd.Children[position].SetAttribute("selected", "x");
@@ -135,53 +182,53 @@ namespace WebScrapper
         }
     }        
 
-    class YearCollection
-    {
-        int nameChange;
-        WebBrowser webBrowser = new WebBrowser();
-        public Uri athletePage;
-        public int position;
-        private bool treset = false;
-        public void begin()
-        {
-            Thread thr = Thread.CurrentThread;
-            webBrowser.Navigate(athletePage);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////WebClient
-            //google C# using threads how do i open multiple webbrowsers
-            webBrowser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(webBrowser_DocumentCompleted);
-            System.Diagnostics.Debug.WriteLine(thr.Name + " has begun threading");
+//    class YearCollection
+//    {
+//        int nameChange;
+//        WebBrowser webBrowser = new WebBrowser();
+//        public Uri athletePage;
+//        public int position;
+//        private bool treset = false;
+//        public void begin()
+//        {
+//            Thread thr = Thread.CurrentThread;
+//            webBrowser.Navigate(athletePage);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////WebClient
+//            //google C# using threads how do i open multiple webbrowsers
+//            webBrowser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(webBrowser_DocumentCompleted);
+//            System.Diagnostics.Debug.WriteLine(thr.Name + " has begun threading");
 
-            System.Diagnostics.Debug.WriteLine(thr.Name + " is navigating to its page");
-            treset = true;
-        }
-        void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            Thread thr = Thread.CurrentThread;
-            if (treset)
-            {
-                System.Diagnostics.Debug.WriteLine(thr.Name + " has navigated");
-                CollectData();
-            }
-        }
+//            System.Diagnostics.Debug.WriteLine(thr.Name + " is navigating to its page");
+//            treset = true;
+//        }
+//        void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+//        {
+//            Thread thr = Thread.CurrentThread;
+//            if (treset)
+//            {
+//                System.Diagnostics.Debug.WriteLine(thr.Name + " has navigated");
+//                CollectData();
+//            }
+//        }
 
 
 
-        public void CollectData()
-        {
-            Thread thr = Thread.CurrentThread;
-            System.Diagnostics.Debug.WriteLine(thr.Name + " is working!");
+//        public void CollectData()
+//        {
+//            Thread thr = Thread.CurrentThread;
+//            System.Diagnostics.Debug.WriteLine(thr.Name + " is working!");
 
-            string result = webBrowser.DocumentText;
-            int startIndex = result.IndexOf("help: click on placing to see event results in the competition.") + 64;
-            int endIndex = result.IndexOf("</td></table></td></tr>", startIndex);
+//            string result = webBrowser.DocumentText;
+//            int startIndex = result.IndexOf("help: click on placing to see event results in the competition.") + 64;
+//            int endIndex = result.IndexOf("</td></table></td></tr>", startIndex);
 
-            string end = result.Substring(startIndex, endIndex - startIndex);
+//            string end = result.Substring(startIndex, endIndex - startIndex);
 
-            StreamWriter sw = new StreamWriter(thr.Name + ".txt");
-            sw.Write(end);
-            sw.Close();
+//            StreamWriter sw = new StreamWriter(thr.Name + ".txt");
+//            sw.Write(end);
+//            sw.Close();
 
-            System.Diagnostics.Debug.WriteLine(thr.Name + " FINISHED!");
-        }
-    }
+//            System.Diagnostics.Debug.WriteLine(thr.Name + " FINISHED!");
+//        }
+//    }
 }
