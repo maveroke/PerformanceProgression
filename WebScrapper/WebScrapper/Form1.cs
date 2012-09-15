@@ -14,18 +14,22 @@ namespace WebScrapper
 {
     public partial class Form1 : Form
     {
-        protected Uri ur = new Uri("http://www.tilastopaja.org/");
+        protected Uri ur = new Uri("http://www.tilastopaja.org/members/members.asp");
         //protected Uri ur = new Uri("http://www.ThisIsWhyImBroke.com/");
         string athleteBirthDate = "";
         int ageOfCollection;
         int positionYear;
         bool treset = false;
         string nameOfAthlete;
+        int positionThroughAthletes = 0;
 
-        public Form1()
+        public Form1(List<string> args)
         {
             InitializeComponent();
 
+            foreach(string a in args){
+                listView1.Items.Add(new ListViewItem(new string[] { a, " ", "Processing" }));
+            }
             //WebBrowser browser = new WebBrowser();
             //browser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(browser_DocumentCompleted);
             webBrowser1.ScriptErrorsSuppressed = true;
@@ -38,42 +42,24 @@ namespace WebScrapper
 
         private void button5_Click(object sender, EventArgs e)
         {
-            nameOfAthlete = textBox1.Text;
-            progressBar1.Value = 0;
-            foreach (HtmlElement asd in webBrowser1.Document.All.GetElementsByName("Name"))
-            {
-                asd.InnerText = textBox1.Text;
-            }
+            Begin();
+        }
 
+        private void Begin()
+        {
+            if (positionThroughAthletes < listView1.Items.Count)
+            {
+                nameOfAthlete = listView1.Items[positionThroughAthletes].Text;
+                progressBar1.Value = 0;
+                foreach (HtmlElement asd in webBrowser1.Document.All.GetElementsByName("Name"))
+                {
+                    asd.InnerText = nameOfAthlete;
+                }
+            
             accept();
             treset = true;
-            ///I have a solution
-            ///The URL of each page looks like this...
-            ///
-            ///http://www.tilastopaja.org/db/atm.php?ID=96815&Odd=33
-            ///http://www.tilastopaja.org/db/atm.php?ID=96815&Season=2000&Odd=33
-            ///http://www.tilastopaja.org/db/atm.php?ID=96815&Season=2001&Odd=33
-            ///http://www.tilastopaja.org/db/atm.php?ID=96815&Season=2002&Odd=33
-            ///focussing on this section here                ^^^^^^^^^^^^
-            ///so the solution is to get the URL, cut it up, add the &Season=XXXX
-            ///and doneskis for Threading!!!
-                //for (; positionYear > 0; positionYear--)
-                //{
-                //    foreach (HtmlElement asd in webBrowser1.Document.All)
-                //    {
-                //        if (asd.GetAttribute("name").Equals("menupi9"))
-                //        {
-                //            NavigateToAgePage(positionYear, asd);
-                //            break;
-                //        }
-                //    }
-                //    list[positionYear - 1] = Convert.ToString(webBrowser1.Url);
-                //}
-            //http://www.tilastopaja.org/db/atm.php?ID=96815&Odd=33
-            //http://www.tilastopaja.org/db/atm.php?ID=96815&Season=2000&Odd=33
-
-            //list = 
             }
+        }
         /// <summary>
         /// Collects the age at the top of the page
         /// Adds 10 years as a start point of when the athlete started performing
@@ -121,6 +107,7 @@ namespace WebScrapper
                     int year = ageOfCollection;
                     int yearName = year;
                     int i = 0;
+
                     for (; positionYear > 0; positionYear--)
                     {
                         urlString = urlString.Substring(0, posSeasonData) + "Season=" + year + "&Odd=33";
@@ -129,12 +116,19 @@ namespace WebScrapper
                         progressBar1.Value = 100 / positionYear;
                         i++;
                     }
-                    MessageBox.Show("Athlete collection complete");
+                    listView1.Items[positionThroughAthletes].SubItems[2].Text = "Completed";
+                    listView1.Items[positionThroughAthletes].SubItems[0].BackColor = Color.YellowGreen;
+                    positionThroughAthletes++;
+                    Begin();
                 }
                 else
                 {
-                    MessageBox.Show("More than one athlete avaliable!");
+                    listView1.Items[positionThroughAthletes].SubItems[2].Text = "Failed to find Athlete";
+                    listView1.Items[positionThroughAthletes].SubItems[0].BackColor = Color.Red;
+                    positionThroughAthletes++;
+                    Begin();
                 }
+
             }
         }
         public void CollectData(string value,int yearName)

@@ -25,3 +25,4 @@ C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\D
 C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.Properties.Resources.resources
 C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\MikelWhitehead\PerformanceProgression\WebScrapper\WebScrapper\obj\x86\Debug\WebScrapper.Form2.resources
