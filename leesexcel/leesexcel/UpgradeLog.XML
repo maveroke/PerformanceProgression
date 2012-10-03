@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="leesexcel">
+</Property><Property Name="Solution File" Value="C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\leesexcel.sln">
+</Property><Property Name="Date" Value="Thursday, 4 October 2012">
+</Property><Property Name="Time" Value="10:23:46 a.m.">
+</Property></Properties><Event ErrorLevel="0" Project="leesexcel" Source="leesexcel.csproj" Description="Project file successfully backed up as C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\Backup\leesexcel.csproj">
+</Event><Event ErrorLevel="0" Project="leesexcel" Source="leesexcel.csproj.user" Description="Project user file successfully backed up as C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\Backup\leesexcel.csproj.user">
+</Event><Event ErrorLevel="0" Project="leesexcel" Source="AssemblyInfo.cs" Description="File successfully backed up as C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="leesexcel" Source="ExcelReader.cs" Description="File successfully backed up as C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\Backup\ExcelReader.cs">
+</Event><Event ErrorLevel="0" Project="leesexcel" Source="Form1.cs" Description="File successfully backed up as C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\Backup\Form1.cs">
+</Event><Event ErrorLevel="0" Project="leesexcel" Source="App.ico" Description="File successfully backed up as C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\Backup\App.ico">
+</Event><Event ErrorLevel="0" Project="leesexcel" Source="Form1.resx" Description="File successfully backed up as C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\Backup\Form1.resx">
+</Event><Event ErrorLevel="1" Project="leesexcel" Source="leesexcel.csproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="leesexcel" Source="leesexcel.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="leesexcel" Source="leesexcel.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="leesexcel" Source="leesexcel.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
