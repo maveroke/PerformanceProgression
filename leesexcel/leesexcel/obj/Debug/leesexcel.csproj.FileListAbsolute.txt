@@ -6,3 +6,5 @@ C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\obj\Debug\GenerateResource
 C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\obj\Debug\GenerateResource-ResGen.write.1.tlog
 C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\obj\Debug\leesexcel.exe
 C:\Users\MikelWhitehead\Downloads\leesexcel\leesexcel\obj\Debug\leesexcel.pdb
+C:\Users\MikelWhitehead\PerformanceProgression\leesexcel\leesexcel\obj\Debug\leesexcel.exe
+C:\Users\MikelWhitehead\PerformanceProgression\leesexcel\leesexcel\obj\Debug\leesexcel.pdb
