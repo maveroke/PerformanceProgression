@@ -62,23 +62,6 @@ namespace Attempt1MathCalculation
             Y_Val = performance;
         }
 
-        //public string ToString(bool time)
-        //{
-        //    if (time)
-        //    {
-        //        double ipet = ((24 * Y_Val)*60)*60;
-        //        double seconds = ipet % 60;
-
-        //        int mins = Convert.ToInt32((ipet - seconds) / 60);
-        //        string newtime = mins + ":" + string.Format("{0:0.00}", seconds);
-
-        //        return X_valAge + " " + newtime;
-        //    }
-        //    else
-        //        return X_valAge + " " + Y_Val;
-        //}
-
-
         /// <summary>
         /// converts a combination number to a value of 24 hours
         /// eg time = 3mins 40 secs 1 split :: number = 220.1 :: value = 0.00254745...

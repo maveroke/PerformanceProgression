@@ -1177,9 +1177,9 @@ namespace mdisample
 
             excelWrapper1.Workbook.ActiveSheet.Protect("1500kosmin", false);
             // Fill the axis background with a color gradient
-            myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
+            myPane.Chart.Fill = new Fill(Color.White, Color.White, 45F);
             // Fill the pane background with a color gradient
-            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
+            myPane.Fill = new Fill(Color.White, Color.White, 45F);
             // Calculate the Axis Scale Ranges
             zg1.AxisChange();
             zg1.RestoreScale(myPane);
@@ -1234,9 +1234,9 @@ namespace mdisample
             //myCurve.Symbol.Fill = new Fill(Color.White);
 
             // Fill the axis background with a color gradient
-            myPane.Chart.Fill = new Fill(Color.White, Color.LightGoldenrodYellow, 45F);
+            myPane.Chart.Fill = new Fill(Color.White, Color.White, 45F);
             // Fill the pane background with a color gradient
-            myPane.Fill = new Fill(Color.White, Color.FromArgb(220, 220, 255), 45F);
+            myPane.Fill = new Fill(Color.White, Color.White, 45F);
             // Calculate the Axis Scale Ranges
             //zg1.AxisChange();
             zg1.IsEnableHPan = true;

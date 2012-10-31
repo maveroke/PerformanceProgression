@@ -88,18 +88,6 @@ namespace Attempt1MathCalculation
                 }
                 int p = 0;
                 p++;
-
-                //MessageBox.Show(searchMaxMin[2].getX_Age()+"");
-
-                //MessageBox.Show("A: "+tempABC[0] + " B: " + tempABC[1] + " C: " + tempABC[2]);
-
-                //use ABC + equation on range to get Y
-                //string temp = "";
-                //foreach (fPoint g in Range)
-                //{
-                //    temp += g.getX_Age() + " " + g.getY_Value_AsDate().Minute + ":" + g.getY_Value_AsDate().Second + "." + g.getY_Value_AsDate().Millisecond + "\r\n";
-                //}
-                //MessageBox.Show(temp);
             }
         }
     }
